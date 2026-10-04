@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GTM Strategy &amp; Engineering · Xander Bartlett</title>
+<meta name="description" content="Go-to-market as a strategy, not a channel. Why a consumer health app went social-first and a developer tool didn't, which platforms and outreach each one got, and what I'm running now at Aether.">
+<meta name="theme-color" content="#f4f0e8">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GTM Strategy &amp; Engineering · Xander Bartlett">
+<meta property="og:description" content="Same operator, opposite plays. +81% weekly signups at Aether and 1,000 installs at Remira, both at $0 paid.">
+<meta property="og:image" content="https://xanderbartlett.com/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/mr-dafoe-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css">
+<style>
+  .page { display: grid; grid-template-rows: auto auto auto; align-content: space-between; row-gap: 1.05rem; padding: 1.3rem 0 1.2rem; }
+
+  .ph { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: 3rem; }
+  .ph .display { margin-top: 0.7rem; }
+  .ph .lede { margin-top: 1.05rem; max-width: 62ch; font-size: 1.02rem; }
+  .agg { display: grid; grid-template-columns: repeat(3, auto); column-gap: 2.2rem; padding-bottom: 0.3rem; }
+  .agg .v { font-size: 2.15rem; font-weight: 400; letter-spacing: -0.045em; }
+
+  /* the strategy matrix */
+  .mx { display: grid; grid-template-columns: 8.6rem minmax(0, 1.22fr) minmax(0, 1fr); border-top: 1px solid var(--ink); align-content: start; }
+  .mx > * { padding: 0.56rem 1.1rem 0.56rem 0; border-bottom: 1px solid var(--hair); font-size: 0.84rem; line-height: 1.38; color: var(--ink-2); }
+  .mx > .c-a { padding-left: 1.1rem; background: var(--accent-wash); }
+  .mx > .c-r { padding-left: 1.1rem; }
+  .mx .lab { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); padding-top: 0.66rem; }
+  .mx .hd { padding-top: 0.75rem; padding-bottom: 0.7rem; border-bottom-color: var(--ink); }
+  .mx .hd .t { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
+  .mx .hd b { font-size: 1.2rem; font-weight: 500; letter-spacing: -0.03em; color: var(--ink); }
+  .mx .hd .m { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.03em; color: var(--muted); }
+  .mx .hd .cs-link { margin-left: auto; font-size: 0.78rem; font-weight: 500; color: var(--ink); }
+  .mx .hd .cs-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .mx strong { color: var(--ink); font-weight: 540; }
+  .mx .lead { color: var(--ink); }
+
+  /* now / next */
+  .live { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) 16.5rem; gap: 1.1rem; align-items: stretch; }
+  .phase { border-top: 1.5px solid var(--ink); padding-top: 0.55rem; }
+  .phase .eyebrow { display: flex; align-items: center; gap: 0.5rem; }
+  .phase .eyebrow .when { color: var(--ink-2); }
+  .phase p { margin-top: 0.35rem; font-size: 0.82rem; line-height: 1.4; color: var(--ink-2); }
+  .phase--now { border-top-color: var(--accent); }
+  .phase--next { border-top-style: solid; border-top-color: var(--hair); }
+  .cases { display: flex; flex-direction: column; gap: 0.45rem; }
+  .cases .eyebrow { margin-bottom: 0.1rem; }
+  .case-btn {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
+    padding: 0.45rem 0.5rem 0.45rem 0.85rem; border: 1px solid var(--ink); border-radius: var(--pill);
+    font-size: 0.8rem; font-weight: 500; text-align: left; transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  }
+  .case-btn .plus { width: 1.25rem; height: 1.25rem; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--paper); font-size: 0.85rem; flex: none; transition: transform 0.3s var(--ease), background 0.2s; }
+  .case-btn:hover { background: var(--ink); color: var(--paper); }
+  .case-btn:hover .plus { background: var(--accent); transform: rotate(90deg); }
+  .case-btn--soon { border-style: dashed; border-color: var(--hair); color: var(--muted); cursor: default; padding-right: 0.85rem; }
+  .case-btn--soon:hover { background: transparent; color: var(--muted); }
+
+  /* case-study extras */
+  .stack { margin-top: 1.6rem; border-radius: 1.1rem; overflow: hidden; border: 1px solid var(--ink); }
+  .stack > div { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; padding: 0.85rem 1.2rem; border-bottom: 1px solid var(--hair); font-size: 0.95rem; }
+  .stack > div:last-child { border-bottom: 0; }
+  .stack .k { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding-top: 0.2rem; }
+  .stack .me { background: var(--ink); color: var(--paper); font-weight: 500; }
+  .stack .me .k { color: var(--accent); }
+  .fromto { display: grid; grid-template-columns: 1fr 2.4rem 1fr; gap: 0.6rem; align-items: start; margin-top: 1.4rem; }
+  .fromto ul { list-style: none; }
+  .fromto li { padding: 0.5rem 0; border-bottom: 1px solid var(--hair); font-size: 0.92rem; color: var(--ink-2); }
+  .fromto h4 { font-family: var(--mono); font-size: 0.66rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; padding-bottom: 0.5rem; border-bottom: 1px solid var(--ink); }
+  .fromto .arrow { padding-top: 2.4rem; text-align: center; font-size: 1.3rem; color: var(--accent); }
+  .seq { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 1.6rem; border-top: 1.5px solid var(--ink); }
+  .seq > div { padding: 0.9rem 1rem 0 0; }
+  .seq > div + div { padding-left: 1rem; border-left: 1px solid var(--hair); }
+  .seq b { display: block; font-weight: 520; margin: 0.4rem 0 0.3rem; letter-spacing: -0.015em; }
+  .seq p { font-size: 0.9rem; color: var(--ink-2); line-height: 1.45; }
+  .plate li { list-style: none; padding: 0.55rem 0; border-bottom: 1px solid rgba(244, 240, 232, 0.16); font-size: 0.95rem; }
+  .plate li b { color: var(--paper); }
+  .mtx-why { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.6rem; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
+
+  @media (max-width: 900px) {
+    .page { padding-top: 1.2rem; row-gap: 1.8rem; }
+    .ph { grid-template-columns: 1fr; row-gap: 1.3rem; }
+    .agg { grid-template-columns: repeat(3, auto); justify-content: start; }
+    .mx { grid-template-columns: 1fr; border-top: 0; }
+    .mx > * { padding-left: 0 !important; padding-right: 0; background: none !important; }
+    .mx .lab { padding-top: 1.1rem; border-bottom: 1px solid var(--ink); }
+    .mx .hd.lab { display: none; }
+    .mx .c-a::before { content: "Aether \00b7  "; font-weight: 600; color: var(--ink); }
+    .mx .c-r::before { content: "Remira \00b7  "; font-weight: 600; color: var(--ink); }
+    .mx .hd::before { content: none !important; }
+    .live { grid-template-columns: 1fr; }
+    .seq { grid-template-columns: 1fr 1fr; row-gap: 1rem; }
+    .seq > div + div { border-left: 0; padding-left: 0; }
+    .fromto { grid-template-columns: 1fr; }
+    .fromto .arrow { padding: 0; transform: rotate(90deg); }
+    .stack > div { grid-template-columns: 1fr; gap: 0.2rem; }
+    .mtx-why { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="Xander Bartlett, home">Xander Bartlett</a>
+    <nav class="tabs" aria-label="Pages">
+      <a class="tab" href="./" aria-current="page"><span class="n">01</span>GTM Strategy &amp; Engineering</a>
+      <a class="tab" href="../product/"><span class="n">02</span>Product Management and Design</a>
+      <a class="tab" href="../social/"><span class="n">03</span>Social Media Marketing</a>
+    </nav>
+    <div class="topbar__end"><a class="btn btn--ink" href="mailto:xbartlet@umich.edu">xbartlet@umich.edu</a></div>
+  </header>
+
+  <main class="page">
+    <header class="ph">
+      <div>
+        <p class="eyebrow rise"><span class="num">01</span><span class="dash"></span>GTM Strategy &amp; Engineering</p>
+        <h1 class="display rise" style="--d:1">GTM is a <span class="scr">strategy</span>, not a channel.</h1>
+        <p class="lede rise" style="--d:2">Remira and Aether got opposite playbooks because they have opposite buyers. Social was the engine for one and a supporting channel for the other. Here is why, what shipped, and what I'm running now.</p>
+      </div>
+      <div class="agg stats rise" style="--d:3">
+        <div class="stat"><div class="v">+81%</div><div class="k">Weekly signups, Aether</div></div>
+        <div class="stat"><div class="v">1,000</div><div class="k">Installs, Remira</div></div>
+        <div class="stat"><div class="v">$0</div><div class="k">Paid acquisition, both</div></div>
+      </div>
+    </header>
+
+    <section class="mx rise" style="--d:4" aria-label="Same operator, opposite plays: Aether compared with Remira">
+      <div class="lab hd">Same operator,<br>opposite plays</div>
+      <div class="c-a hd"><div class="t"><b>Aether</b><span class="m">Developer tool &middot; GTM lead &middot; Aug 2026&ndash;now</span><button class="cs-link" type="button" data-open="aether" aria-haspopup="dialog">Pilot report +</button></div></div>
+      <div class="c-r hd"><div class="t"><b>Remira</b><span class="m">Consumer health app &middot; CEO &middot; 2026</span><button class="cs-link" type="button" data-open="remira" aria-haspopup="dialog">Launch study +</button></div></div>
+
+      <div class="lab">The buyer</div>
+      <div class="c-a">Senior engineers running coding agents. Ad-blind; they buy on technical proof from peers.</div>
+      <div class="c-r">People with T1D and their parents. They buy on trust, and they already gather on TikTok.</div>
+
+      <div class="lab">Real constraint</div>
+      <div class="c-a"><strong>Explanation, not reach.</strong> My own technical friends wouldn't sign up for free: they couldn't tell what it replaced.</div>
+      <div class="c-r"><strong>Reach on $0.</strong> An unknown brand in a category of about 10M people worldwide.</div>
+
+      <div class="lab">Why social, or not</div>
+      <div class="c-a lead"><strong>Positioning first, then borrowed credibility.</strong> Developers trust peers and proof over a brand's feed, so social supports; creators, X and comparison pages lead.</div>
+      <div class="c-r lead"><strong>Social is the engine.</strong> A consumer app can't fund paid CAC, and a skeptical patient community trusts a person over an ad.</div>
+
+      <div class="lab">Platforms</div>
+      <div class="c-a"><strong>X</strong>, where developer discourse already lives. <strong>Instagram</strong>, a cheap owned-audience bet. <strong>YouTube creators</strong>, picked over hackathons on reach per dollar.</div>
+      <div class="c-r"><strong>TikTok</strong>, because the algorithm reaches people who don't follow you yet. <strong>Instagram</strong> as free redistribution. App Store page and site to close.</div>
+
+      <div class="lab">Outreach</div>
+      <div class="c-a">Community outbound held until the message landed: you get one credible entry. Then ~50 creators pitched, 3 contract-ready, lead deal at half price.</div>
+      <div class="c-r">2,500 DMs written by hand, sent only once the account had a name. 15% installed: 37% of the install base.</div>
+
+      <div class="lab">Instrumentation</div>
+      <div class="c-a">PostHog funnel audit: known-origin visitors sign up at 90%+, so the leak is activation. Specced UTMs, self-reported source and identity stitching.</div>
+      <div class="c-r">DAU/WAU as the north star, held at 50%. 60% of downloads activated. Two install paths tracked: content (63%) and DMs (37%).</div>
+
+      <div class="lab">Result</div>
+      <div class="c-a"><strong>+81% weekly signups at $0 paid.</strong> 82 new users in four weeks, as many as the prior seven.</div>
+      <div class="c-r"><strong>1,000 installs, 600 activated, $0 CAC.</strong> 7.3M organic views along the way.</div>
+    </section>
+
+    <section class="live rise" style="--d:5" aria-label="Aether: done, now and next">
+      <div class="phase">
+        <p class="eyebrow"><span class="num">Done</span><span class="when">Aug 17&ndash;Sep 21</span></p>
+        <p>Pilot: positioning rewrite, one-proposition landing page, Instagram and X from zero, creator pipeline, funnel audit. <strong>Earned a 90-day extension.</strong></p>
+      </div>
+      <div class="phase phase--now">
+        <p class="eyebrow"><span class="chip chip--live" style="height:auto;padding:0;border:0">Now</span><span class="when">Phase 2</span></p>
+        <p>Attribution and identity stitching with engineering. Creator sponsorships end to end. Contrast assets built from real telemetry. Weekly user interviews.</p>
+      </div>
+      <div class="phase phase--next">
+        <p class="eyebrow"><span class="num">Next</span><span class="when">to Dec 2026</span></p>
+        <p>Ecosystem listings and comparison pages, one long-term creator partner, 10K followers across accounts. Held to signups by channel, activation and CAC.</p>
+      </div>
+      <div class="cases">
+        <p class="eyebrow">Case studies</p>
+        <button class="case-btn" type="button" data-open="aether" aria-haspopup="dialog">Aether pilot report <span class="plus" aria-hidden="true">+</span></button>
+        <button class="case-btn" type="button" data-open="remira" aria-haspopup="dialog">Remira launch <span class="plus" aria-hidden="true">+</span></button>
+        <!-- To add a case study: copy a button above with a new data-open="key",
+             then add a <dialog class="cs" id="cs-key"> at the bottom of this file. -->
+        <span class="case-btn case-btn--soon">Aether Phase 2 readout &middot; Dec</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <a class="foot__next" href="../product/">Next: Product Management and Design <span class="arr" aria-hidden="true">&rarr;</span></a>
+    <div class="foot__links">
+      <a href="mailto:xbartlet@umich.edu">xbartlet@umich.edu</a>
+      <a class="ext" href="https://www.linkedin.com/in/xander-bartlett-557054325/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="tel:+19712190675">971-219-0675</a>
+    </div>
+  </footer>
+</div>
+
+<!-- =====================================================================
+     CASE STUDY: AETHER PILOT (strategy lens)
+     ===================================================================== -->
+<dialog class="cs" id="cs-aether" aria-labelledby="cs-aether-t">
+  <div class="cs__bar">
+    <span class="eyebrow"><span class="num">Case study</span><span class="dash"></span>Aether pilot report</span>
+    <button class="cs__close" type="button" data-close>Close <kbd>Esc</kbd><span class="x" aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="cs__scroll" tabindex="-1" autofocus><div class="cs__body">
+    <p class="eyebrow">Aether &middot; Growth &amp; GTM lead, contract &middot; Pilot: August 17 to September 21, 2026</p>
+    <h2 class="cs-title" id="cs-aether-t">We couldn't market Aether until we could <span class="scr">explain</span> it.</h2>
+    <p class="cs-intro">Aether runs AI coding agents in isolated cloud devboxes, so a developer can run a fleet in parallel and supervise outcomes instead of babysitting terminals. The first half of the pilot was diagnosis and positioning. The second half was organic distribution from zero. New-user signups nearly doubled, and the constraint moved from top-of-funnel to activation, which changes what marketing should do next.</p>
+
+    <table class="tbl" style="margin-top:1.8rem">
+      <thead><tr><th>Result</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Weekly new users, 7 weeks pre-pilot</td><td>11.3 average</td></tr>
+        <tr class="hl"><td>Weekly new users, during the pilot</td><td>20.5 average, +81%</td></tr>
+        <tr><td>New users added in 4 pilot weeks</td><td>82, matching the prior 7 weeks combined</td></tr>
+        <tr><td>Instagram unique visitors, 30 days</td><td>216, against 205 from a years-old X presence</td></tr>
+        <tr><td>Unique visitors from Instagram + X, 30 days</td><td>421</td></tr>
+        <tr><td>Creator sponsorship pipeline</td><td>~$9.5K across 3 creators, contract-ready</td></tr>
+        <tr class="hl"><td>Paid spend</td><td>$0</td></tr>
+      </tbody>
+    </table>
+
+    <section>
+      <span class="eyebrow">01 &middot; Sequencing</span>
+      <h3 class="sec">Why I paused outbound before it started.</h3>
+      <div class="seq">
+        <div><span class="eyebrow">Original plan</span><b>Everything at once.</b><p>Events, GitHub, Reddit and social, all launched together.</p></div>
+        <div><span class="eyebrow">What stopped it</span><b>Friends wouldn't sign up.</b><p>Not even free. Not a rejection: they couldn't tell what it replaced.</p></div>
+        <div><span class="eyebrow">The risk</span><b>One credible entry.</b><p>Burning a developer community on a pitch that fails first contact is worse than never entering.</p></div>
+        <div><span class="eyebrow">New order</span><b>Position, distribute, then outbound.</b><p>Outbound is now unblocked, aimed at a message that survives first contact.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">02 &middot; Positioning &amp; diagnosis</span>
+      <h3 class="sec">Three findings from user calls, interviews and DMs.</h3>
+      <div class="grid-3" style="margin-top:1.6rem">
+        <div class="note"><span class="eyebrow">Finding 1</span><h4>"Are you replacing my CLI?"</h4><p>The most damaging confusion and the default read. It nearly ended a call with a senior DevOps engineer, until Aether was framed as an augment. Every asset now pre-empts it in the first ten seconds.</p></div>
+        <div class="note"><span class="eyebrow">Finding 2</span><h4>One durable differentiator.</h4><p>Worktrees give source isolation. They don't give runtime isolation: agents still fight over one port, one pool of RAM. <strong>Generation parallelizes; verification queues.</strong> A machine per agent is what breaks that.</p></div>
+        <div class="note"><span class="eyebrow">Finding 3</span><h4>The value stack is real, but secondary.</h4><p>Scheduled tasks, PR review, looping, environment config: individually replaceable, collectively meaningful. A reason to stay, not a reason to switch.</p></div>
+      </div>
+      <div class="grid-2" style="margin-top:2rem;align-items:center">
+        <p class="quote">Turn your AI subscription into a dev team.</p>
+        <p class="body-sm">The through-line that came out of the diagnosis. The landing page went from a feature wall to this single proposition, and every asset since is built to make it legible in ten seconds.</p>
+      </div>
+      <div class="stack" aria-label="Where Aether sits in the stack">
+        <div><span class="k">Intelligence</span><span>Claude &middot; OpenAI &middot; Google &middot; DeepSeek &middot; others</span></div>
+        <div><span class="k">Coding agent</span><span>Claude Code &middot; Codex &middot; OpenCode</span></div>
+        <div class="me"><span class="k">Aether runtime</span><span>Isolated devbox &middot; parallel execution &middot; supervision &middot; evidence &middot; automations</span></div>
+        <div><span class="k">Work surfaces</span><span>GitHub &middot; Slack &middot; Linear &middot; Sentry &middot; CLI &middot; API</span></div>
+      </div>
+      <p class="sec-sub" style="margin-top:0.9rem"><strong>The agent is the worker. Aether is where the worker goes to work.</strong></p>
+      <div class="fromto">
+        <div><h4>From</h4><ul><li>One agent on my laptop</li><li>Manual worktrees and terminal juggling</li><li>Sequential attention</li><li>The agent says "done"</li><li>A human reproduces and verifies by hand</li></ul></div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div><h4>To</h4><ul><li>A fleet of isolated cloud devboxes</li><li>Parallel tasks without branch juggling</li><li>Supervise outcomes, intervene when needed</li><li>The agent returns receipts</li><li>Tests, previews, review and evidence</li></ul></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">03 &middot; Channel strategy</span>
+      <h3 class="sec">Why social leads at Remira and supports at Aether.</h3>
+      <div class="mtx-why">
+        <div class="note"><span class="eyebrow">At Remira</span><h4>The buyer gathers on social and buys on trust.</h4><p>A consumer health app with no budget can't fund paid CAC, and patients trust a person on camera over any ad. So the founder became the channel, and the content earned the right to DM.</p></div>
+        <div class="note"><span class="eyebrow">At Aether</span><h4>The buyer buys on proof from peers.</h4><p>A developer doesn't switch tools because a brand's feed is clever. They switch because someone they trust shows it working. So creators, X, ecosystem listings and comparison pages lead, and owned social compounds underneath.</p></div>
+      </div>
+      <table class="tbl">
+        <thead><tr><th>Channel</th><th>Why this one</th><th>Status after the pilot</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td>Instagram</td><td>Cheapest owned audience to test. Every follower is distribution we don't rent.</td><td>~1,200 followers in five weeks; 216 visitors in 30 days, more than X</td></tr>
+          <tr><td>X</td><td>Where developer and AI discourse already happens; replies earn credibility.</td><td>Company account rebuilt, cadence set, verified industry engagement</td></tr>
+          <tr><td>Creators</td><td>Borrowed trust at a known price. Beat hackathons on reach per dollar.</td><td>~50 contacted, 3 contract-ready, lead deal from ~$667 to ~$333 CPM</td></tr>
+          <tr><td>TikTok</td><td>Short-form reach, same library.</td><td>Shadowbanned platform-side; fresh account in Phase 2</td></tr>
+          <tr><td>Listings &amp; SEO pages</td><td>Capture developers already comparing tools.</td><td>Unblocked once positioning settled; drafts ready</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <span class="eyebrow">04 &middot; GTM engineering</span>
+      <h3 class="sec">The funnel audit moved the constraint.</h3>
+      <p class="sec-sub">I audited the full funnel in PostHog. Two findings changed the plan, and three instrumentation gaps limited what any channel report could prove, so fixing them became item one of the next phase.</p>
+      <div class="grid-3" style="margin-top:1.6rem">
+        <div class="note"><span class="eyebrow">Signup is not the problem</span><h4>Known-origin visitors convert at 90%+.</h4><p>Whatever is wrong, it isn't that qualified visitors refuse to sign up. Cold social traffic views one page and leaves, so the next lever is the landing experience and activation.</p></div>
+        <div class="note"><span class="eyebrow">Attribution is mostly blind</span><h4>Instagram strips referrers.</h4><p>Its in-app browser drops first visits into "direct", hiding the largest social channel. The fix: UTM every outbound link and add a self-reported source question at signup, the cheapest high-value data there is.</p></div>
+        <div class="note"><span class="eyebrow">Identity isn't stitched</span><h4>Activation numbers are directional.</h4><p>Server-side events weren't linked to the browser identity that signed up. Specced the fix with engineering, plus a written definition of activation so every report means the same thing.</p></div>
+      </div>
+      <figure class="chart">
+<svg viewBox="0 0 720 268" role="img" aria-labelledby="sg-t sg-d">
+<title id="sg-t">Aether weekly new users, June 29 to September 7, 2026</title>
+<desc id="sg-d">Seven pre-pilot weeks averaged 11.3 new users. The four pilot weeks starting August 17 averaged 20.5, an 81 percent lift. Peak week: 36.</desc>
+<g class="grid axis">
+<line x1="34" x2="712" y1="226.0" y2="226.0"/><text x="26" y="229.5" text-anchor="end">0</text>
+<line x1="34" x2="712" y1="174.0" y2="174.0"/><text x="26" y="177.5" text-anchor="end">10</text>
+<line x1="34" x2="712" y1="122.0" y2="122.0"/><text x="26" y="125.5" text-anchor="end">20</text>
+<line x1="34" x2="712" y1="70.0" y2="70.0"/><text x="26" y="73.5" text-anchor="end">30</text>
+<line x1="34" x2="712" y1="18.0" y2="18.0"/><text x="26" y="21.5" text-anchor="end">40</text>
+</g>
+<line x1="465.5" x2="465.5" y1="12" y2="226" stroke="var(--ink)" stroke-width="1"/>
+<text class="lbl" x="458.5" y="20" text-anchor="end" style="fill:var(--ink)">Pilot begins, Aug 17</text>
+<line class="avg" x1="38" x2="461.5" y1="167.3" y2="167.3"/>
+<text class="avg-l" x="249.7" y="161.3" text-anchor="middle">avg 11.3 / wk</text>
+<line class="avg" x1="469.5" x2="708" y1="119.4" y2="119.4"/>
+<text class="avg-l" x="708" y="113.4" text-anchor="end">avg 20.5 / wk  (+81%)</text>
+<rect class="hit" role="img" x="35.0" y="18" width="59.6" height="208" tabindex="0" data-tip="Jun 29, pre-pilot" data-tip-v="10 new users" aria-label="Jun 29: 10 new users"/>
+<path class="bar" d="M52.8 226V178.0Q52.8 174.0 56.8 174.0H72.8Q76.8 174.0 76.8 178.0V226Z"/>
+<text class="lbl" x="64.8" y="243" text-anchor="middle">Jun 29</text>
+<rect class="hit" role="img" x="96.6" y="18" width="59.6" height="208" tabindex="0" data-tip="Jul 6, pre-pilot" data-tip-v="27 new users" aria-label="Jul 6: 27 new users"/>
+<path class="bar" d="M114.5 226V89.6Q114.5 85.6 118.5 85.6H134.5Q138.5 85.6 138.5 89.6V226Z"/>
+<text class="lbl" x="126.5" y="243" text-anchor="middle">Jul 6</text>
+<rect class="hit" role="img" x="158.3" y="18" width="59.6" height="208" tabindex="0" data-tip="Jul 13, pre-pilot" data-tip-v="10 new users" aria-label="Jul 13: 10 new users"/>
+<path class="bar" d="M176.1 226V178.0Q176.1 174.0 180.1 174.0H196.1Q200.1 174.0 200.1 178.0V226Z"/>
+<text class="lbl" x="188.1" y="243" text-anchor="middle">Jul 13</text>
+<rect class="hit" role="img" x="219.9" y="18" width="59.6" height="208" tabindex="0" data-tip="Jul 20, pre-pilot" data-tip-v="4 new users" aria-label="Jul 20: 4 new users"/>
+<path class="bar" d="M237.7 226V209.2Q237.7 205.2 241.7 205.2H257.7Q261.7 205.2 261.7 209.2V226Z"/>
+<text class="lbl" x="249.7" y="243" text-anchor="middle">Jul 20</text>
+<rect class="hit" role="img" x="281.5" y="18" width="59.6" height="208" tabindex="0" data-tip="Jul 27, pre-pilot" data-tip-v="6 new users" aria-label="Jul 27: 6 new users"/>
+<path class="bar" d="M299.4 226V198.8Q299.4 194.8 303.4 194.8H319.4Q323.4 194.8 323.4 198.8V226Z"/>
+<text class="lbl" x="311.4" y="243" text-anchor="middle">Jul 27</text>
+<rect class="hit" role="img" x="343.2" y="18" width="59.6" height="208" tabindex="0" data-tip="Aug 3, pre-pilot" data-tip-v="11 new users" aria-label="Aug 3: 11 new users"/>
+<path class="bar" d="M361.0 226V172.8Q361.0 168.8 365.0 168.8H381.0Q385.0 168.8 385.0 172.8V226Z"/>
+<text class="lbl" x="373.0" y="243" text-anchor="middle">Aug 3</text>
+<rect class="hit" role="img" x="404.8" y="18" width="59.6" height="208" tabindex="0" data-tip="Aug 10, pre-pilot" data-tip-v="11 new users" aria-label="Aug 10: 11 new users"/>
+<path class="bar" d="M422.6 226V172.8Q422.6 168.8 426.6 168.8H442.6Q446.6 168.8 446.6 172.8V226Z"/>
+<text class="lbl" x="434.6" y="243" text-anchor="middle">Aug 10</text>
+<rect class="hit" role="img" x="466.5" y="18" width="59.6" height="208" tabindex="0" data-tip="Aug 17, pilot" data-tip-v="36 new users" aria-label="Aug 17: 36 new users"/>
+<path class="bar bar--hl" d="M484.3 226V42.8Q484.3 38.8 488.3 38.8H504.3Q508.3 38.8 508.3 42.8V226Z"/>
+<text class="val" x="496.3" y="31.8" text-anchor="middle">36</text>
+<text class="lbl" x="496.3" y="243" text-anchor="middle">Aug 17</text>
+<rect class="hit" role="img" x="528.1" y="18" width="59.6" height="208" tabindex="0" data-tip="Aug 24, pilot" data-tip-v="15 new users" aria-label="Aug 24: 15 new users"/>
+<path class="bar bar--hl" d="M545.9 226V152.0Q545.9 148.0 549.9 148.0H565.9Q569.9 148.0 569.9 152.0V226Z"/>
+<text class="lbl" x="557.9" y="243" text-anchor="middle">Aug 24</text>
+<rect class="hit" role="img" x="589.7" y="18" width="59.6" height="208" tabindex="0" data-tip="Aug 31, pilot" data-tip-v="19 new users" aria-label="Aug 31: 19 new users"/>
+<path class="bar bar--hl" d="M607.5 226V131.2Q607.5 127.2 611.5 127.2H627.5Q631.5 127.2 631.5 131.2V226Z"/>
+<text class="lbl" x="619.5" y="243" text-anchor="middle">Aug 31</text>
+<rect class="hit" role="img" x="651.4" y="18" width="59.6" height="208" tabindex="0" data-tip="Sep 7, pilot" data-tip-v="12 new users" aria-label="Sep 7: 12 new users"/>
+<path class="bar bar--hl" d="M669.2 226V167.6Q669.2 163.6 673.2 163.6H689.2Q693.2 163.6 693.2 167.6V226Z"/>
+<text class="lbl" x="681.2" y="243" text-anchor="middle">Sep 7</text>
+</svg>
+<figcaption class="chart-legend"><span><i style="background:var(--gray-mark)"></i>Pre-pilot weeks</span><span><i style="background:var(--accent)"></i>Pilot weeks</span><span class="muted">Source: PostHog, pulled Sep 16, 2026</span></figcaption>
+<details class="table-view"><summary>Table view</summary><table class="tbl"><thead><tr><th>Week of</th><th>Phase</th><th class="num">New users</th></tr></thead><tbody><tr><td>Jun 29</td><td>Pre-pilot</td><td class="num">10</td></tr><tr><td>Jul 6</td><td>Pre-pilot</td><td class="num">27</td></tr><tr><td>Jul 13</td><td>Pre-pilot</td><td class="num">10</td></tr><tr><td>Jul 20</td><td>Pre-pilot</td><td class="num">4</td></tr><tr><td>Jul 27</td><td>Pre-pilot</td><td class="num">6</td></tr><tr><td>Aug 3</td><td>Pre-pilot</td><td class="num">11</td></tr><tr><td>Aug 10</td><td>Pre-pilot</td><td class="num">11</td></tr><tr class=hl><td>Aug 17</td><td>Pilot</td><td class="num">36</td></tr><tr><td>Aug 24</td><td>Pilot</td><td class="num">15</td></tr><tr><td>Aug 31</td><td>Pilot</td><td class="num">19</td></tr><tr><td>Sep 7</td><td>Pilot</td><td class="num">12</td></tr></tbody></table></details>
+</figure>
+    </section>
+
+    <section>
+      <span class="eyebrow">05 &middot; Phase 2, now running</span>
+      <h3 class="sec">What I committed to, in writing.</h3>
+      <div class="grid-3" style="margin-top:1.6rem">
+        <div class="note"><span class="eyebrow">First two weeks</span><h4>Measurement first.</h4><p>Identity stitching and attribution shipped, with a baseline agreed in writing. Contrast assets built from real telemetry. Ecosystem listings and comparison pages shipped.</p></div>
+        <div class="note"><span class="eyebrow">Ongoing, 90 days</span><h4>Run the machine.</h4><p>Weekly user interviews with written synthesis. Organic content across Instagram, X and a rebuilt TikTok. Sponsorships managed end to end, with one long-term creator partner over one-off buys.</p></div>
+        <div class="note"><span class="eyebrow">Held to</span><h4>10,000 followers in 90 days.</h4><p>From ~1,300, organic, on a developer tool. Outcome metrics alongside it: signups by channel, activation rate of attributed signups, and blended CAC across paid placements. Monthly report with kill and double-down calls.</p></div>
+      </div>
+      <div class="block block--ink">
+        <span class="eyebrow">The principle I proposed</span>
+        <h3 class="sec" style="color:var(--paper);margin-top:0.6rem">The founder should be making product and technical calls. Everything else, I can own.</h3>
+        <ul class="plate" style="margin-top:1rem">
+          <li><b>Creator sponsorships end to end</b>: sourcing, negotiation, contracts, payment, conversion analysis</li>
+          <li><b>The founder's X account</b>: drafted in the founder's voice and approved before anything ships, so the #4 referrer doesn't go quiet during build sprints</li>
+          <li><b>Site, comparison pages and marketing docs</b>, plus community presence on Reddit, HN, GitHub and Discord</li>
+          <li><b>User research</b>: recruiting, scheduling, running and synthesizing interviews</li>
+          <li><b>Partnerships, press and launches</b>, filtered so they reach the founder only when there's a decision to make</li>
+        </ul>
+      </div>
+      <p class="sec-sub" style="margin-top:1.4rem">The pilot also ended with an open question about which customer to build the marketing engine for. I brought a view, with the market and user evidence behind it, and asked for the decision as an equal discussion. Hedging across both would have been the expensive answer.</p>
+      <div class="cta-row">
+        <a class="btn btn--ink" href="../social/#aether">The social side: formats, content plan, receipts <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn--ghost" href="https://www.runaether.dev" target="_blank" rel="noopener">runaether.dev <span class="arr" aria-hidden="true">&#8599;</span></a>
+      </div>
+    </section>
+  </div></div>
+</dialog>
+
+<!-- =====================================================================
+     CASE STUDY: REMIRA LAUNCH (strategy lens)
+     ===================================================================== -->
+<dialog class="cs" id="cs-remira" aria-labelledby="cs-remira-t">
+  <div class="cs__bar">
+    <span class="eyebrow"><span class="num">Case study</span><span class="dash"></span>Remira launch</span>
+    <button class="cs__close" type="button" data-close>Close <kbd>Esc</kbd><span class="x" aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="cs__scroll" tabindex="-1" autofocus><div class="cs__body">
+    <p class="eyebrow">Remira T1D &middot; Co-founder &amp; CEO &middot; Launch, 2026</p>
+    <h2 class="cs-title" id="cs-remira-t">When you can't buy reach, <span class="scr">earn</span> it.</h2>
+    <p class="cs-intro">Remira is a pattern-recognition app for Type 1 diabetes. We launched with no budget, no audience and no name into a category of about ten million people worldwide. Every GTM choice followed from three constraints: the money, the market, and how this buyer decides who to trust.</p>
+
+    <div class="kpis">
+      <div><div class="v">1,000</div><div class="k">App Store installs</div></div>
+      <div><div class="v">60%</div><div class="k">Download to activation</div></div>
+      <div><div class="v">50%</div><div class="k">DAU / WAU</div></div>
+      <div><div class="v">$0</div><div class="k">Paid acquisition</div></div>
+    </div>
+
+    <section>
+      <span class="eyebrow">01 &middot; Why social was the strategy</span>
+      <h3 class="sec">Three constraints, one answer.</h3>
+      <div class="grid-3" style="margin-top:1.6rem">
+        <div class="note"><span class="eyebrow">The money</span><h4>Paid CAC was never on the table.</h4><p>A consumer health app with a free core product can't pay to acquire users and survive. Organic had to be the engine, not the experiment.</p></div>
+        <div class="note"><span class="eyebrow">The buyer</span><h4>Patients trust people, not ads.</h4><p>Nobody comes to their health looking for something trendy. A founder with T1D on camera, talking about the problem they share, earns trust no budget buys. 80% of videos never show the product.</p></div>
+        <div class="note"><span class="eyebrow">The market</span><h4>A small, fragmented pond.</h4><p>About 10M people worldwide, scattered across feeds. TikTok's algorithm finds them for you; a paid campaign has to guess.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">02 &middot; Platforms</span>
+      <h3 class="sec">Each surface got one job.</h3>
+      <table class="tbl">
+        <thead><tr><th>Surface</th><th>Job</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>TikTok</td><td>Discovery</td><td>The only feed that reaches people who don't follow you yet</td></tr>
+          <tr><td>Instagram</td><td>Redistribution</td><td>The same library, a second audience, zero marginal cost</td></tr>
+          <tr><td>Pinned highlights, App Store page, remira-ai.com</td><td>Conversion</td><td>The ad creative lives where intent already exists, not on the For You page</td></tr>
+          <tr><td>Direct messages</td><td>Outreach</td><td>Only once the account had a name: recognition is what makes a DM convert</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <span class="eyebrow">03 &middot; Outreach</span>
+      <h3 class="sec">One audience, two ways in.</h3>
+      <div class="grid-2" style="margin-top:1.6rem">
+        <div class="funnel">
+          <span class="eyebrow">Passive</span>
+          <h4>Content to landing page</h4>
+          <p>The feed does the work, and it keeps running after I stop.</p>
+          <div class="step"><span>Video views</span><b>7.3M</b></div>
+          <div class="tick">&darr;</div>
+          <div class="step"><span>Profile visits</span><b>37.7K</b></div>
+          <div class="tick">remira-ai.com &darr;</div>
+          <div class="step"><span>Installs</span><b>~625</b></div>
+          <div class="f-out">&asymp; 63% of all installs</div>
+        </div>
+        <div class="funnel">
+          <span class="eyebrow">Active</span>
+          <h4>Direct message to install</h4>
+          <p>Written by hand, one at a time. No automation, no scraping, no template.</p>
+          <div class="step"><span>DMs sent</span><b>2,500</b></div>
+          <div class="tick">&darr;</div>
+          <div class="step"><span>Converted to install</span><b>15%</b></div>
+          <div class="tick">&darr;</div>
+          <div class="step"><span>Installs</span><b>~375</b></div>
+          <div class="f-out">&asymp; 37% of all installs</div>
+        </div>
+      </div>
+      <div class="block" style="margin-top:1.2rem"><p>A cold DM from an account nobody recognizes converts at nothing. <strong>15% is what a recognized account converts at.</strong> The content had to earn the outreach channel before it existed.</p></div>
+    </section>
+
+    <section>
+      <span class="eyebrow">04 &middot; Measurement</span>
+      <h3 class="sec">One north star, held.</h3>
+      <p class="sec-sub">I defined DAU/WAU as the north star and tracked it alongside retention and churn. It held at 50% while 60% of downloads activated, which is the number that says the channel brought the right people, not just more of them.</p>
+      <div class="cta-row">
+        <a class="btn btn--ink" href="../social/#remira">The content, the finding and every receipt <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn--ghost" href="../product/#remira">The product side <span class="arr" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+  </div></div>
+</dialog>
+
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

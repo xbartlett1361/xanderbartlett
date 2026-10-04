@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Social Media Marketing · Xander Bartlett</title>
+<meta name="description" content="17.3M organic views and 20K followers across two brands at $0 paid, plus a developer audience built from zero for Aether. UGC, editing, user empathy, marketing and virality, with receipts.">
+<meta name="theme-color" content="#f4f0e8">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Social Media Marketing · Xander Bartlett">
+<meta property="og:description" content="Paid clicks end when the invoice does. A brand doesn't. Three audiences, built from zero, with receipts.">
+<meta property="og:image" content="https://xanderbartlett.com/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/mr-dafoe-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css">
+<style>
+  .page { display: grid; grid-template-rows: auto auto 1fr; row-gap: 1.1rem; padding: 1.3rem 0 1.2rem; }
+
+  .ph { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: 3rem; }
+  .ph .display { margin-top: 0.7rem; max-width: 21ch; }
+  .agg { display: grid; grid-template-columns: repeat(4, auto); column-gap: 2.3rem; padding-bottom: 0.3rem; }
+  .agg .v { font-size: 2.15rem; font-weight: 400; letter-spacing: -0.045em; }
+
+  .skills { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+  .skill { padding: 0.7rem 1.1rem 0 0; }
+  .skill + .skill { padding-left: 1.1rem; border-left: 1px solid var(--hair); }
+  .skill h2 { display: flex; align-items: baseline; gap: 0.45rem; font-size: 0.98rem; font-weight: 560; letter-spacing: -0.02em; }
+  .skill h2 .n { font-family: var(--mono); font-size: 0.6rem; font-weight: 400; color: var(--muted); }
+  .skill p { margin-top: 0.22rem; font-size: 0.79rem; line-height: 1.38; color: var(--ink-2); }
+
+  .xps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+  .xp { display: flex; flex-direction: column; min-width: 0; padding: 1.05rem 1.15rem 1.1rem; border: 1px solid var(--ink); border-radius: 1.1rem; }
+  .xp__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.8rem; }
+  .xp__name { font-size: 1.32rem; font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; }
+  .xp__meta { margin-top: 0.32rem; font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.03em; color: var(--muted); }
+  .xp__handle { font-family: var(--mono); font-size: 0.66rem; color: var(--ink-2); white-space: nowrap; padding-top: 0.2rem; }
+  .xp__handle:hover { color: var(--ink); }
+  .xp .stats { grid-template-columns: 1fr 1fr; margin-top: 0.85rem; padding: 0.8rem 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+  .tldr { margin: 0.3rem 0 0.9rem; }
+  .tldr > div { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 0.7rem; padding: 0.46rem 0; }
+  .tldr > div + div { border-top: 1px solid var(--hair-2); }
+  .tldr dt { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); padding-top: 0.2rem; }
+  .tldr dd { font-size: 0.85rem; line-height: 1.42; color: var(--ink-2); }
+
+  /* case-study extras */
+  .tam { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: start; }
+  .ledger { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3rem; }
+  .led { display: flex; justify-content: space-between; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(244, 240, 232, 0.16); font-size: 0.95rem; }
+  .led b { font-weight: 560; flex: none; }
+  .dm { display: grid; grid-template-columns: 15rem 1fr; gap: 2.4rem; align-items: center; margin-top: 1.6rem; padding: 1.6rem; border-radius: 1.25rem; background: var(--paper-2); }
+  .dm img { border-radius: 0.6rem; border: 1px solid var(--hair); }
+  .dm h4 { font-weight: 500; font-size: 1.3rem; letter-spacing: -0.025em; margin: 0.6rem 0 0.7rem; }
+  .dm p { font-size: 0.95rem; color: var(--ink-2); line-height: 1.5; }
+  .plan { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4rem; }
+  .plan h4 { font-family: var(--mono); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; padding-bottom: 0.6rem; border-bottom: 1px solid var(--ink); }
+  .plan li { list-style: none; padding: 0.6rem 0; border-bottom: 1px solid var(--hair); font-size: 0.95rem; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
+  .franchise td:first-child { font-family: var(--mono); font-size: 0.78rem; white-space: nowrap; color: var(--muted); }
+  .franchise td:nth-child(2) { font-weight: 520; white-space: nowrap; }
+
+  @media (max-width: 900px) {
+    .page { padding-top: 1.2rem; row-gap: 1.6rem; }
+    .ph { grid-template-columns: 1fr; row-gap: 1.4rem; }
+    .agg { grid-template-columns: repeat(2, auto); justify-content: start; row-gap: 1rem; }
+    .skills { grid-template-columns: 1fr 1fr; }
+    .skill, .skill + .skill { padding: 0.7rem 0.8rem 0.6rem 0; border-left: 0; }
+    .xps { grid-template-columns: 1fr; }
+    .tam, .ledger, .dm, .plan { grid-template-columns: 1fr; }
+    .dm img { max-width: 14rem; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="Xander Bartlett, home">Xander Bartlett</a>
+    <nav class="tabs" aria-label="Pages">
+      <a class="tab" href="../gtm/"><span class="n">01</span>GTM Strategy &amp; Engineering</a>
+      <a class="tab" href="../product/"><span class="n">02</span>Product Management and Design</a>
+      <a class="tab" href="./" aria-current="page"><span class="n">03</span>Social Media Marketing</a>
+    </nav>
+    <div class="topbar__end"><a class="btn btn--ink" href="mailto:xbartlet@umich.edu">xbartlet@umich.edu</a></div>
+  </header>
+
+  <main class="page">
+    <header class="ph">
+      <div>
+        <p class="eyebrow rise"><span class="num">03</span><span class="dash"></span>Social Media Marketing</p>
+        <h1 class="display rise" style="--d:1">Paid clicks end when the invoice does. A <span class="scr">brand</span> doesn't.</h1>
+      </div>
+      <div class="agg stats rise" style="--d:2" aria-label="Lifetime totals across both content brands">
+        <div class="stat"><div class="v">17.3M</div><div class="k">Organic views</div></div>
+        <div class="stat"><div class="v">20K</div><div class="k">Followers built</div></div>
+        <div class="stat"><div class="v">1.9M</div><div class="k">Likes</div></div>
+        <div class="stat"><div class="v">$0</div><div class="k">Paid spend, ever</div></div>
+      </div>
+    </header>
+
+    <section class="skills rise" style="--d:3" aria-label="What I specialize in">
+      <div class="skill"><h2><span class="n">01</span>UGC</h2><p>Real patients and my own face on camera. It's where a viewer decides: person or billboard.</p></div>
+      <div class="skill"><h2><span class="n">02</span>Editing</h2><p>Six-second cuts that held 49% of viewers to the final frame.</p></div>
+      <div class="skill"><h2><span class="n">03</span>User empathy</h2><p>I train my feed until the algorithm serves me the customer.</p></div>
+      <div class="skill"><h2><span class="n">04</span>Marketing</h2><p>Ad creative, App Store listing and landing page, all written and designed myself.</p></div>
+      <div class="skill"><h2><span class="n">05</span>Virality</h2><p>Eight posts past 750K across two accounts. The best one hit 1.5M.</p></div>
+    </section>
+
+    <section class="xps" aria-label="Experience">
+      <article class="xp rise" style="--d:4">
+        <div class="xp__top">
+          <div><h2 class="xp__name">Remira T1D</h2><p class="xp__meta">Co-founder &amp; CEO &middot; Apr&ndash;Aug 2026</p></div>
+          <a class="xp__handle ext" href="https://www.tiktok.com/@remira.t1d" target="_blank" rel="noopener">@remira.t1d</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="v">7.3M</div><div class="k">Views, solo, $0</div></div>
+          <div class="stat"><div class="v">6M</div><div class="k">Of them in the last 60 days</div></div>
+          <div class="stat"><div class="v">1,000</div><div class="k">App Store installs</div></div>
+          <div class="stat"><div class="v">5.0<small>&#9733;</small></div><div class="k">Rating, 26 reviews</div></div>
+        </div>
+        <dl class="tldr">
+          <div><dt>The user</dt><dd>People living with Type 1 diabetes and their parents, skeptical of anything that smells like an ad.</dd></div>
+          <div><dt>Why it's hard</dt><dd>The whole category is about 10M people worldwide, so 7.3M views meant reaching nearly everyone it could, then turning that into 1,000 installs.</dd></div>
+          <div><dt>The strategy</dt><dd>Faceless hooks bought reach, on-camera talks bought followers, and 2,500 hand-written DMs turned recognition into installs at 15%.</dd></div>
+        </dl>
+        <button class="open-cs" type="button" data-open="remira" aria-haspopup="dialog">Receipts &amp; full case study <span class="plus" aria-hidden="true">+</span></button>
+      </article>
+
+      <article class="xp rise" style="--d:5">
+        <div class="xp__top">
+          <div><h2 class="xp__name">The Finance Guide</h2><p class="xp__meta">Founder &middot; May&ndash;Aug 2025</p></div>
+          <a class="xp__handle ext" href="https://www.tiktok.com/@financeguide111" target="_blank" rel="noopener">@financeguide111</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="v">10M</div><div class="k">Views in one summer</div></div>
+          <div class="stat"><div class="v">15K</div><div class="k">Followers from zero</div></div>
+          <div class="stat"><div class="v">1M</div><div class="k">Likes</div></div>
+          <div class="stat"><div class="v">2</div><div class="k">Inbound paid brand deals</div></div>
+        </div>
+        <dl class="tldr">
+          <div><dt>The user</dt><dd>Young, finance-curious scrollers who have learned to tune out finfluencers.</dd></div>
+          <div><dt>Why it's hard</dt><dd>No face, no name, nothing to sell, and still 10M views in one summer. Autopilot and Nummo AI paid for content off the audience alone.</dd></div>
+          <div><dt>The strategy</dt><dd>Reverse-engineered retention in a spreadsheet, locked one repeatable edit format, then scaled volume until six videos cleared 750K.</dd></div>
+        </dl>
+        <button class="open-cs" type="button" data-open="finance" aria-haspopup="dialog">Receipts &amp; full case study <span class="plus" aria-hidden="true">+</span></button>
+      </article>
+
+      <article class="xp rise" style="--d:6">
+        <div class="xp__top">
+          <div><h2 class="xp__name">Aether</h2><p class="xp__meta">GTM lead, contract &middot; Aug 2026&ndash;now</p></div>
+          <a class="xp__handle ext" href="https://www.runaether.dev" target="_blank" rel="noopener">runaether.dev</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="v">0&rarr;1.2K</div><div class="k">Instagram followers, 5 weeks</div></div>
+          <div class="stat"><div class="v">+81%</div><div class="k">Weekly signups vs prior 7 wks</div></div>
+          <div class="stat"><div class="v">421</div><div class="k">Visitors from IG + X in 30 days</div></div>
+          <div class="stat"><div class="v">$0</div><div class="k">Paid spend</div></div>
+        </div>
+        <dl class="tldr">
+          <div><dt>The user</dt><dd>Senior engineers running AI coding agents, the most ad-blind audience online.</dd></div>
+          <div><dt>Why it's hard</dt><dd>Developers ignore marketing, yet a five-week-old Instagram out-referred an X presence built over years, and signups rose 81% at $0.</dd></div>
+          <div><dt>The strategy</dt><dd>Fixed the message before the megaphone, then shipped demos, memes and release screenshots that show the work, never pitch it.</dd></div>
+        </dl>
+        <button class="open-cs" type="button" data-open="aether" aria-haspopup="dialog">Receipts &amp; full case study <span class="plus" aria-hidden="true">+</span></button>
+      </article>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <a class="foot__next" href="../gtm/">Next: GTM Strategy &amp; Engineering <span class="arr" aria-hidden="true">&rarr;</span></a>
+    <div class="foot__links">
+      <a href="mailto:xbartlet@umich.edu">xbartlet@umich.edu</a>
+      <a class="ext" href="https://www.linkedin.com/in/xander-bartlett-557054325/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="tel:+19712190675">971-219-0675</a>
+    </div>
+  </footer>
+</div>
+
+<!-- =====================================================================
+     CASE STUDY: REMIRA
+     ===================================================================== -->
+<dialog class="cs" id="cs-remira" aria-labelledby="cs-remira-t">
+  <div class="cs__bar">
+    <span class="eyebrow"><span class="num">Case study</span><span class="dash"></span>Remira T1D</span>
+    <button class="cs__close" type="button" data-close>Close <kbd>Esc</kbd><span class="x" aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="cs__scroll" tabindex="-1" autofocus><div class="cs__body">
+    <p class="eyebrow">Remira T1D &middot; April 2 to August 3, 2026</p>
+    <h2 class="cs-title" id="cs-remira-t">6M views in 60 days. <span class="scr">One</span> person.</h2>
+    <p class="cs-intro">A Type 1 diabetes app with no budget, no audience, no name. 7.3M views across the full run, and 6M of those came in the last 60 days, after I found the format. I ran every channel myself: content, ad creative, copy, on camera, outreach, the landing page. TikTok and Instagram. Nothing boosted.</p>
+
+    <div class="kpis">
+      <div><div class="v">7.3M</div><div class="k">Video views</div></div>
+      <div><div class="v">951.8K</div><div class="k">Likes</div></div>
+      <div><div class="v">61.8K</div><div class="k">Shares</div></div>
+      <div><div class="v">5K</div><div class="k">Net followers</div></div>
+      <div><div class="v">37.7K</div><div class="k">Profile visits</div></div>
+      <div><div class="v">7.7K</div><div class="k">Comments</div></div>
+      <div><div class="v">2,500</div><div class="k">DMs sent by hand</div></div>
+      <div><div class="v">100</div><div class="k">Posts shipped</div></div>
+      <div><div class="v">1,000</div><div class="k">App Store installs</div></div>
+      <div><div class="v">600</div><div class="k">Activated users</div></div>
+      <div><div class="v">150 / 75</div><div class="k">WAU / DAU</div></div>
+      <div><div class="v">5.0&#9733;</div><div class="k">26 ratings</div></div>
+    </div>
+
+    <section>
+      <span class="eyebrow">The constraint</span>
+      <div class="block tam">
+        <div>
+          <h3 class="sec">Every one of those views came from a pool of ten million people.</h3>
+          <p class="sec-sub">Type 1 diabetes affects about <strong>10 million people worldwide</strong>. Not 10 million in the US. Not 10 million prospects. That is everyone on earth who has it. Most consumer startups fish in a market ten to a hundred times bigger.</p>
+          <p class="sec-sub"><strong>The ceiling was the market, not the method.</strong> To do 7.3M views in a 10M-person category, the content had to reach nearly everyone it could, plus the parents and partners around them. Point the same system at a normal-sized market and the ceiling moves. The mechanics don't.</p>
+        </div>
+        <div>
+          <div class="mbar"><div class="k">People with T1D worldwide</div><div class="track"><span class="fill" style="width:100%"></span></div><div class="v">~10M</div></div>
+          <div class="mbar"><div class="k">Views delivered into that category</div><div class="track"><span class="fill fill--accent" style="width:73%"></span></div><div class="v">7.3M</div></div>
+          <div class="mbar"><div class="k">Views in the last 60 days</div><div class="track"><span class="fill fill--accent" style="width:60%"></span></div><div class="v">6M</div></div>
+          <p class="tick" style="text-align:left;margin-top:1rem">Views, not unique people. The point is the size of the pond.</p>
+        </div>
+      </div>
+
+      <a class="vcard" href="https://www.tiktok.com/@remira.t1d/video/7663918412141317390" target="_blank" rel="noopener">
+        <div class="vthumb"><img src="../assets/img/remira-night-lows.jpg" width="577" height="722" loading="lazy" decoding="async" alt="Still from the night-lows video: Xander speaking to camera with on-screen text reading understanding how dangerous a night time low is for a Type 1 Diabetic"><span class="vplay" aria-hidden="true"></span></div>
+        <div>
+          <span class="eyebrow">The post that converted best</span>
+          <h4 class="h2" style="margin:0.6rem 0 0.5rem">A talk on solving night-time lows</h4>
+          <p class="body-sm" style="max-width:56ch">1:41, on camera, no edit tricks. 63K views, one of my smallest posts, and <strong>640 followers</strong> off it. Average watch ran 19.2 seconds, more than double what a six-second hook holds.</p>
+          <span class="link-u" style="display:inline-block;margin-top:0.8rem;font-weight:500">Watch it on TikTok</span>
+        </div>
+      </a>
+    </section>
+
+    <section>
+      <span class="eyebrow">The creative</span>
+      <h3 class="sec">Three formats. Three different jobs.</h3>
+      <p class="sec-sub">Most founders pick one and wonder why it stalls. Reach, trust and conversion are different problems. One video can't carry all three.</p>
+      <div class="grid-3" style="margin-top:1.6rem">
+        <div class="note"><span class="eyebrow">Viral short-form</span><h4>Buys the distribution.</h4><p>Five to seven seconds, text on b-roll, one emotional claim. Cheap to make, fast to test, and the only thing that reaches people who have never heard of you. <strong>Six posts cleared 300K.</strong> The top one hit 927K off a single line of copy.</p><div class="proof">927K &middot; 866K &middot; 537K &middot; 457K &middot; 419K</div></div>
+        <div class="note"><span class="eyebrow">UGC &amp; on camera</span><h4>Buys the following.</h4><p>Stitches with real patients, my own face, longer runtime. This is where a viewer decides if the account is a person or a billboard. One 27-second on-camera post added <strong>1,100 followers</strong>. A 1:41 talk held <strong>19.2 seconds of average watch</strong>.</p><div class="proof">1,100 followers &middot; 640 followers</div></div>
+        <div class="note"><span class="eyebrow">Ad creative</span><h4>Closes the install.</h4><p>Store screenshots, landing page, pinned highlights. I wrote and designed all of it. The same asset set you'd hand a paid channel the day you turn one on. <strong>Autopilot</strong> and <strong>Nummo AI</strong> have both paid me for the same work.</p><div class="proof">1,000 installs &middot; 5.0&#9733; &middot; 600 activated</div></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">The finding</span>
+      <h3 class="sec">The smallest video built the biggest audience.</h3>
+      <p class="sec-sub">Same five posts, ranked twice. Views on the left, followers on the right. The order almost perfectly reverses. Followers are the half you keep.</p>
+      <div class="block" style="margin-top:1.6rem">
+        <div class="inv">
+          <div class="inv-l">
+            <div class="inv-head"><span>Ranked by views</span><span>Views</span></div>
+            <div class="row"><span class="rank">1</span><div class="row-b"><div class="row-t">Pre-diabetic thirst</div><div class="row-m">0:06 &middot; text on b-roll &middot; 8.6s avg watch</div></div><div class="row-v">927K</div></div>
+            <div class="row"><span class="rank">2</span><div class="row-b"><div class="row-t">Worst part of T1D</div><div class="row-m">0:05 &middot; text on b-roll</div></div><div class="row-v">346K</div></div>
+            <div class="row"><span class="rank">3</span><div class="row-b"><div class="row-t">Don't ignore T1D</div><div class="row-m">0:27 &middot; on camera &middot; 9.2s avg watch</div></div><div class="row-v">321K</div></div>
+            <div class="row"><span class="rank">4</span><div class="row-b"><div class="row-t">Too much insulin</div><div class="row-m">0:18 &middot; UGC stitch</div></div><div class="row-v">250K</div></div>
+            <div class="row"><span class="rank">5</span><div class="row-b"><div class="row-t">A talk on night lows</div><div class="row-m">1:41 &middot; on camera &middot; 19.2s avg watch</div></div><div class="row-v">63K</div></div>
+          </div>
+          <div class="inv-mid" aria-hidden="true">
+            <svg viewBox="0 0 120 390" preserveAspectRatio="none">
+              <line x1="0" y1="39" x2="120" y2="351"/>
+              <line x1="0" y1="117" x2="120" y2="273"/>
+              <line x1="0" y1="195" x2="120" y2="39"/>
+              <line x1="0" y1="273" x2="120" y2="195"/>
+              <line class="hl" x1="0" y1="351" x2="120" y2="117"/>
+            </svg>
+          </div>
+          <div class="inv-r">
+            <div class="inv-head"><span>New followers</span><span>Ranked by followers</span></div>
+            <div class="row"><span class="rank">1</span><div class="row-b"><div class="row-t">Don't ignore T1D</div><div class="row-m">0:27 &middot; on camera</div></div><div class="row-v">1,100</div></div>
+            <div class="row"><span class="rank">2</span><div class="row-b"><div class="row-t">A talk on night lows</div><div class="row-m">1:41 &middot; on camera</div></div><div class="row-v">640</div></div>
+            <div class="row"><span class="rank">3</span><div class="row-b"><div class="row-t">Too much insulin</div><div class="row-m">0:18 &middot; UGC stitch</div></div><div class="row-v">405</div></div>
+            <div class="row"><span class="rank">4</span><div class="row-b"><div class="row-t">Worst part of T1D</div><div class="row-m">0:05 &middot; text on b-roll</div></div><div class="row-v">365</div></div>
+            <div class="row"><span class="rank">5</span><div class="row-b"><div class="row-t">Pre-diabetic thirst</div><div class="row-m">0:06 &middot; text on b-roll</div></div><div class="row-v">251</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top:1.4rem">
+        <p class="body-sm"><strong>The 63K post earned 37&times; more followers per view than the 927K one.</strong> A talking head at 1:41 held 19.2 seconds. A six-second hook held 8.6. You rent reach from the algorithm. Attention is what turns a viewer into an audience.</p>
+        <p class="body-sm">So I stopped optimizing one number. Short hooks feed the algorithm. UGC and on camera collect the people it delivers. Ad creative closes them. <strong>Run all three on purpose</strong> and the follower floor between spikes rises instead of dropping to zero. Mine rose every month for four months.</p>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">How the installs actually happened</span>
+      <h3 class="sec">One audience. Two ways in.</h3>
+      <p class="sec-sub">Most growth pitches show you one funnel. Build an audience instead of renting clicks and the audience becomes a second one. That one is free forever.</p>
+      <div class="grid-2" style="margin-top:1.6rem">
+        <div class="funnel">
+          <span class="eyebrow">Passive</span>
+          <h4>Content to landing page</h4>
+          <p>The feed does the work. It compounds, and it keeps running after I stop.</p>
+          <div class="step"><span>Video views</span><b>7.3M</b></div>
+          <div class="tick">&darr;</div>
+          <div class="step"><span>Profile visits</span><b>37.7K</b></div>
+          <div class="tick">remira-ai.com &darr;</div>
+          <div class="step"><span>Installs</span><b>~625</b></div>
+          <div class="f-out">&asymp; 63% of all installs</div>
+        </div>
+        <div class="funnel">
+          <span class="eyebrow">Active</span>
+          <h4>Direct message to install</h4>
+          <p>A channel that didn't exist until the account had a name.</p>
+          <div class="step"><span>DMs sent, by hand</span><b>2,500</b></div>
+          <div class="tick">no automation, no scraping &darr;</div>
+          <div class="step"><span>Converted to install</span><b>15%</b></div>
+          <div class="tick">&darr;</div>
+          <div class="step"><span>Installs</span><b>~375</b></div>
+          <div class="f-out">&asymp; 37% of all installs</div>
+        </div>
+      </div>
+      <div class="block" style="margin-top:1.2rem"><p>A cold DM from an account nobody recognizes converts at nothing. <strong>15% is what a recognized account converts at.</strong> A third of the install base came through a channel the content had to earn first. Of the 1,000 who installed, <strong>600 activated and half the weekly users came back daily</strong>.</p></div>
+    </section>
+
+    <section>
+      <span class="eyebrow">Why brand, not clicks</span>
+      <h3 class="sec">The account is the real asset, not the views.</h3>
+      <p class="sec-sub">A dollar of paid acquisition buys one impression, once. Four months of posting bought a permanent one, and everything downstream of it runs again for free.</p>
+      <div class="block block--ink" style="margin-top:1.6rem">
+        <div class="ledger">
+          <div>
+            <div class="led"><span>Audience you own outright</span><b>5,000</b></div>
+            <div class="led"><span>Library that keeps serving</span><b>100 posts</b></div>
+            <div class="led"><span>Free redistribution to a second platform</span><b>TikTok + IG</b></div>
+          </div>
+          <div>
+            <div class="led"><span>Shares, the audience distributing for you</span><b>61.8K</b></div>
+            <div class="led"><span>Comments, a standing research panel</span><b>7.7K</b></div>
+            <div class="led"><span>Cost to keep it all running</span><b>$0</b></div>
+          </div>
+        </div>
+        <p style="margin-top:1.4rem;max-width:70ch;color:rgba(244,240,232,.82)"><strong style="color:var(--paper)">Run the same content on both platforms and the second one costs nothing.</strong> A post is made once and lives on TikTok, Reels and the pinned highlights. None of it switches off when a budget does.</p>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">Method</span>
+      <h3 class="sec">Why this translates to a company I've never touched.</h3>
+      <p class="sec-sub">The obvious objection: it worked because I have Type 1 diabetes. Founder-market fit helped. It wasn't the mechanism, and it was worth less than the ten-million-person ceiling cost me.</p>
+      <div class="grid-2" style="margin-top:1.6rem">
+        <div class="note"><span class="eyebrow">Before making anything</span><h4>I became the target audience on purpose.</h4><p>I spent weeks training my feed on the niche until the algorithm served me what it serves the customer. Then I built from what I couldn't skip. <strong>That's a process, not a biography.</strong> It costs two weeks.</p></div>
+        <div class="note"><span class="eyebrow">What I got wrong</span><h4>Trends and edits do not sell health.</h4><p>I assumed polished edits and trending sounds would win. They didn't. Nobody comes to their health looking for something trendy. <strong>What worked was disturbing, inspiring or controversial.</strong> UGC or faceless barely mattered. Emotion was the variable.</p></div>
+        <div class="note"><span class="eyebrow">The call I defend hardest</span><h4>80% of the videos never show the product.</h4><p>The For You page is where people are most resistant. Pitching there burns the impression. So the content is about <strong>the problem the audience shares</strong>, not the app. The ad creative lives on the pinned highlights, the store listing and the landing page, where intent already exists.</p></div>
+        <div class="note"><span class="eyebrow">What I am actually selling</span><h4>A brand account, not a spike.</h4><p>A following is <strong>name recognition, a community, and a direct line into 5,000 inboxes</strong> nobody can outbid you for. The floor between spikes is the number that matters. It went up every month, on both accounts, without a dollar behind it.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">The playbook, portable</span>
+      <h3 class="sec">What I'd do in your first 30 days.</h3>
+      <div class="plan" style="margin-top:1.4rem">
+        <div><h4>Weeks 1 and 2</h4><ul>
+          <li>Train a feed on your category until the algorithm serves me your customer</li>
+          <li>Find what your niche reacts to, not what's trending</li>
+          <li>Stand up the account, brand, bio and pinned product surface</li>
+          <li>Ship 15 posts across all three formats. Read what moves</li>
+        </ul></div>
+        <div><h4>Weeks 3 and 4</h4><ul>
+          <li>Lock the format that worked and scale volume against it</li>
+          <li>Layer UGC and on camera to turn reach into followers</li>
+          <li>Mirror the library to Instagram for free</li>
+          <li>Open direct outreach once the name means something</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">Receipts</span>
+      <h3 class="sec">Uncropped, straight from the dashboards.</h3>
+      <p class="sec-sub">TikTok creator analytics and App Store Connect. The account is public if you want to check.</p>
+      <div class="shots">
+        <figure class="shot shot--wide"><div class="frame"><img src="../assets/img/remira-totals.png" width="1200" height="134" loading="lazy" decoding="async" alt="TikTok analytics totals: 7.3M video views, 37.7K profile views, 951.8K likes, 7.7K comments, 61.8K shares"></div><figcaption>@remira.t1d &middot; lifetime totals, 100 posts</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="../assets/img/remira-followers-daily.png" width="517" height="337" loading="lazy" decoding="async" alt="Daily new-follower chart from April 27 to August 5, 2026, with a baseline that lifts off zero in late May and stays up between spikes"></div><figcaption>Daily new followers &middot; Apr 27 to Aug 5 &middot; the floor lifts and stays up</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="../assets/img/remira-views-daily.png" width="572" height="318" loading="lazy" decoding="async" alt="Daily views chart from April to August 2026, ramping from near zero to peaks above 300K"></div><figcaption>Daily views &middot; April 16 to August 2</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="../assets/img/remira-top-1-4.png" width="745" height="567" loading="lazy" decoding="async" alt="Top posts ranked by views: 925K, 866K, 537K and 457K"></div><figcaption>Top posts by views &middot; 1 through 4</figcaption></figure>
+        <figure class="shot"><div class="frame"><img src="../assets/img/remira-top-5-8.png" width="752" height="523" loading="lazy" decoding="async" alt="Top posts ranked by views, positions five through eight: 419K, 368K, 346K, 320K"></div><figcaption>Top posts by views &middot; 5 through 8</figcaption></figure>
+        <figure class="shot shot--wide"><div class="frame"><img src="../assets/img/remira-top-followers.png" width="972" height="568" loading="lazy" decoding="async" alt="Top posts ranked by new followers: 1.1K, 640, 405 and 365, a different order than views"></div><figcaption>Top posts by followers &middot; a different order</figcaption></figure>
+        <figure class="shot shot--wide"><div class="frame"><img src="../assets/img/remira-post-321k.png" width="1200" height="220" loading="lazy" decoding="async" alt="Post analytics: 321K views, 46K likes, 9.15s average watch time, 1.1K new followers"></div><figcaption>On camera, 0:27 &middot; 321K views, 1.1K followers</figcaption></figure>
+        <figure class="shot shot--wide"><div class="frame"><img src="../assets/img/remira-post-63k.png" width="1200" height="199" loading="lazy" decoding="async" alt="Post analytics: 63K views, 19.17s average watch time, 640 new followers"></div><figcaption>On camera, 1:41 &middot; 19.2s average watch, 640 followers</figcaption></figure>
+        <figure class="shot shot--wide"><div class="frame"><img src="../assets/img/remira-post-927k.png" width="1200" height="226" loading="lazy" decoding="async" alt="Post analytics: 927K views, 132K likes, 49.3% watched the full video, 6,555 shares"></div><figcaption>Faceless, 0:06 &middot; 927K views, 49.3% full watch, 6.5K shares</figcaption></figure>
+        <figure class="shot shot--wide"><div class="frame"><img src="../assets/img/remira-app-store.jpg" width="1200" height="704" loading="lazy" decoding="async" alt="Remira T1D App Store listing: 5.0 stars from 26 ratings, Health and Fitness category"></div><figcaption>App Store listing &middot; 5.0&#9733; / 26 ratings &middot; creative by me</figcaption></figure>
+      </div>
+
+      <div class="dm">
+        <img src="../assets/img/remira-dm.jpg" width="600" height="1095" loading="lazy" decoding="async" alt="A direct message: an introduction to the app with a link to remira-ai.com, answered with a heart and a reply from a parent whose son has Type 1 diabetes">
+        <div>
+          <span class="eyebrow">One of 2,500</span>
+          <h4>What a 15% conversion rate looks like up close.</h4>
+          <p>Sent by hand, one at a time, over weeks. No automation, no scraping. TikTok bans for that, and a template reads like one.</p>
+          <p style="margin-top:0.7rem"><strong>This one is a father whose son has T1D.</strong> He answered with a heart before he answered with words. That happens when someone has already seen four of your videos and the message is about him, not the product.</p>
+          <p style="margin-top:0.7rem">This is the pre-launch version, pointing at the signup instead of the App Store. Same message, same channel. It's where the install list came from before there was an install.</p>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn--ink" href="https://www.tiktok.com/@remira.t1d/collection/Best%20of%20T1D-7653365468719876878" target="_blank" rel="noopener">Watch the best of T1D <span class="arr" aria-hidden="true">&#8599;</span></a>
+        <a class="btn btn--ghost" href="https://www.tiktok.com/@remira.t1d" target="_blank" rel="noopener">@remira.t1d</a>
+        <a class="btn btn--ghost" href="https://apps.apple.com/us/app/remira-t1d/id6759989867" target="_blank" rel="noopener">App Store</a>
+        <a class="btn btn--ghost" href="../gtm/#remira">The GTM side of Remira <span class="arr" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+  </div></div>
+</dialog>
+
+<!-- =====================================================================
+     CASE STUDY: THE FINANCE GUIDE
+     ===================================================================== -->
+<dialog class="cs" id="cs-finance" aria-labelledby="cs-finance-t">
+  <div class="cs__bar">
+    <span class="eyebrow"><span class="num">Case study</span><span class="dash"></span>The Finance Guide</span>
+    <button class="cs__close" type="button" data-close>Close <kbd>Esc</kbd><span class="x" aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="cs__scroll" tabindex="-1" autofocus><div class="cs__body">
+    <p class="eyebrow">The Finance Guide &middot; End of May to end of August 2025</p>
+    <h2 class="cs-title" id="cs-finance-t">Different category, no face, <span class="scr">same</span> result.</h2>
+    <p class="cs-intro">I ran this once before Remira. Finance, anonymous, nothing to sell. That run is why I know the method isn't a story about my diagnosis.</p>
+
+    <div class="kpis">
+      <div><div class="v">10M</div><div class="k">Views</div></div>
+      <div><div class="v">15K</div><div class="k">Followers, from zero</div></div>
+      <div><div class="v">1M</div><div class="k">Likes</div></div>
+      <div><div class="v">100K</div><div class="k">Profile visits</div></div>
+      <div><div class="v">100</div><div class="k">Posts, one summer</div></div>
+      <div><div class="v">6</div><div class="k">Videos past 750K</div></div>
+      <div><div class="v">1.5M</div><div class="k">Best single video</div></div>
+      <div><div class="v">2</div><div class="k">Paid brand deals, inbound</div></div>
+    </div>
+
+    <section>
+      <span class="eyebrow">The run</span>
+      <div class="block">
+        <h3 class="sec">10M views and 15K followers in one summer, from zero.</h3>
+        <p class="sec-sub">End of May to end of August 2025. 100 posts, solo, no face, no budget, no existing audience. <strong>Six videos cleared 750K. The best hit 1.5M.</strong></p>
+        <p class="sec-sub">The account became the product. <strong>Autopilot and Nummo AI both paid me for brand content</strong>, inbound, off the audience alone. That is what a name is worth before you have anything to sell.</p>
+        <p class="sec-sub"><strong>Two categories, two runs, same playbook.</strong> The second time I built the destination first, then pointed 7.3M views at it.</p>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">The method</span>
+      <h3 class="sec">Read the data, lock the format, scale against it.</h3>
+      <div class="grid-3" style="margin-top:1.6rem">
+        <div class="note"><span class="eyebrow">01 &middot; Read</span><h4>Retention over vanity.</h4><p>I tracked every post's KPIs in Excel and read format performance against audience retention, not likes. The data said what the audience actually stayed for.</p></div>
+        <div class="note"><span class="eyebrow">02 &middot; Lock</span><h4>One repeatable format.</h4><p>Faceless and anonymous, so the edit had to carry everything. Once a format held attention, it became the template rather than a one-off.</p></div>
+        <div class="note"><span class="eyebrow">03 &middot; Scale</span><h4>Volume against what works.</h4><p>100 posts in a summer, all against the proven format. Six cleared 750K, and the audience compounded into 15K followers and two inbound brand deals.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">Receipt</span>
+      <h3 class="sec">One post: 891K views and 1.8K followers.</h3>
+      <div class="shots">
+        <figure class="shot shot--wide"><div class="frame"><img src="../assets/img/finance-891k.png" width="1200" height="229" loading="lazy" decoding="async" alt="Post analytics from the Finance Guide account: 891K views, 4,148 hours total play time, 16.44s average watch time, 10.4% watched the full video, 1.8K new followers"></div><figcaption>@financeguide111 &middot; 891K views, 16.4s average watch, 1.8K followers from one post</figcaption></figure>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn--ink" href="https://www.tiktok.com/@financeguide111/collection/%F0%9F%8F%86Best%20Edits-7520739197204941623" target="_blank" rel="noopener">Watch the best edits <span class="arr" aria-hidden="true">&#8599;</span></a>
+        <a class="btn btn--ghost" href="https://www.tiktok.com/@financeguide111" target="_blank" rel="noopener">@financeguide111</a>
+      </div>
+    </section>
+  </div></div>
+</dialog>
+
+<!-- =====================================================================
+     CASE STUDY: AETHER (social lens)
+     ===================================================================== -->
+<dialog class="cs" id="cs-aether" aria-labelledby="cs-aether-t">
+  <div class="cs__bar">
+    <span class="eyebrow"><span class="num">Case study</span><span class="dash"></span>Aether</span>
+    <button class="cs__close" type="button" data-close>Close <kbd>Esc</kbd><span class="x" aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="cs__scroll" tabindex="-1" autofocus><div class="cs__body">
+    <p class="eyebrow">Aether &middot; GTM lead, contract &middot; Pilot: August 17 to September 21, 2026</p>
+    <h2 class="cs-title" id="cs-aether-t">Developers don't follow ads. They follow <span class="scr">proof</span>.</h2>
+    <p class="cs-intro">Aether runs AI coding agents in isolated cloud devboxes, so a developer can run a fleet of them in parallel and supervise outcomes instead of babysitting terminals. I joined on contract to run growth and go-to-market. We couldn't market Aether until we could explain it, so the message came first and the social channels second. Both were built from zero, at $0.</p>
+
+    <div class="kpis">
+      <div><div class="v">+81%</div><div class="k">Weekly signups, 11.3 to 20.5 avg</div></div>
+      <div><div class="v">82</div><div class="k">New users in 4 weeks, matching the prior 7</div></div>
+      <div><div class="v">~1,200</div><div class="k">Instagram followers, from 0 in 5 weeks</div></div>
+      <div><div class="v">~1,000</div><div class="k">Instagram views a day</div></div>
+      <div><div class="v">216</div><div class="k">Unique visitors from Instagram in 30 days</div></div>
+      <div><div class="v">421</div><div class="k">Unique visitors from Instagram + X</div></div>
+      <div><div class="v">3</div><div class="k">Creators contract-ready, of ~50 contacted</div></div>
+      <div><div class="v">$0</div><div class="k">Paid spend</div></div>
+    </div>
+
+    <section>
+      <span class="eyebrow">01 &middot; Message before megaphone</span>
+      <h3 class="sec">The most damaging confusion was "are you replacing my CLI?"</h3>
+      <p class="sec-sub">It's the default read of every developer who sees Aether. It ate the first twenty minutes of a call with a senior DevOps engineer and nearly ended it. Once Aether was framed as an augment to the tools they already love, the objection reversed. Every asset now has to pre-empt it in the first ten seconds.</p>
+      <div class="grid-2" style="margin-top:1.6rem;align-items:center">
+        <p class="quote">Turn your AI subscription into a dev team.</p>
+        <p class="body-sm">The landing page went from a feature wall to one proposition. Outbound into developer communities stayed paused until it landed, because you get one credible entry into a developer community, and burning it on a pitch that fails first contact is worse than not entering.</p>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">02 &middot; The formats</span>
+      <h3 class="sec">Show the work. Never pitch the work.</h3>
+      <p class="sec-sub">I studied how the developer brands people actually follow (Lovable, Clay) post, then built Aether's own versions of their best formats.</p>
+      <div class="grid-3" style="margin-top:1.6rem">
+        <div class="note"><span class="eyebrow">Instagram &middot; TikTok &middot; Shorts</span><h4>Faceless demos with a caption hook.</h4><p>Quick screen captures of agents doing real work, with one line of copy that earns the next three seconds. Carousels and on-camera experiments run alongside.</p></div>
+        <div class="note"><span class="eyebrow">X</span><h4>Memes, release screenshots, real replies.</h4><p>Join conversations that already matter, screenshot the releases worth noticing, and build a voice developers recognize. The company account was rebuilt and put on a cadence.</p></div>
+        <div class="note"><span class="eyebrow">Brand</span><h4>A bible for how we sound.</h4><p>Mottos written to the actual fear: <strong>"You trust your agents, but do you really?"</strong> &middot; "Stop babysitting your agents." &middot; "It loops until it's green."</p></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">03 &middot; The plan</span>
+      <h3 class="sec">Twelve weeks of content franchises, not random posts.</h3>
+      <p class="sec-sub">Each franchise answers one question the buyer is already asking, and the last one becomes an earned launch asset.</p>
+      <table class="tbl franchise">
+        <thead><tr><th>Week</th><th>Franchise</th><th>The question it answers</th></tr></thead>
+        <tbody>
+          <tr><td>W1&ndash;2</td><td>Agent Ops thesis</td><td>Why managing agents is becoming the bottleneck</td></tr>
+          <tr><td>W3</td><td>Local &rarr; cloud</td><td>Five parallel tasks vs local worktrees</td></tr>
+          <tr><td>W4</td><td>Agent Arena #1</td><td>Claude vs Codex on the same repo and task</td></tr>
+          <tr><td>W5</td><td>Verification</td><td>The agent said "done." What actually shipped?</td></tr>
+          <tr><td>W6</td><td>Incident loop</td><td>Sentry alert &rarr; fix &rarr; review &rarr; PR</td></tr>
+          <tr><td>W7</td><td>Agent economics</td><td>Where agent spend actually goes</td></tr>
+          <tr><td>W8</td><td>Agent Arena #2</td><td>Author agent vs reviewer agent</td></tr>
+          <tr><td>W9</td><td>Customer proof</td><td>One user workflow, end to end</td></tr>
+          <tr><td>W10</td><td>Agent autonomy</td><td>Where humans should still intervene</td></tr>
+          <tr><td>W11</td><td>1,000-run data</td><td>Early findings and teasers</td></tr>
+          <tr><td>W12</td><td>State of Agent Ops</td><td>A major benchmark, the earned launch asset</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <span class="eyebrow">04 &middot; Distribution built from zero</span>
+      <h3 class="sec">A five-week-old Instagram out-referred years of X.</h3>
+      <table class="tbl">
+        <thead><tr><th>Channel</th><th>Status after the pilot</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td>Instagram</td><td>~1,200 followers, ~50 a day, ~1,000 views a day. 216 unique visitors to the site in 30 days at $0, more than X (205), a presence built over years.</td></tr>
+          <tr><td>X</td><td>Company account rebuilt, cadence set, first substantive technical engagement, including a reply from a verified industry account.</td></tr>
+          <tr><td>TikTok</td><td>Shadowbanned on the platform side. Needs a fresh account, which is in the next phase.</td></tr>
+        </tbody>
+      </table>
+      <p class="sec-sub" style="margin-top:1rem">Credit where it's due: most of X's 205 visitors likely came through the founder's personal account, not the company one. That's exactly why the owned Instagram audience matters. <strong>Every follower is distribution we don't have to rent.</strong></p>
+    </section>
+
+    <section>
+      <span class="eyebrow">05 &middot; The lift</span>
+      <h3 class="sec">New users per week, before and during the pilot.</h3>
+      <p class="sec-sub">The pilot added as many new users in four weeks as the product had in the previous seven. The week of Aug 24 held above the old average while I was unavailable, which suggests the lift comes from compounding channel presence, not day-to-day posting.</p>
+      <figure class="chart">
+<svg viewBox="0 0 720 268" role="img" aria-labelledby="sg-t sg-d">
+<title id="sg-t">Aether weekly new users, June 29 to September 7, 2026</title>
+<desc id="sg-d">Seven pre-pilot weeks averaged 11.3 new users. The four pilot weeks starting August 17 averaged 20.5, an 81 percent lift. Peak week: 36.</desc>
+<g class="grid axis">
+<line x1="34" x2="712" y1="226.0" y2="226.0"/><text x="26" y="229.5" text-anchor="end">0</text>
+<line x1="34" x2="712" y1="174.0" y2="174.0"/><text x="26" y="177.5" text-anchor="end">10</text>
+<line x1="34" x2="712" y1="122.0" y2="122.0"/><text x="26" y="125.5" text-anchor="end">20</text>
+<line x1="34" x2="712" y1="70.0" y2="70.0"/><text x="26" y="73.5" text-anchor="end">30</text>
+<line x1="34" x2="712" y1="18.0" y2="18.0"/><text x="26" y="21.5" text-anchor="end">40</text>
+</g>
+<line x1="465.5" x2="465.5" y1="12" y2="226" stroke="var(--ink)" stroke-width="1"/>
+<text class="lbl" x="458.5" y="20" text-anchor="end" style="fill:var(--ink)">Pilot begins, Aug 17</text>
+<line class="avg" x1="38" x2="461.5" y1="167.3" y2="167.3"/>
+<text class="avg-l" x="249.7" y="161.3" text-anchor="middle">avg 11.3 / wk</text>
+<line class="avg" x1="469.5" x2="708" y1="119.4" y2="119.4"/>
+<text class="avg-l" x="708" y="113.4" text-anchor="end">avg 20.5 / wk  (+81%)</text>
+<rect class="hit" role="img" x="35.0" y="18" width="59.6" height="208" tabindex="0" data-tip="Jun 29, pre-pilot" data-tip-v="10 new users" aria-label="Jun 29: 10 new users"/>
+<path class="bar" d="M52.8 226V178.0Q52.8 174.0 56.8 174.0H72.8Q76.8 174.0 76.8 178.0V226Z"/>
+<text class="lbl" x="64.8" y="243" text-anchor="middle">Jun 29</text>
+<rect class="hit" role="img" x="96.6" y="18" width="59.6" height="208" tabindex="0" data-tip="Jul 6, pre-pilot" data-tip-v="27 new users" aria-label="Jul 6: 27 new users"/>
+<path class="bar" d="M114.5 226V89.6Q114.5 85.6 118.5 85.6H134.5Q138.5 85.6 138.5 89.6V226Z"/>
+<text class="lbl" x="126.5" y="243" text-anchor="middle">Jul 6</text>
+<rect class="hit" role="img" x="158.3" y="18" width="59.6" height="208" tabindex="0" data-tip="Jul 13, pre-pilot" data-tip-v="10 new users" aria-label="Jul 13: 10 new users"/>
+<path class="bar" d="M176.1 226V178.0Q176.1 174.0 180.1 174.0H196.1Q200.1 174.0 200.1 178.0V226Z"/>
+<text class="lbl" x="188.1" y="243" text-anchor="middle">Jul 13</text>
+<rect class="hit" role="img" x="219.9" y="18" width="59.6" height="208" tabindex="0" data-tip="Jul 20, pre-pilot" data-tip-v="4 new users" aria-label="Jul 20: 4 new users"/>
+<path class="bar" d="M237.7 226V209.2Q237.7 205.2 241.7 205.2H257.7Q261.7 205.2 261.7 209.2V226Z"/>
+<text class="lbl" x="249.7" y="243" text-anchor="middle">Jul 20</text>
+<rect class="hit" role="img" x="281.5" y="18" width="59.6" height="208" tabindex="0" data-tip="Jul 27, pre-pilot" data-tip-v="6 new users" aria-label="Jul 27: 6 new users"/>
+<path class="bar" d="M299.4 226V198.8Q299.4 194.8 303.4 194.8H319.4Q323.4 194.8 323.4 198.8V226Z"/>
+<text class="lbl" x="311.4" y="243" text-anchor="middle">Jul 27</text>
+<rect class="hit" role="img" x="343.2" y="18" width="59.6" height="208" tabindex="0" data-tip="Aug 3, pre-pilot" data-tip-v="11 new users" aria-label="Aug 3: 11 new users"/>
+<path class="bar" d="M361.0 226V172.8Q361.0 168.8 365.0 168.8H381.0Q385.0 168.8 385.0 172.8V226Z"/>
+<text class="lbl" x="373.0" y="243" text-anchor="middle">Aug 3</text>
+<rect class="hit" role="img" x="404.8" y="18" width="59.6" height="208" tabindex="0" data-tip="Aug 10, pre-pilot" data-tip-v="11 new users" aria-label="Aug 10: 11 new users"/>
+<path class="bar" d="M422.6 226V172.8Q422.6 168.8 426.6 168.8H442.6Q446.6 168.8 446.6 172.8V226Z"/>
+<text class="lbl" x="434.6" y="243" text-anchor="middle">Aug 10</text>
+<rect class="hit" role="img" x="466.5" y="18" width="59.6" height="208" tabindex="0" data-tip="Aug 17, pilot" data-tip-v="36 new users" aria-label="Aug 17: 36 new users"/>
+<path class="bar bar--hl" d="M484.3 226V42.8Q484.3 38.8 488.3 38.8H504.3Q508.3 38.8 508.3 42.8V226Z"/>
+<text class="val" x="496.3" y="31.8" text-anchor="middle">36</text>
+<text class="lbl" x="496.3" y="243" text-anchor="middle">Aug 17</text>
+<rect class="hit" role="img" x="528.1" y="18" width="59.6" height="208" tabindex="0" data-tip="Aug 24, pilot" data-tip-v="15 new users" aria-label="Aug 24: 15 new users"/>
+<path class="bar bar--hl" d="M545.9 226V152.0Q545.9 148.0 549.9 148.0H565.9Q569.9 148.0 569.9 152.0V226Z"/>
+<text class="lbl" x="557.9" y="243" text-anchor="middle">Aug 24</text>
+<rect class="hit" role="img" x="589.7" y="18" width="59.6" height="208" tabindex="0" data-tip="Aug 31, pilot" data-tip-v="19 new users" aria-label="Aug 31: 19 new users"/>
+<path class="bar bar--hl" d="M607.5 226V131.2Q607.5 127.2 611.5 127.2H627.5Q631.5 127.2 631.5 131.2V226Z"/>
+<text class="lbl" x="619.5" y="243" text-anchor="middle">Aug 31</text>
+<rect class="hit" role="img" x="651.4" y="18" width="59.6" height="208" tabindex="0" data-tip="Sep 7, pilot" data-tip-v="12 new users" aria-label="Sep 7: 12 new users"/>
+<path class="bar bar--hl" d="M669.2 226V167.6Q669.2 163.6 673.2 163.6H689.2Q693.2 163.6 693.2 167.6V226Z"/>
+<text class="lbl" x="681.2" y="243" text-anchor="middle">Sep 7</text>
+</svg>
+<figcaption class="chart-legend"><span><i style="background:var(--gray-mark)"></i>Pre-pilot weeks</span><span><i style="background:var(--accent)"></i>Pilot weeks</span><span class="muted">Source: PostHog, pulled Sep 16, 2026</span></figcaption>
+<details class="table-view"><summary>Table view</summary><table class="tbl"><thead><tr><th>Week of</th><th>Phase</th><th class="num">New users</th></tr></thead><tbody><tr><td>Jun 29</td><td>Pre-pilot</td><td class="num">10</td></tr><tr><td>Jul 6</td><td>Pre-pilot</td><td class="num">27</td></tr><tr><td>Jul 13</td><td>Pre-pilot</td><td class="num">10</td></tr><tr><td>Jul 20</td><td>Pre-pilot</td><td class="num">4</td></tr><tr><td>Jul 27</td><td>Pre-pilot</td><td class="num">6</td></tr><tr><td>Aug 3</td><td>Pre-pilot</td><td class="num">11</td></tr><tr><td>Aug 10</td><td>Pre-pilot</td><td class="num">11</td></tr><tr class=hl><td>Aug 17</td><td>Pilot</td><td class="num">36</td></tr><tr><td>Aug 24</td><td>Pilot</td><td class="num">15</td></tr><tr><td>Aug 31</td><td>Pilot</td><td class="num">19</td></tr><tr><td>Sep 7</td><td>Pilot</td><td class="num">12</td></tr></tbody></table></details>
+</figure>
+    </section>
+
+    <section>
+      <span class="eyebrow">06 &middot; Creators</span>
+      <h3 class="sec">~50 creators contacted. Three negotiated to contract-ready.</h3>
+      <div class="grid-3" style="margin-top:1.6rem">
+        <div class="note"><span class="eyebrow">Pipeline</span><h4>~$9.5K across three creators.</h4><p>Chosen for audience fit over follower count: each already talks to engineers who run agents, and one placement cross-posts to three platforms.</p></div>
+        <div class="note"><span class="eyebrow">Negotiation</span><h4>Price halved, format lengthened.</h4><p>The lead deal was negotiated to half the ask while upgrading to a full-length review. Cost per thousand views fell from about $667 to $333.</p></div>
+        <div class="note"><span class="eyebrow">Allocation</span><h4>Reach per dollar decides.</h4><p>Hackathon sponsorships were redirected to creator sponsorships on reach per dollar, with replacement creators held in reserve on price, not fit.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">07 &middot; Next</span>
+      <div class="block block--ink">
+        <h3 class="sec" style="color:var(--paper)">10,000 followers across every Aether account in 90 days.</h3>
+        <p style="margin-top:0.8rem;max-width:66ch;color:rgba(244,240,232,.82)">From ~1,300 at the end of the pilot, that's roughly an 8&times; increase, organic, on a developer tool, with no paid social budget. Most growth hires wouldn't put that number in writing. I did, because Instagram went from zero to a top referrer in five weeks. At current sponsorship rates, ~$9.5K buys a few placements. An owned audience of 10,000 produces comparable reach every month, at no marginal cost.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn--ink" href="../gtm/#aether">The strategy behind it <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn--ghost" href="https://www.runaether.dev" target="_blank" rel="noopener">runaether.dev <span class="arr" aria-hidden="true">&#8599;</span></a>
+      </div>
+    </section>
+  </div></div>
+</dialog>
+
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>
