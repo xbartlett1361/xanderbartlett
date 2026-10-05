@@ -195,13 +195,6 @@ strong, b { font-weight: 560; }
   display: inline-flex;
   align-items: baseline;
 }
-.brand::after {
-  content: "";
-  width: 0.38rem; height: 0.38rem;
-  border-radius: 50%;
-  background: var(--accent);
-  margin-left: 0.18rem;
-}
 .tabs { display: flex; align-items: center; gap: 0.25rem; }
 .tab {
   position: relative;
