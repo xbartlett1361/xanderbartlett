@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>GTM Strategy &amp; Engineering · Xander Bartlett</title>
-<meta name="description" content="Go-to-market as a strategy, not a channel. Why a consumer health app went social-first and a developer tool didn't, which platforms and outreach each one got, and what I'm running now at Aether.">
+<meta name="description" content="Distribution is moat. GTM is the art of distributing in the right place, at the right time, to as many of the right people as possible. Aether (+81% weekly signups) and Remira (1,000 installs), both at $0 paid.">
 <meta name="theme-color" content="#f4f0e8">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GTM Strategy &amp; Engineering · Xander Bartlett">
-<meta property="og:description" content="Same operator, opposite plays. +81% weekly signups at Aether and 1,000 installs at Remira, both at $0 paid.">
+<meta property="og:description" content="Distribution is moat. +81% weekly signups at Aether and 1,000 installs at Remira, both at $0 paid.">
 <meta property="og:image" content="https://xanderbartlett.com/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -17,84 +17,40 @@
 <link rel="preload" href="../assets/fonts/mr-dafoe-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <style>
-  .page { display: grid; grid-template-rows: auto auto auto; align-content: space-between; row-gap: 1.05rem; padding: 1.3rem 0 1.2rem; }
-
-  .ph { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: 3rem; }
-  .ph .display { margin-top: 0.7rem; }
-  .ph .lede { margin-top: 1.05rem; max-width: 62ch; font-size: 1.02rem; }
-  .agg { display: grid; grid-template-columns: repeat(3, auto); column-gap: 2.2rem; padding-bottom: 0.3rem; }
-  .agg .v { font-size: 2.15rem; font-weight: 400; letter-spacing: -0.045em; }
-
-  /* the strategy matrix */
-  .mx { display: grid; grid-template-columns: 8.6rem minmax(0, 1.22fr) minmax(0, 1fr); border-top: 1px solid var(--ink); align-content: start; }
-  .mx > * { padding: 0.56rem 1.1rem 0.56rem 0; border-bottom: 1px solid var(--hair); font-size: 0.84rem; line-height: 1.38; color: var(--ink-2); }
-  .mx > .c-a { padding-left: 1.1rem; background: var(--accent-wash); }
-  .mx > .c-r { padding-left: 1.1rem; }
-  .mx .lab { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); padding-top: 0.66rem; }
-  .mx .hd { padding-top: 0.75rem; padding-bottom: 0.7rem; border-bottom-color: var(--ink); }
-  .mx .hd .t { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
-  .mx .hd b { font-size: 1.2rem; font-weight: 500; letter-spacing: -0.03em; color: var(--ink); }
-  .mx .hd .m { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.03em; color: var(--muted); }
-  .mx .hd .cs-link { margin-left: auto; font-size: 0.78rem; font-weight: 500; color: var(--ink); }
-  .mx .hd .cs-link:hover { text-decoration: underline; text-underline-offset: 3px; }
-  .mx strong { color: var(--ink); font-weight: 540; }
-  .mx .lead { color: var(--ink); }
-
-  /* now / next */
-  .live { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) 16.5rem; gap: 1.1rem; align-items: stretch; }
-  .phase { border-top: 1.5px solid var(--ink); padding-top: 0.55rem; }
-  .phase .eyebrow { display: flex; align-items: center; gap: 0.5rem; }
-  .phase .eyebrow .when { color: var(--ink-2); }
-  .phase p { margin-top: 0.35rem; font-size: 0.82rem; line-height: 1.4; color: var(--ink-2); }
-  .phase--now { border-top-color: var(--accent); }
-  .phase--next { border-top-style: solid; border-top-color: var(--hair); }
-  .cases { display: flex; flex-direction: column; gap: 0.45rem; }
-  .cases .eyebrow { margin-bottom: 0.1rem; }
-  .case-btn {
-    display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
-    padding: 0.45rem 0.5rem 0.45rem 0.85rem; border: 1px solid var(--ink); border-radius: var(--pill);
-    font-size: 0.8rem; font-weight: 500; text-align: left; transition: background 0.2s var(--ease), color 0.2s var(--ease);
-  }
-  .case-btn .plus { width: 1.25rem; height: 1.25rem; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--paper); font-size: 0.85rem; flex: none; transition: transform 0.3s var(--ease), background 0.2s; }
-  .case-btn:hover { background: var(--ink); color: var(--paper); }
-  .case-btn:hover .plus { background: var(--accent); transform: rotate(90deg); }
-  .case-btn--soon { border-style: dashed; border-color: var(--hair); color: var(--muted); cursor: default; padding-right: 0.85rem; }
-  .case-btn--soon:hover { background: transparent; color: var(--muted); }
+  .xps--gtm { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
+  .xps--gtm .stats { grid-template-columns: repeat(4, auto); justify-content: space-between; }
+  .xps--gtm .tldr > div { grid-template-columns: 6.6rem minmax(0, 1fr); }
+  .xp--lead { background: var(--paper-3); }
+  .xp__tag { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: 0.6rem; vertical-align: 0.3rem; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); padding: 0.2rem 0.55rem; border: 1px solid var(--hair); border-radius: var(--pill); }
+  .xp__tag::before { content: ""; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--accent); animation: pulse 2.4s ease-out infinite; }
 
   /* case-study extras */
   .stack { margin-top: 1.6rem; border-radius: 1.1rem; overflow: hidden; border: 1px solid var(--ink); }
-  .stack > div { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; padding: 0.85rem 1.2rem; border-bottom: 1px solid var(--hair); font-size: 0.95rem; }
+  .stack > div { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; padding: 0.85rem 1.2rem; border-bottom: 1px solid var(--hair); font-size: 1rem; }
   .stack > div:last-child { border-bottom: 0; }
-  .stack .k { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding-top: 0.2rem; }
+  .stack .k { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding-top: 0.2rem; }
   .stack .me { background: var(--ink); color: var(--paper); font-weight: 500; }
   .stack .me .k { color: var(--accent); }
   .fromto { display: grid; grid-template-columns: 1fr 2.4rem 1fr; gap: 0.6rem; align-items: start; margin-top: 1.4rem; }
   .fromto ul { list-style: none; }
-  .fromto li { padding: 0.5rem 0; border-bottom: 1px solid var(--hair); font-size: 0.92rem; color: var(--ink-2); }
-  .fromto h4 { font-family: var(--mono); font-size: 0.66rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; padding-bottom: 0.5rem; border-bottom: 1px solid var(--ink); }
+  .fromto li { padding: 0.5rem 0; border-bottom: 1px solid var(--hair); font-size: 1rem; color: var(--ink-2); }
+  .fromto h4 { font-family: var(--mono); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; padding-bottom: 0.5rem; border-bottom: 1px solid var(--ink); }
   .fromto .arrow { padding-top: 2.4rem; text-align: center; font-size: 1.3rem; color: var(--accent); }
   .seq { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 1.6rem; border-top: 1.5px solid var(--ink); }
   .seq > div { padding: 0.9rem 1rem 0 0; }
   .seq > div + div { padding-left: 1rem; border-left: 1px solid var(--hair); }
   .seq b { display: block; font-weight: 520; margin: 0.4rem 0 0.3rem; letter-spacing: -0.015em; }
-  .seq p { font-size: 0.9rem; color: var(--ink-2); line-height: 1.45; }
-  .plate li { list-style: none; padding: 0.55rem 0; border-bottom: 1px solid rgba(244, 240, 232, 0.16); font-size: 0.95rem; }
+  .seq p { font-size: 0.98rem; color: var(--ink-2); line-height: 1.45; }
+  .plate li { list-style: none; padding: 0.55rem 0; border-bottom: 1px solid rgba(244, 240, 232, 0.16); font-size: 1rem; }
   .plate li b { color: var(--paper); }
   .mtx-why { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.6rem; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
 
   @media (max-width: 900px) {
-    .page { padding-top: 1.2rem; row-gap: 1.8rem; }
-    .ph { grid-template-columns: 1fr; row-gap: 1.3rem; }
-    .agg { grid-template-columns: repeat(3, auto); justify-content: start; }
-    .mx { grid-template-columns: 1fr; border-top: 0; }
-    .mx > * { padding-left: 0 !important; padding-right: 0; background: none !important; }
-    .mx .lab { padding-top: 1.1rem; border-bottom: 1px solid var(--ink); }
-    .mx .hd.lab { display: none; }
-    .mx .c-a::before { content: "Aether \00b7  "; font-weight: 600; color: var(--ink); }
-    .mx .c-r::before { content: "Remira \00b7  "; font-weight: 600; color: var(--ink); }
-    .mx .hd::before { content: none !important; }
-    .live { grid-template-columns: 1fr; }
+    .xps--gtm { grid-template-columns: 1fr; }
+    .xps--gtm .stats { grid-template-columns: repeat(2, auto); justify-content: start; column-gap: 2rem; }
+    .xps--gtm .tldr > div { grid-template-columns: 5.6rem minmax(0, 1fr); }
+    .skills { --n: 2 !important; }
     .seq { grid-template-columns: 1fr 1fr; row-gap: 1rem; }
     .seq > div + div { border-left: 0; padding-left: 0; }
     .fromto { grid-template-columns: 1fr; }
@@ -114,85 +70,78 @@
       <a class="tab" href="../product/"><span class="n">02</span>Product Management and Design</a>
       <a class="tab" href="../social/"><span class="n">03</span>Social Media Marketing</a>
     </nav>
-    <div class="topbar__end"><a class="btn btn--ink" href="mailto:xbartlet@umich.edu">xbartlet@umich.edu</a></div>
+    <div class="topbar__end"><a class="btn btn--ink" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=xbartlet@umich.edu" target="_blank" rel="noopener" data-mailto="xbartlet@umich.edu">xbartlet@umich.edu</a></div>
   </header>
 
   <main class="page">
     <header class="ph">
       <div>
-        <p class="eyebrow rise"><span class="num">01</span><span class="dash"></span>GTM Strategy &amp; Engineering</p>
-        <h1 class="display rise" style="--d:1">GTM is a <span class="scr">strategy</span>, not a channel.</h1>
-        <p class="lede rise" style="--d:2">Remira and Aether got opposite playbooks because they have opposite buyers. Social was the engine for one and a supporting channel for the other. Here is why, what shipped, and what I'm running now.</p>
+        <h1 class="display rise"><span class="scr">Distribution</span> is moat.</h1>
+        <p class="lede rise" style="--d:1">GTM is the art of distributing in the right place, at the right time, to as many of the right people as possible.</p>
       </div>
-      <div class="agg stats rise" style="--d:3">
+      <div class="agg stats rise" style="--d:2" aria-label="Results">
         <div class="stat"><div class="v">+81%</div><div class="k">Weekly signups, Aether</div></div>
         <div class="stat"><div class="v">1,000</div><div class="k">Installs, Remira</div></div>
         <div class="stat"><div class="v">$0</div><div class="k">Paid acquisition, both</div></div>
       </div>
     </header>
 
-    <section class="mx rise" style="--d:4" aria-label="Same operator, opposite plays: Aether compared with Remira">
-      <div class="lab hd">Same operator,<br>opposite plays</div>
-      <div class="c-a hd"><div class="t"><b>Aether</b><span class="m">Developer tool &middot; GTM lead &middot; Aug 2026&ndash;now</span><button class="cs-link" type="button" data-open="aether" aria-haspopup="dialog">Pilot report +</button></div></div>
-      <div class="c-r hd"><div class="t"><b>Remira</b><span class="m">Consumer health app &middot; CEO &middot; 2026</span><button class="cs-link" type="button" data-open="remira" aria-haspopup="dialog">Launch study +</button></div></div>
-
-      <div class="lab">The buyer</div>
-      <div class="c-a">Senior engineers running coding agents. Ad-blind; they buy on technical proof from peers.</div>
-      <div class="c-r">People with T1D and their parents. They buy on trust, and they already gather on TikTok.</div>
-
-      <div class="lab">Real constraint</div>
-      <div class="c-a"><strong>Explanation, not reach.</strong> My own technical friends wouldn't sign up for free: they couldn't tell what it replaced.</div>
-      <div class="c-r"><strong>Reach on $0.</strong> An unknown brand in a category of about 10M people worldwide.</div>
-
-      <div class="lab">Why social, or not</div>
-      <div class="c-a lead"><strong>Positioning first, then borrowed credibility.</strong> Developers trust peers and proof over a brand's feed, so social supports; creators, X and comparison pages lead.</div>
-      <div class="c-r lead"><strong>Social is the engine.</strong> A consumer app can't fund paid CAC, and a skeptical patient community trusts a person over an ad.</div>
-
-      <div class="lab">Platforms</div>
-      <div class="c-a"><strong>X</strong>, where developer discourse already lives. <strong>Instagram</strong>, a cheap owned-audience bet. <strong>YouTube creators</strong>, picked over hackathons on reach per dollar.</div>
-      <div class="c-r"><strong>TikTok</strong>, because the algorithm reaches people who don't follow you yet. <strong>Instagram</strong> as free redistribution. App Store page and site to close.</div>
-
-      <div class="lab">Outreach</div>
-      <div class="c-a">Community outbound held until the message landed: you get one credible entry. Then ~50 creators pitched, 3 contract-ready, lead deal at half price.</div>
-      <div class="c-r">2,500 DMs written by hand, sent only once the account had a name. 15% installed: 37% of the install base.</div>
-
-      <div class="lab">Instrumentation</div>
-      <div class="c-a">PostHog funnel audit: known-origin visitors sign up at 90%+, so the leak is activation. Specced UTMs, self-reported source and identity stitching.</div>
-      <div class="c-r">DAU/WAU as the north star, held at 50%. 60% of downloads activated. Two install paths tracked: content (63%) and DMs (37%).</div>
-
-      <div class="lab">Result</div>
-      <div class="c-a"><strong>+81% weekly signups at $0 paid.</strong> 82 new users in four weeks, as many as the prior seven.</div>
-      <div class="c-r"><strong>1,000 installs, 600 activated, $0 CAC.</strong> 8.7M organic views along the way.</div>
+    <section class="skills rise" style="--d:3; --n:6" aria-label="Key skills">
+      <div class="skill"><h2><span class="n">01</span>Data infrastructure</h2><p>PostHog funnels, UTMs and identity stitching.</p></div>
+      <div class="skill"><h2><span class="n">02</span>CRM architecture</h2><p>Pipelines for 2,500 DMs and ~50 creators.</p></div>
+      <div class="skill"><h2><span class="n">03</span>Agentic workflow</h2><p>Shipped a full product by directing AI agents.</p></div>
+      <div class="skill"><h2><span class="n">04</span>Founder</h2><p>Co-founded Remira and New Wave Capital.</p></div>
+      <div class="skill"><h2><span class="n">05</span>Writer</h2><p>Positioning, copy and scripts for 200 posts.</p></div>
+      <div class="skill"><h2><span class="n">06</span>Designer</h2><p>Landing pages, App Store creative, brand.</p></div>
     </section>
 
-    <section class="live rise" style="--d:5" aria-label="Aether: done, now and next">
-      <div class="phase">
-        <p class="eyebrow"><span class="num">Done</span><span class="when">Aug 17&ndash;Sep 21</span></p>
-        <p>Pilot: positioning rewrite, one-proposition landing page, Instagram and X from zero, creator pipeline, funnel audit. <strong>Earned a 90-day extension.</strong></p>
-      </div>
-      <div class="phase phase--now">
-        <p class="eyebrow"><span class="chip chip--live" style="height:auto;padding:0;border:0">Now</span><span class="when">Phase 2</span></p>
-        <p>Attribution and identity stitching with engineering. Creator sponsorships end to end. Contrast assets built from real telemetry. Weekly user interviews.</p>
-      </div>
-      <div class="phase phase--next">
-        <p class="eyebrow"><span class="num">Next</span><span class="when">to Dec 2026</span></p>
-        <p>Ecosystem listings and comparison pages, one long-term creator partner, 10K followers across accounts. Held to signups by channel, activation and CAC.</p>
-      </div>
-      <div class="cases">
-        <p class="eyebrow">Case studies</p>
-        <button class="case-btn" type="button" data-open="aether" aria-haspopup="dialog">Aether pilot report <span class="plus" aria-hidden="true">+</span></button>
-        <button class="case-btn" type="button" data-open="remira" aria-haspopup="dialog">Remira launch <span class="plus" aria-hidden="true">+</span></button>
-        <!-- To add a case study: copy a button above with a new data-open="key",
-             then add a <dialog class="cs" id="cs-key"> at the bottom of this file. -->
-        <span class="case-btn case-btn--soon">Aether Phase 2 readout &middot; Dec</span>
-      </div>
+    <section class="xps xps--gtm" aria-label="Experience">
+      <article class="xp xp--lead rise" style="--d:4">
+        <div class="xp__top">
+          <div><h2 class="xp__name">Aether<span class="xp__tag">Now</span></h2><p class="xp__meta">Developer tool &middot; GTM lead, contract &middot; Aug 2026&ndash;now</p></div>
+          <a class="xp__handle ext" href="https://www.runaether.dev" target="_blank" rel="noopener">runaether.dev</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="v">+81%</div><div class="k">Weekly signups vs prior 7 wks</div></div>
+          <div class="stat"><div class="v">0&rarr;1.2K</div><div class="k">Instagram followers, 5 weeks</div></div>
+          <div class="stat"><div class="v">421</div><div class="k">Visitors from IG + X, 30 days</div></div>
+          <div class="stat"><div class="v">$0</div><div class="k">Paid spend</div></div>
+        </div>
+        <dl class="tldr">
+          <div><dt>The buyer</dt><dd>Senior engineers running coding agents. Ad-blind; <strong>they buy on proof from peers.</strong></dd></div>
+          <div><dt>Platforms</dt><dd><strong>X</strong>, where developer talk already lives. <strong>Instagram</strong> for an audience we own. <strong>YouTube creators</strong> over hackathons, on reach per dollar.</dd></div>
+          <div><dt>Outreach</dt><dd>Outbound held until the message landed; then ~50 creators pitched, <strong>3 contract-ready, the lead deal at half price.</strong></dd></div>
+          <div><dt>The data</dt><dd>PostHog audit: known-origin visitors sign up at 90%+, so <strong>activation is the leak.</strong> Specced UTMs, source capture and identity stitching.</dd></div>
+        </dl>
+        <button class="open-cs" type="button" data-open="aether" aria-haspopup="dialog">Pilot report &amp; full case study <span class="plus" aria-hidden="true">+</span></button>
+      </article>
+
+      <article class="xp rise" style="--d:5">
+        <div class="xp__top">
+          <div><h2 class="xp__name">Remira T1D</h2><p class="xp__meta">Consumer health app &middot; Co-founder &amp; CEO &middot; 2026</p></div>
+          <a class="xp__handle ext" href="https://remira-ai.com" target="_blank" rel="noopener">remira-ai.com</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="v">1,000</div><div class="k">App Store installs</div></div>
+          <div class="stat"><div class="v">60%</div><div class="k">Download to activation</div></div>
+          <div class="stat"><div class="v">15%</div><div class="k">DM to install</div></div>
+          <div class="stat"><div class="v">$0</div><div class="k">Acquisition cost</div></div>
+        </div>
+        <dl class="tldr">
+          <div><dt>The buyer</dt><dd>People with T1D and their parents. <strong>They buy on trust,</strong> and they already gather on TikTok.</dd></div>
+          <div><dt>Platforms</dt><dd><strong>TikTok</strong> to reach people who don't follow you yet: 8.7M organic views. <strong>Instagram</strong> as free redistribution.</dd></div>
+          <div><dt>Outreach</dt><dd><strong>2,500 DMs written by hand,</strong> sent only once the account had a name. 37% of all installs.</dd></div>
+          <div><dt>The data</dt><dd><strong>DAU/WAU as the north star,</strong> held at 50%. Two install paths tracked: content 63%, DMs 37%.</dd></div>
+        </dl>
+        <button class="open-cs" type="button" data-open="remira" aria-haspopup="dialog">Launch case study <span class="plus" aria-hidden="true">+</span></button>
+      </article>
     </section>
   </main>
 
   <footer class="foot">
     <a class="foot__next" href="../product/">Next: Product Management and Design <span class="arr" aria-hidden="true">&rarr;</span></a>
     <div class="foot__links">
-      <a href="mailto:xbartlet@umich.edu">xbartlet@umich.edu</a>
+      <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=xbartlet@umich.edu" target="_blank" rel="noopener" data-mailto="xbartlet@umich.edu">xbartlet@umich.edu</a>
       <a class="ext" href="https://www.linkedin.com/in/xander-bartlett-557054325/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="tel:+19712190675">971-219-0675</a>
     </div>
