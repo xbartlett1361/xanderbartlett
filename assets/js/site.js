@@ -60,6 +60,17 @@
   window.addEventListener("hashchange", openFromHash);
   if (location.hash) openFromHash();
 
+  /* ---------------- email links ----------------
+     Email links ship pointing at Gmail's compose window, because a bare
+     mailto: does nothing on a desktop with no mail app configured. On touch
+     devices, hand off to the native mail app instead. */
+  if (window.matchMedia && window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+    Array.prototype.forEach.call(document.querySelectorAll("a[data-mailto]"), function (a) {
+      a.href = "mailto:" + a.getAttribute("data-mailto");
+      a.removeAttribute("target");
+    });
+  }
+
   /* ---------------- copy email ---------------- */
   document.addEventListener("click", function (e) {
     var b = e.target.closest("[data-copy]");

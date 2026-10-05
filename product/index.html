@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Product Management and Design · Xander Bartlett</title>
-<meta name="description" content="Design, code and ship with cross-functional teams. Remira's Reinforcing Cycle and Decision Zones, Prove Your Pick built solo with AI agents, and New Wave Capital's hybrid club model.">
+<meta name="description" content="Ideas are nothing without team execution. Remira's Reinforcing Cycle and Decision Zones, Prove Your Pick built solo with AI agents, and New Wave Capital's hybrid club model.">
 <meta name="theme-color" content="#f4f0e8">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Product Management and Design · Xander Bartlett">
-<meta property="og:description" content="Ideas are cheap. Shipping with a team is the job. Remira, Prove Your Pick and New Wave Capital.">
+<meta property="og:description" content="Ideas are nothing without team execution. Remira, Prove Your Pick and New Wave Capital.">
 <meta property="og:image" content="https://xanderbartlett.com/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -17,109 +17,126 @@
 <link rel="preload" href="../assets/fonts/mr-dafoe-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <style>
-  .page { display: grid; grid-template-rows: auto auto; align-content: space-between; row-gap: 1rem; padding: 1.25rem 0 1.15rem; }
+  .ph { grid-template-columns: 1fr; }
+  .display--xl { font-size: 4.45rem; }
+  .xps--pm { grid-template-columns: minmax(0, 1.22fr) minmax(0, 1.06fr) minmax(0, 1fr); }
+  .xps--pm .stats { grid-template-columns: repeat(3, auto); justify-content: space-between; }
+  .xp--quiet { background: var(--paper-2); border-color: transparent; }
 
-  .ph { display: grid; grid-template-columns: minmax(0, 1fr) 41rem; align-items: end; column-gap: 2.6rem; }
-  .ph .display { margin-top: 0.7rem; }
-  .proofs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
-  .proof { padding: 0.45rem 0.9rem 0.42rem 0; border-bottom: 1px solid var(--hair); }
-  .proof:nth-child(3n+2), .proof:nth-child(3n) { padding-left: 0.9rem; border-left: 1px solid var(--hair); }
-  .proof b { display: flex; align-items: baseline; gap: 0.4rem; font-size: 0.9rem; font-weight: 560; letter-spacing: -0.02em; }
-  .proof b .n { font-family: var(--mono); font-size: 0.58rem; font-weight: 400; color: var(--muted); }
-  .proof span { display: block; margin-top: 0.08rem; font-size: 0.74rem; line-height: 1.3; color: var(--ink-2); }
+  /* labelled blocks inside a card */
+  .blk { padding: 0.65rem 0 0.1rem; }
+  .blk + .blk { border-top: 1px solid var(--hair-2); margin-top: 0.55rem; }
+  .blk .blk__k { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+  .blk p { font-size: 1.02rem; line-height: 1.38; color: var(--ink-2); }
+  .blk p + p { margin-top: 0.35rem; }
+  .blk strong { color: var(--ink); font-weight: 560; }
 
-  .cols { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1.05fr) minmax(0, 0.82fr); gap: 1.1rem; align-items: stretch; }
-  .col { display: flex; flex-direction: column; min-width: 0; padding: 0.95rem 1.15rem 1.05rem; border: 1px solid var(--ink); border-radius: 1.1rem; }
-  .col--quiet { background: var(--paper-2); border-color: transparent; }
-  .col__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.8rem; }
-  .col__name { font-size: 1.3rem; font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; }
-  .col__meta { margin-top: 0.3rem; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.03em; color: var(--muted); }
-  .col__link { font-family: var(--mono); font-size: 0.64rem; color: var(--ink-2); white-space: nowrap; padding-top: 0.2rem; }
-  .col__link:hover { color: var(--ink); }
-  .col .stats { grid-template-columns: repeat(4, auto); justify-content: space-between; column-gap: 0.9rem; margin-top: 0.7rem; padding: 0.6rem 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
-  .col--quiet .stats { grid-template-columns: repeat(3, auto); }
-  .col .stat .v { font-size: 1.32rem; }
-  .col .stat .k { font-size: 0.68rem; }
-  .blk { padding: 0.46rem 0; }
-  .blk + .blk { border-top: 1px solid var(--hair-2); }
-  .blk h3 { font-family: var(--mono); font-size: 0.58rem; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.22rem; }
-  .blk p { font-size: 0.8rem; line-height: 1.4; color: var(--ink-2); }
-  .blk p + p { margin-top: 0.3rem; }
-  .blk strong { color: var(--ink); font-weight: 540; }
-  .col .open-cs { margin-top: auto; }
-  .col .blk:last-of-type { margin-bottom: 0.7rem; }
+  /* double diamond (card) */
+  .dd__svg { width: 100%; height: auto; overflow: visible; }
+  .dds-n { font-family: var(--mono); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; fill: var(--ink); }
+  .dd__facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 0.35rem; }
+  .dd__facts span { font-size: 0.92rem; line-height: 1.25; color: var(--ink-2); text-align: center; }
 
-  /* double diamond */
-  .dd svg { width: 100%; height: 1.7rem; overflow: visible; }
-  .dd svg path { fill: none; stroke: var(--ink); stroke-width: 1; vector-effect: non-scaling-stroke; }
-  .dd svg path.fill { fill: var(--accent-wash); stroke: none; }
-  .dd__labels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6rem; margin-top: 0.35rem; }
-  .dd__labels div { font-size: 0.7rem; line-height: 1.3; color: var(--ink-2); }
-  .dd__labels b { display: block; font-family: var(--mono); font-size: 0.58rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
-
-  /* the reinforcing cycle */
-  .inv { display: grid; grid-template-columns: 13.2rem minmax(0, 1fr); gap: 1.1rem; align-items: center; }
+  /* reinforcing cycle (card) */
+  .inv { display: grid; grid-template-columns: 13.6rem minmax(0, 1fr); gap: 1rem; align-items: center; }
   .cycle { width: 100%; height: auto; overflow: visible; }
   .cy-l { font-family: var(--sans); font-weight: 560; fill: var(--ink); letter-spacing: -0.02em; }
   .cy-s { font-family: var(--mono); fill: var(--muted); }
   .cy-c { font-family: var(--script); font-size: 30px; }
 
-  /* network-effect loop */
-  .loop { position: relative; display: flex; align-items: center; gap: 0.25rem; margin: 0.35rem 0 1rem; }
-  .loop span { flex: 1; text-align: center; padding: 0.28rem 0.2rem; border: 1px solid var(--ink); border-radius: var(--pill); font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.02em; white-space: nowrap; background: var(--paper); position: relative; z-index: 1; }
-  .loop span:last-of-type { background: var(--ink); color: var(--paper); }
-  .loop i { font-style: normal; font-size: 0.7rem; color: var(--accent); }
-  .loop svg { position: absolute; left: 8%; right: 8%; width: 84%; top: 50%; height: 1.55rem; overflow: visible; }
-  .loop svg path { fill: none; stroke: var(--accent); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+  /* the four-step flywheel (card) */
+  .loop4 { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); column-gap: 0.7rem; grid-template-rows: auto 2.4rem auto; align-items: center; justify-items: center; margin: 0.15rem 0 0.55rem; }
+  .loop4 .c { width: 100%; text-align: center; padding: 0.42rem 0.4rem; border: 1px solid var(--ink); border-radius: var(--pill); font-size: 0.98rem; font-weight: 500; letter-spacing: -0.015em; background: var(--paper); }
+  .loop4 .c--money { background: var(--ink); color: var(--paper); }
+  .loop4 i { font-style: normal; font-size: 1.15rem; line-height: 1; color: var(--accent); font-weight: 600; }
+  .loop4 .fw { font-family: var(--script); font-size: 1.9rem; padding: 0 0.3rem; line-height: 1; color: var(--ink); text-shadow: 0.05em 0.04em 0 var(--accent); }
 
-  .speakers { font-size: 0.8rem; line-height: 1.5; color: var(--ink); font-weight: 500; letter-spacing: -0.01em; }
+  /* new wave rows */
+  .xp--quiet .tldr > div { grid-template-columns: 6.4rem minmax(0, 1fr); }
 
-  /* case-study extras */
+  /* ---------- case-study extras ---------- */
   .roles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.6rem; margin-top: 1.4rem; }
   .role { border: 1px solid var(--hair); border-radius: 0.9rem; padding: 0.9rem; }
   .role .v { font-size: 1.9rem; font-weight: 400; letter-spacing: -0.04em; line-height: 1; }
-  .role .k { margin-top: 0.4rem; font-size: 0.85rem; color: var(--ink-2); }
+  .role .k { margin-top: 0.4rem; font-size: 0.92rem; color: var(--ink-2); }
   .role--me { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-  .role--me .k { color: rgba(244, 240, 232, 0.75); }
-  .diamond-lg svg { width: 100%; height: 4rem; overflow: visible; }
-  .diamond-lg svg path { fill: none; stroke: var(--ink); stroke-width: 1.25; vector-effect: non-scaling-stroke; }
-  .diamond-lg svg path.fill { fill: var(--accent-wash); stroke: none; }
-  .cyc-wrap { display: grid; grid-template-columns: 22rem 1fr; gap: 2.4rem; align-items: center; margin-top: 1.4rem; }
-  .cyc-wrap .cycle { max-width: 22rem; }
+  .role--me .k { color: rgba(244, 240, 232, 0.78); }
+  .dd-lg { width: 100%; height: auto; margin-top: 1.4rem; overflow: visible; }
+  .ddl-n { font-family: var(--sans); font-size: 21px; font-weight: 560; letter-spacing: -0.02em; fill: var(--ink); }
+  .ddl-s { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; fill: var(--muted); }
+  .ddl-c { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.04em; fill: var(--ink-2); }
+  .q-swap { display: grid; grid-template-columns: 1fr 2.2rem 1fr; gap: 0.6rem; align-items: center; margin-top: 1.2rem; }
+  .q-swap > div { border-radius: 1rem; padding: 1rem 1.1rem; font-size: 1.05rem; line-height: 1.4; }
+  .q-swap .before { background: var(--paper-2); color: var(--ink-2); }
+  .q-swap .before small, .q-swap .after small { display: block; margin-bottom: 0.35rem; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.07em; text-transform: uppercase; }
+  .q-swap .before small { color: var(--muted); }
+  .q-swap .after { background: var(--ink); color: var(--paper); }
+  .q-swap .after small { color: var(--accent); }
+  .q-swap > i { font-style: normal; text-align: center; font-size: 1.3rem; color: var(--accent); }
+  .cyc-wrap { display: grid; grid-template-columns: 21rem 1fr; gap: 2.4rem; align-items: center; margin-top: 1.4rem; }
+  .cyc-wrap .cycle { max-width: 21rem; }
+  .s321 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-top: 1.4rem; }
+  .s321 > div { border: 1px solid var(--hair); border-radius: 1rem; padding: 1rem 1.1rem; }
+  .s321 .n { font-size: 2.2rem; font-weight: 400; letter-spacing: -0.04em; line-height: 1; }
+  .s321 h4 { margin: 0.35rem 0 0.5rem; font-weight: 540; font-size: 1.1rem; letter-spacing: -0.02em; }
+  .s321 ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .s321 li { font-size: 0.92rem; padding: 0.22rem 0.6rem; border-radius: var(--pill); border: 1px solid var(--hair); color: var(--ink-2); }
   .dz-legend { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; margin-top: 1rem; }
-  .dz-legend div { font-size: 0.85rem; color: var(--ink-2); line-height: 1.4; }
+  .dz-legend div { font-size: 0.95rem; color: var(--ink-2); line-height: 1.4; }
   .dz-legend b { display: flex; align-items: center; gap: 0.45rem; color: var(--ink); font-weight: 540; margin-bottom: 0.2rem; }
   .dz-legend b i { width: 1.25rem; height: 1.25rem; border-radius: 50%; border: 1.5px solid var(--ink); display: grid; place-items: center; font-style: normal; font-family: var(--mono); font-size: 0.65rem; flex: none; }
   .dz-legend .hi i { background: var(--accent); }
   .dz-legend .ok i { background: var(--ink); color: var(--paper); }
   .notif { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin-top: 1.4rem; }
-  .notif div { background: var(--paper-3); border: 1px solid var(--hair); border-radius: 1rem; padding: 0.85rem 1rem; font-size: 0.95rem; line-height: 1.4; }
-  .notif div small { display: block; margin-bottom: 0.3rem; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-  .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 1.4rem; border: 1px solid var(--ink); border-radius: 1rem; overflow: hidden; }
+  .notif div { background: var(--paper-3); border: 1px solid var(--hair); border-radius: 1rem; padding: 0.85rem 1rem; font-size: 1rem; line-height: 1.4; }
+  .notif div small { display: block; margin-bottom: 0.3rem; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .flow { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 1.4rem; border: 1px solid var(--ink); border-radius: 1rem; overflow: hidden; }
   .flow div { padding: 1rem; border-right: 1px solid var(--hair); }
   .flow div:last-child { border-right: 0; background: var(--ink); color: var(--paper); }
-  .flow div:last-child p { color: rgba(244, 240, 232, 0.75); }
-  .flow b { display: block; font-weight: 540; font-size: 1.05rem; letter-spacing: -0.02em; margin: 0.35rem 0 0.25rem; }
-  .flow p { font-size: 0.85rem; color: var(--ink-2); line-height: 1.4; }
-  .stack-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
-  .stack-chips .chip { height: 1.8rem; font-size: 0.68rem; }
+  .flow div:last-child p { color: rgba(244, 240, 232, 0.78); }
+  .flow b { display: block; font-weight: 540; font-size: 1.1rem; letter-spacing: -0.02em; margin: 0.35rem 0 0.25rem; }
+  .flow p { font-size: 0.95rem; color: var(--ink-2); line-height: 1.4; }
+  .fly-wrap { display: grid; grid-template-columns: 30rem 1fr; gap: 2.4rem; align-items: center; margin-top: 1.4rem; }
+  .fly { width: 100%; height: auto; overflow: visible; }
+  .fw-l { font-family: var(--sans); font-weight: 560; fill: var(--ink); letter-spacing: -0.02em; }
+  .fw-s { font-family: var(--mono); fill: var(--muted); }
+  .fw-c { font-family: var(--script); }
+  .fly-points { list-style: none; }
+  .fly-points li { padding: 0.75rem 0; border-bottom: 1px solid var(--hair); font-size: 1.05rem; line-height: 1.45; color: var(--ink-2); }
+  .fly-points li:first-child { border-top: 1.5px solid var(--ink); }
+  .fly-points strong { color: var(--ink); }
+  .hld { display: grid; grid-template-columns: 1fr 2rem 1fr 2rem 1.15fr 2rem 1.15fr; align-items: stretch; margin-top: 1.4rem; }
+  .hld > i { align-self: center; text-align: center; font-style: normal; font-size: 1.2rem; color: var(--accent); }
+  .hld__n { border: 1px solid var(--ink); border-radius: 1rem; padding: 0.9rem 1rem; }
+  .hld__n .k { display: block; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+  .hld__n b { display: block; margin-top: 0.3rem; font-weight: 560; font-size: 1.08rem; letter-spacing: -0.02em; }
+  .hld__n small { display: block; margin-top: 0.25rem; font-size: 0.9rem; color: var(--ink-2); line-height: 1.35; }
+  .hld__n--me { background: var(--ink); color: var(--paper); }
+  .hld__n--me .k { color: var(--accent); }
+  .hld__n--me small { color: rgba(244, 240, 232, 0.78); }
+  .hld-side { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; margin-top: 0.9rem; font-size: 0.95rem; color: var(--ink-2); }
+  .hld-side b { color: var(--ink); font-weight: 540; }
+  .stack-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.2rem; }
+  .stack-chips .chip { height: 1.9rem; font-size: 0.72rem; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
 
   @media (max-width: 900px) {
-    .page { padding-top: 1.2rem; row-gap: 1.6rem; }
-    .ph { grid-template-columns: 1fr; row-gap: 1.3rem; }
-    .proofs { grid-template-columns: 1fr 1fr; }
-    .proof:nth-child(3n+2), .proof:nth-child(3n) { padding-left: 0; border-left: 0; }
-    .proof:nth-child(even) { padding-left: 0.9rem; border-left: 1px solid var(--hair); }
-    .cols { grid-template-columns: 1fr; }
-    .col .stats { grid-template-columns: repeat(2, auto); justify-content: start; row-gap: 0.8rem; column-gap: 2rem; }
+    .display--xl { font-size: 2.5rem; }
+    .loop4 .c { font-size: 0.86rem; padding: 0.4rem 0.3rem; }
+    .loop4 .fw { font-size: 1.5rem; }
+    .skills { --n: 2 !important; }
+    .xps--pm { grid-template-columns: 1fr; }
+    .xps--pm .stats { justify-content: start; column-gap: 2rem; }
     .inv { grid-template-columns: 1fr; }
-    .inv .cycle { max-width: 15rem; margin: 0 auto; }
+    .inv .cycle { max-width: 19rem; margin: 0 auto; }
     .roles { grid-template-columns: 1fr 1fr; }
-    .cyc-wrap { grid-template-columns: 1fr; }
-    .dz-legend { grid-template-columns: 1fr; }
-    .notif, .flow { grid-template-columns: 1fr; }
+    .q-swap { grid-template-columns: 1fr; }
+    .q-swap > i { transform: rotate(90deg); }
+    .cyc-wrap, .fly-wrap { grid-template-columns: 1fr; }
+    .s321, .dz-legend, .notif, .flow { grid-template-columns: 1fr; }
     .flow div { border-right: 0; border-bottom: 1px solid var(--hair); }
+    .hld { grid-template-columns: 1fr; row-gap: 0.4rem; }
+    .hld > i { transform: rotate(90deg); }
   }
 </style>
 </head>
@@ -133,62 +150,47 @@
       <a class="tab" href="../product/" aria-current="page"><span class="n">02</span>Product Management and Design</a>
       <a class="tab" href="../social/"><span class="n">03</span>Social Media Marketing</a>
     </nav>
-    <div class="topbar__end"><a class="btn btn--ink" href="mailto:xbartlet@umich.edu">xbartlet@umich.edu</a></div>
+    <div class="topbar__end"><a class="btn btn--ink" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=xbartlet@umich.edu" target="_blank" rel="noopener" data-mailto="xbartlet@umich.edu">xbartlet@umich.edu</a></div>
   </header>
 
   <main class="page">
     <header class="ph">
-      <div>
-        <p class="eyebrow rise"><span class="num">02</span><span class="dash"></span>Product Management and Design</p>
-        <h1 class="display rise" style="--d:1">Ideas are cheap. Shipping with a <span class="scr">team</span> is the job.</h1>
-      </div>
-      <div class="proofs rise" style="--d:2" aria-label="What this page proves">
-        <div class="proof"><b><span class="n">01</span>Design</b><span>Wireframes, flows and the data viz, built myself</span></div>
-        <div class="proof"><b><span class="n">02</span>Code</b><span>Shipped Prove Your Pick solo with AI agents</span></div>
-        <div class="proof"><b><span class="n">03</span>Ship</b><span>Two consumer products live, 1,000 downloads</span></div>
-        <div class="proof"><b><span class="n">04</span>Prioritize</b><span>Killed the most-requested feature on evidence</span></div>
-        <div class="proof"><b><span class="n">05</span>Taste</b><span>Calm by design, in a category built on alarm</span></div>
-        <div class="proof"><b><span class="n">06</span>Team</b><span>Led six across eng, UX, design and business</span></div>
-      </div>
+      <h1 class="display display--xl rise"><span class="scr">Ideas</span> are nothing without team execution.</h1>
     </header>
 
-    <section class="cols" aria-label="Products">
+    <section class="skills rise" style="--d:2; --n:6" aria-label="Key skills">
+      <div class="skill"><h2><span class="n">01</span>Design</h2><p>Wireframes, flows and a logo, by hand.</p></div>
+      <div class="skill"><h2><span class="n">02</span>Code</h2><p>A full-stack web app, shipped with Claude Code.</p></div>
+      <div class="skill"><h2><span class="n">03</span>Ship</h2><p>Two products live, 1,000 downloads.</p></div>
+      <div class="skill"><h2><span class="n">04</span>Prioritize</h2><p>Impact over effort cut three features.</p></div>
+      <div class="skill"><h2><span class="n">05</span>Taste</h2><p>Calm by design, in a category built on alarm.</p></div>
+      <div class="skill"><h2><span class="n">06</span>Team</h2><p>Six people, four functions, one roadmap.</p></div>
+    </section>
+
+    <section class="xps xps--pm" aria-label="Products">
       <!-- REMIRA -->
-      <article class="col rise" style="--d:3">
-        <div class="col__top">
-          <div><h2 class="col__name">Remira T1D</h2><p class="col__meta">Co-founder &amp; CEO, acting PM &middot; 2026&ndash;now</p></div>
-          <a class="col__link ext" href="https://remira-ai.com" target="_blank" rel="noopener">remira-ai.com</a>
+      <article class="xp rise" style="--d:3">
+        <div class="xp__top">
+          <div><h2 class="xp__name">Remira T1D</h2><p class="xp__meta">Co-founder &amp; CEO, acting PM &middot; team of 6 &middot; 2026&ndash;now</p></div>
+          <a class="xp__handle ext" href="https://remira-ai.com" target="_blank" rel="noopener">remira-ai.com</a>
         </div>
         <div class="stats">
           <div class="stat"><div class="v">1,000</div><div class="k">Downloads</div></div>
           <div class="stat"><div class="v">60%</div><div class="k">Activated</div></div>
-          <div class="stat"><div class="v">50%</div><div class="k">DAU / WAU</div></div>
           <div class="stat"><div class="v">30&rarr;66%</div><div class="k">Daily reflection completion</div></div>
         </div>
         <div class="blk">
-          <h3>How we worked</h3>
-          <p><strong>A six-person cross-functional team</strong> (2 engineering, 2 UX, 1 design, 1 business) run in Scrum sprints. I owned discovery, the PRD, specs, design docs and every trade-off call through 200+ dev hours.</p>
-        </div>
-        <div class="blk dd">
-          <h3>Double Diamond</h3>
-          <svg viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true">
-            <path class="fill" d="M0 20L100 0L200 20L100 40Z"/>
-            <path d="M0 20L100 0L200 20L100 40Z"/><path d="M200 20L300 0L400 20L300 40Z"/>
-          </svg>
-          <div class="dd__labels">
-            <div><b>Discover</b>24 behavioral walkthroughs</div>
-            <div><b>Define</b>Stated wants &ne; behavior</div>
-            <div><b>Develop</b>Wireframes, my own data viz</div>
-            <div><b>Deliver</b>Streaks, nudges, sharing</div>
-          </div>
+          <p class="blk__k">How we built it &middot; Double Diamond, in Scrum sprints</p>
+          <svg class="dd__svg" viewBox="0 0 450 52" role="img" aria-labelledby="dds-t"><title id="dds-t">Double Diamond: discover, define, develop, deliver</title><path d="M2 26L112 2V50Z" fill="var(--accent-wash)"/><path d="M226 26L337 2V50Z" fill="var(--accent-wash)"/><path d="M2 26L112 2L224 26L112 50Z" fill="none" stroke="var(--ink)" stroke-width="1.3"/><path d="M226 26L337 2L448 26L337 50Z" fill="none" stroke="var(--ink)" stroke-width="1.3"/><text x="72" y="30.5" text-anchor="middle" class="dds-n">Discover</text><text x="162" y="30.5" text-anchor="middle" class="dds-n">Define</text><text x="296" y="30.5" text-anchor="middle" class="dds-n">Develop</text><text x="386" y="30.5" text-anchor="middle" class="dds-n">Deliver</text></svg>
+          <div class="dd__facts"><span>24 interviews</span><span>Impact &divide; effort</span><span>5 wireframe docs</span><span>Beta-ranked paths</span></div>
         </div>
         <div class="blk">
-          <h3>What I invented</h3>
+          <p class="blk__k">What I invented</p>
           <div class="inv">
-            <svg class="cycle" viewBox="0 0 260 214" role="img" aria-labelledby="rc1-t"><title id="rc1-t">The Reinforcing Cycle: reflect on yesterday, predict today's decision zones, improve, and celebrate each lap.</title><defs><marker id="rc1-ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1L9 5L0 9z" fill="var(--accent)"/></marker></defs><circle cx="130" cy="104" r="66" fill="none" stroke="var(--hair)" stroke-width="1"/><g fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><path d="M147.1 40.2A66 66 0 0 1 193.8 121.1" marker-end="url(#rc1-ah)"/><path d="M176.7 150.7A66 66 0 0 1 83.3 150.7" marker-end="url(#rc1-ah)"/><path d="M66.2 121.1A66 66 0 0 1 112.9 40.2" marker-end="url(#rc1-ah)"/></g><circle cx="130.0" cy="38.0" r="5.5" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="130.0" y="24.0" text-anchor="middle" class="cy-l" style="font-size:19px">Reflect</text><circle cx="187.2" cy="137.0" r="5.5" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="199.2" y="155.0" text-anchor="start" class="cy-l" style="font-size:19px">Predict</text><circle cx="72.8" cy="137.0" r="5.5" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="60.8" y="155.0" text-anchor="end" class="cy-l" style="font-size:19px">Improve</text><text x="131.8" y="111.5" text-anchor="middle" class="cy-c" fill="var(--accent)">celebrate</text><text x="130" y="110" text-anchor="middle" class="cy-c" fill="var(--ink)">celebrate</text></svg>
+            <svg class="cycle" viewBox="0 0 344 168" role="img" aria-labelledby="rc1-t"><title id="rc1-t">The Reinforcing Cycle: reflect on yesterday, predict today's decision zones, improve, and celebrate each lap.</title><defs><marker id="rc1-ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1L9 5L0 9z" fill="var(--accent)"/></marker></defs><circle cx="172" cy="98" r="58" fill="none" stroke="var(--hair)" stroke-width="1"/><g fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"><path d="M188.0 42.2A58 58 0 0 1 228.3 112.0" marker-end="url(#rc1-ah)"/><path d="M212.3 139.7A58 58 0 0 1 131.7 139.7" marker-end="url(#rc1-ah)"/><path d="M115.7 112.0A58 58 0 0 1 156.0 42.2" marker-end="url(#rc1-ah)"/></g><circle cx="172.0" cy="40.0" r="6" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="172.0" y="26.0" text-anchor="middle" class="cy-l" style="font-size:25px">Reflect</text><circle cx="222.2" cy="127.0" r="6" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="234.2" y="135.0" text-anchor="start" class="cy-l" style="font-size:25px">Predict</text><circle cx="121.8" cy="127.0" r="6" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="109.8" y="135.0" text-anchor="end" class="cy-l" style="font-size:25px">Improve</text><text x="173.8" y="106" text-anchor="middle" class="cy-c" style="font-size:25px" fill="var(--accent)">celebrate</text><text x="172" y="104.5" text-anchor="middle" class="cy-c" style="font-size:25px" fill="var(--ink)">celebrate</text></svg>
             <div>
-              <p><strong>The Reinforcing Cycle.</strong> Reflect on yesterday, predict today, improve, celebrate. Every lap sharpens the engine and the habit.</p>
-              <p><strong>Decision Zones.</strong> The few moments a day where a small action changes the outcome most, anchored to routine, not the clock.</p>
+              <p><strong>The Reinforcing Cycle.</strong> Reflect, predict, improve, celebrate. Enter anywhere; each step pulls you to the next.</p>
+              <p><strong>Decision Zones.</strong> The few moments a day where one small action changes the outcome most.</p>
             </div>
           </div>
         </div>
@@ -196,63 +198,48 @@
       </article>
 
       <!-- PROVE YOUR PICK -->
-      <article class="col rise" style="--d:4">
-        <div class="col__top">
-          <div><h2 class="col__name">Prove Your Pick</h2><p class="col__meta">Founder &amp; sole product owner &middot; 2026&ndash;now</p></div>
-          <a class="col__link ext" href="https://proveyourpick.com" target="_blank" rel="noopener">proveyourpick.com</a>
+      <article class="xp rise" style="--d:4">
+        <div class="xp__top">
+          <div><h2 class="xp__name">Prove Your Pick</h2><p class="xp__meta">Founder &amp; sole product owner &middot; 2026&ndash;now</p></div>
+          <a class="xp__handle ext" href="https://proveyourpick.com" target="_blank" rel="noopener">proveyourpick.com</a>
         </div>
         <div class="stats">
           <div class="stat"><div class="v">Solo</div><div class="k">Built with AI agents</div></div>
-          <div class="stat"><div class="v">503</div><div class="k">Tickers covered</div></div>
-          <div class="stat"><div class="v">4</div><div class="k">Exploits closed</div></div>
-          <div class="stat"><div class="v">5&times;</div><div class="k">Logic mutation-tested</div></div>
+          <div class="stat"><div class="v">All</div><div class="k">Stocks &amp; ETFs</div></div>
+          <div class="stat"><div class="v">4</div><div class="k">Exploits closed pre-launch</div></div>
         </div>
         <div class="blk">
-          <h3>The hook</h3>
-          <p><strong>A tournament.</strong> Lock a stock pick permanently, get judged by the real market, and climb against your friends.</p>
+          <p class="blk__k">The hook</p>
+          <p><strong>Stock picking as a social tournament anyone can win:</strong> lock a pick, let the real market judge it, climb past your friends.</p>
         </div>
         <div class="blk">
-          <h3>The network effect</h3>
-          <div class="loop" aria-label="More players, more locked picks, a sharper crowd signal, better recommendations, which bring more players">
-            <span>Players</span><i aria-hidden="true">&rarr;</i><span>Locked picks</span><i aria-hidden="true">&rarr;</i><span>Crowd signal</span><i aria-hidden="true">&rarr;</i><span>Better recs</span>
-            <svg viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><path d="M96 4 C96 18 90 18 50 18 C10 18 4 18 4 4"/><path d="M1.5 8 L4 3.5 L6.5 8"/></svg>
+          <p class="blk__k">The business &middot; free to play, pay to follow</p>
+          <div class="loop4" role="img" aria-label="The flywheel: more players lock more picks, locked picks prove the top pickers, people pay to follow them, and that brings more players.">
+            <span class="c">More players</span><i aria-hidden="true">&rarr;</i><span class="c">Locked picks</span>
+            <i aria-hidden="true">&uarr;</i><span class="fw" aria-hidden="true">flywheel</span><i aria-hidden="true">&darr;</i>
+            <span class="c c--money">Paid follows</span><i aria-hidden="true">&larr;</i><span class="c">Top pickers</span>
           </div>
-          <p><strong>Every locked pick is verified data.</strong> More players make the recommendations and analysis sharper, which draws more players.</p>
-        </div>
-        <div class="blk">
-          <h3>Social &times; competition</h3>
-          <p><strong>Built to be shared.</strong> A verified call is a brag nobody can fake, so challenging friends is the growth loop.</p>
-        </div>
-        <div class="blk">
-          <h3>The call I'd defend</h3>
-          <p><strong>Integrity before engagement.</strong> Deferred leaderboards for a month: rankings are worthless if the record can be fudged.</p>
+          <p>At scale, the leaderboard is the business: <strong>we'll charge to see the top scorers and follow the best.</strong></p>
         </div>
         <button class="open-cs" type="button" data-open="pyp" aria-haspopup="dialog">Product case study <span class="plus" aria-hidden="true">+</span></button>
       </article>
 
       <!-- NEW WAVE CAPITAL -->
-      <article class="col col--quiet rise" style="--d:5">
-        <div class="col__top">
-          <div><h2 class="col__name">New Wave Capital</h2><p class="col__meta">Co-founder &amp; President of Ops &middot; 2025&ndash;now</p></div>
+      <article class="xp xp--quiet rise" style="--d:5">
+        <div class="xp__top">
+          <div><h2 class="xp__name">New Wave Capital</h2><p class="xp__meta">Co-founder &amp; President of Ops &middot; Ross &middot; 2025&ndash;now</p></div>
         </div>
         <div class="stats">
           <div class="stat"><div class="v">100+</div><div class="k">Members</div></div>
           <div class="stat"><div class="v">6</div><div class="k">Desks</div></div>
           <div class="stat"><div class="v">$1K</div><div class="k">Pitch prize</div></div>
         </div>
-        <div class="blk">
-          <h3>What I invented</h3>
-          <p><strong>The internal pitch competition</strong>, $1,000 a semester, as the club's engagement engine.</p>
-          <p><strong>The hybrid club model at Ross:</strong> open membership, plus a selective analyst track.</p>
-        </div>
-        <div class="blk">
-          <h3>Cross-functional by design</h3>
-          <p>Built from zero: name, identity, six desks, three presidents and a 19-article constitution. I interviewed and hired every executive seat.</p>
-        </div>
-        <div class="blk">
-          <h3>Fall 2026 speakers</h3>
-          <p class="speakers">Sequoia &middot; Lightspeed &middot; Bain &middot; Balyasny &middot; Millennium&nbsp;&middot;&nbsp;UBS</p>
-        </div>
+        <dl class="tldr">
+          <div><dt>Merit vs prestige</dt><dd><strong>Invented a hybrid club:</strong> open to all, plus a selective analyst track.</dd></div>
+          <div><dt>New vs proven</dt><dd><strong>Invented a $1,000 pitch comp,</strong> kept beside weekly education.</dd></div>
+          <div><dt>Freedom vs order</dt><dd><strong>Cross-functional:</strong> leaders from top clubs; members pitch any asset, inside a hierarchy I designed.</dd></div>
+          <div><dt>Speakers</dt><dd>Sequoia, Lightspeed, Bain, Balyasny, Millennium and UBS.</dd></div>
+        </dl>
         <a class="open-cs" href="https://nwcumich.com" target="_blank" rel="noopener">nwcumich.com <span class="plus" aria-hidden="true">&#8599;</span></a>
       </article>
     </section>
@@ -261,7 +248,7 @@
   <footer class="foot">
     <a class="foot__next" href="../social/">Next: Social Media Marketing <span class="arr" aria-hidden="true">&rarr;</span></a>
     <div class="foot__links">
-      <a href="mailto:xbartlet@umich.edu">xbartlet@umich.edu</a>
+      <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=xbartlet@umich.edu" target="_blank" rel="noopener" data-mailto="xbartlet@umich.edu">xbartlet@umich.edu</a>
       <a class="ext" href="https://www.linkedin.com/in/xander-bartlett-557054325/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="tel:+19712190675">971-219-0675</a>
     </div>
@@ -279,14 +266,14 @@
   <div class="cs__scroll" tabindex="-1" autofocus><div class="cs__body">
     <p class="eyebrow">Remira T1D &middot; Co-founder &amp; CEO, acting PM &middot; 2026 to now</p>
     <h2 class="cs-title" id="cs-remira-t">Built to <span class="scr">lighten</span> the load, not add to it.</h2>
-    <p class="cs-intro">Remira reads a Dexcom CGM and turns raw glucose data into something you can use: a forecast of the patterns you'll face today, the few decisions that matter most, and a daily recap of what worked. I co-founded it and ran product, from discovery and the PRD to every trade-off call, with a six-person cross-functional team.</p>
+    <p class="cs-intro">Remira reads a Dexcom CGM and turns raw glucose data into a forecast of the patterns you'll face today, the few decisions that matter most, and a daily recap of what worked. I co-founded it and ran product with a six-person cross-functional team. The lesson: the product was never my vision alone. It came from listening to users, borrowing from giant consumer apps, and iterating.</p>
 
     <div class="kpis">
       <div><div class="v">1,000</div><div class="k">App Store downloads</div></div>
       <div><div class="v">60%</div><div class="k">Download to activation</div></div>
       <div><div class="v">50%</div><div class="k">DAU / WAU, the north star</div></div>
       <div><div class="v">+120%</div><div class="k">Daily reflection completion, 30% to 66%</div></div>
-      <div><div class="v">24</div><div class="k">Behavioral user interviews</div></div>
+      <div><div class="v">24</div><div class="k">User interviews</div></div>
       <div><div class="v">6</div><div class="k">People, four functions</div></div>
       <div><div class="v">200+</div><div class="k">Development hours led</div></div>
       <div><div class="v">5.0&#9733;</div><div class="k">26 App Store ratings</div></div>
@@ -295,7 +282,7 @@
     <section>
       <span class="eyebrow">01 &middot; The team</span>
       <h3 class="sec">I didn't write the code. I made sure the right thing got built.</h3>
-      <p class="sec-sub">We ran in Scrum sprints. I owned the backlog, the PRD, the specs and design docs, and the trade-off calls; engineering, UX, design and business shipped against them. I also built the interactive glucose visualizations and trend dashboards myself.</p>
+      <p class="sec-sub">We ran Scrum sprints. I owned the backlog, the PRD, the specs and the trade-off calls, and built the glucose visualizations myself. Engineering, UX, design and business shipped against them.</p>
       <div class="roles">
         <div class="role"><div class="v">2</div><div class="k">Engineering</div></div>
         <div class="role"><div class="v">2</div><div class="k">UX</div></div>
@@ -307,40 +294,53 @@
 
     <section>
       <span class="eyebrow">02 &middot; The process</span>
-      <h3 class="sec">Double Diamond: diverge, converge, twice.</h3>
-      <div class="diamond-lg" style="margin-top:1.4rem">
-        <svg viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true">
-          <path class="fill" d="M0 20L100 0L200 20L100 40Z"/>
-          <path d="M0 20L100 0L200 20L100 40Z"/><path d="M200 20L300 0L400 20L300 40Z"/>
-        </svg>
+      <h3 class="sec">Double Diamond: widen, narrow, twice.</h3>
+      <svg class="dd-lg" viewBox="0 0 900 272" role="img" aria-labelledby="ddl-t"><title id="ddl-t">The Double Diamond: discover and define the problem, then develop and deliver the solution. Each diamond widens, then narrows.</title><defs><marker id="ddl-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="var(--ink)"/></marker></defs><path d="M20 140L235 45V235Z" fill="var(--accent-wash)"/><path d="M20 140L235 45L450 140L235 235Z" fill="none" stroke="var(--ink)" stroke-width="1.6"/><line x1="235" y1="45" x2="235" y2="235" stroke="var(--hair)" stroke-width="1"/><path d="M450 140L665 45V235Z" fill="var(--accent-wash)"/><path d="M450 140L665 45L880 140L665 235Z" fill="none" stroke="var(--ink)" stroke-width="1.6"/><line x1="665" y1="45" x2="665" y2="235" stroke="var(--hair)" stroke-width="1"/><text x="140" y="134" text-anchor="middle" class="ddl-n">Discover</text><text x="140" y="156" text-anchor="middle" class="ddl-s">Widen</text><text x="330" y="134" text-anchor="middle" class="ddl-n">Define</text><text x="330" y="156" text-anchor="middle" class="ddl-s">Narrow</text><text x="570" y="134" text-anchor="middle" class="ddl-n">Develop</text><text x="570" y="156" text-anchor="middle" class="ddl-s">Widen</text><text x="760" y="134" text-anchor="middle" class="ddl-n">Deliver</text><text x="760" y="156" text-anchor="middle" class="ddl-s">Narrow</text><text x="127" y="22" text-anchor="middle" class="ddl-c">Interviews</text><text x="343" y="22" text-anchor="middle" class="ddl-c">Impact vs effort</text><text x="557" y="22" text-anchor="middle" class="ddl-c">Wireframes</text><text x="773" y="22" text-anchor="middle" class="ddl-c">Beta-tested</text><text x="235" y="268" text-anchor="middle" class="ddl-c">The right problem</text><text x="665" y="268" text-anchor="middle" class="ddl-c">The right solution</text></svg>
+      <div class="grid-4" style="margin-top:1.2rem">
+        <div class="note"><span class="eyebrow">Discover</span><h4>Ask what they do, not what they want.</h4><p>24 interviews with patients, doctors, a former competitor, activists and creators. I lived in the T1D TikTok feed and tore down Duolingo, Flo and Strava.</p></div>
+        <div class="note"><span class="eyebrow">Define</span><h4>Impact over effort.</h4><p>Cut discussion forums (low impact, high effort), Google Calendar sync (low impact), and sponsored spotlights (high effort). What was left became one core thesis.</p></div>
+        <div class="note"><span class="eyebrow">Develop</span><h4>Wireframe, then invent.</h4><p>Five 30-page wireframe docs turned complex mechanics into dead-simple screens. Out of them came the Reinforcing Cycle and Decision Zones.</p></div>
+        <div class="note"><span class="eyebrow">Deliver</span><h4>Let users choose.</h4><p>Three paths, ranked by beta testers. I finished the winner with a UI designer, then walked the dev team through the high-fidelity design.</p></div>
       </div>
-      <div class="grid-4" style="margin-top:1rem">
-        <div class="note"><span class="eyebrow">Discover</span><h4>Watch the day, not the wishlist.</h4><p>24 interviews, rebuilt as behavioral walkthroughs of real daily routines instead of feature-wish questions.</p></div>
-        <div class="note"><span class="eyebrow">Define</span><h4>Stated wants diverged from behavior.</h4><p>That killed the most-requested feature, a Google Calendar integration, and re-centered the roadmap on one thesis: daily pull, retention, organic sharing.</p></div>
-        <div class="note"><span class="eyebrow">Develop</span><h4>Wireframe, then build the hard part.</h4><p>Flows for the home screen, reflection and decision zones, plus the glucose visualizations I built myself.</p></div>
-        <div class="note"><span class="eyebrow">Deliver</span><h4>Borrow proven loops.</h4><p>Duolingo-style notifications, Strava-style streaks and Flo-style shared insights between users.</p></div>
+      <div class="q-swap">
+        <div class="before"><small>How I asked at first</small>"Do you want schedule-based insights, like Google Calendar? More insights, or fewer?"</div>
+        <i aria-hidden="true">&rarr;</i>
+        <div class="after"><small>How I learned to ask</small>"Walk me through your daily routine on your phone. How often do you check your calendar? What insights actually help?"</div>
       </div>
     </section>
 
     <section>
-      <span class="eyebrow">03 &middot; Invention</span>
+      <span class="eyebrow">03 &middot; The core thesis</span>
+      <h3 class="sec">Three reasons to come back, each borrowed from an app people already love.</h3>
+      <table class="tbl">
+        <thead><tr><th>Users need a reason to</th><th>Borrowed from</th><th>Why that app</th><th>What shipped</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Check it every day</strong></td><td>Duolingo</td><td>A chore that only works once it's a habit</td><td>Habit-forming notifications and a daily recap</td></tr>
+          <tr><td><strong>Stay long-term</strong></td><td>Strava</td><td>Motivation to improve, and connection over consistency, not performance</td><td>Streaks and a monthly report that charges up</td></tr>
+          <tr><td><strong>Share it</strong></td><td>Flo</td><td>A chronic pain point and the community around it</td><td>Shared insights that connect diabetics with each other</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <span class="eyebrow">04 &middot; Invention</span>
       <h3 class="sec">The Reinforcing Cycle.</h3>
-      <p class="sec-sub">Most diabetes apps are dashboards: they show you numbers and leave the work to you. Remira is a loop, and every lap makes it more accurate and more worth opening.</p>
+      <p class="sec-sub">Most diabetes apps are dashboards: they show you numbers and leave the work to you. Remira is a loop. You can enter at any point, every point moves you to the next, and moving through it feels good, so you want to keep going.</p>
       <div class="cyc-wrap">
         <svg class="cycle" viewBox="0 0 260 214" role="img" aria-labelledby="rc2-t"><title id="rc2-t">The Reinforcing Cycle: reflect on yesterday, predict today's decision zones, improve, and celebrate each lap.</title><defs><marker id="rc2-ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1L9 5L0 9z" fill="var(--accent)"/></marker></defs><circle cx="130" cy="104" r="66" fill="none" stroke="var(--hair)" stroke-width="1"/><g fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><path d="M147.1 40.2A66 66 0 0 1 193.8 121.1" marker-end="url(#rc2-ah)"/><path d="M176.7 150.7A66 66 0 0 1 83.3 150.7" marker-end="url(#rc2-ah)"/><path d="M66.2 121.1A66 66 0 0 1 112.9 40.2" marker-end="url(#rc2-ah)"/></g><circle cx="130.0" cy="38.0" r="5.5" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="130.0" y="14.0" text-anchor="middle" class="cy-l" style="font-size:15px">Reflect</text><text x="130.0" y="27.0" text-anchor="middle" class="cy-s" style="font-size:9.5px">yesterday's recap</text><circle cx="187.2" cy="137.0" r="5.5" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="199.2" y="155.0" text-anchor="start" class="cy-l" style="font-size:15px">Predict</text><text x="199.2" y="168.0" text-anchor="start" class="cy-s" style="font-size:9.5px">today's zones</text><circle cx="72.8" cy="137.0" r="5.5" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="60.8" y="155.0" text-anchor="end" class="cy-l" style="font-size:15px">Improve</text><text x="60.8" y="168.0" text-anchor="end" class="cy-s" style="font-size:9.5px">act and track</text><text x="131.8" y="111.5" text-anchor="middle" class="cy-c" fill="var(--accent)">celebrate</text><text x="130" y="110" text-anchor="middle" class="cy-c" fill="var(--ink)">celebrate</text><text x="130" y="125" text-anchor="middle" class="cy-s" style="font-size:8.5px">every lap, sharper</text></svg>
         <div class="grid-2" style="gap:1.4rem">
           <div class="note"><span class="eyebrow">Reflect</span><h4>Yesterday, wrapped.</h4><p>Every 24 hours: what happened, one good thing, and whether yesterday's decision zones worked.</p></div>
-          <div class="note"><span class="eyebrow">Predict</span><h4>Today, forecast.</h4><p>The next hours, populated with predicted decision zones from your routine and the modes you pick: work day, day off, sick, vacation.</p></div>
-          <div class="note"><span class="eyebrow">Improve</span><h4>Act, then measure.</h4><p>If a zone helped, it stays. If it didn't, it gets replaced. The engine calibrates to your body, not an average one.</p></div>
+          <div class="note"><span class="eyebrow">Predict</span><h4>Today, forecast.</h4><p>The next hours, with predicted decision zones from your routine and the mode you pick: work day, day off, sick, vacation.</p></div>
+          <div class="note"><span class="eyebrow">Improve</span><h4>Act, then measure.</h4><p>A zone that helped stays. One that didn't gets replaced. The engine calibrates to your body, not an average one.</p></div>
           <div class="note"><span class="eyebrow">Celebrate</span><h4>Make progress visible.</h4><p>Streaks, XP and insight-engine levels: the reward that brings people back tomorrow.</p></div>
         </div>
       </div>
     </section>
 
     <section>
-      <span class="eyebrow">04 &middot; Invention</span>
+      <span class="eyebrow">05 &middot; Invention</span>
       <h3 class="sec">Decision Zones.</h3>
-      <p class="sec-sub">The few moments in a day where a small action changes the outcome most. They're anchored to the routine, not the clock, so "after breakfast" works whether breakfast is at 9 or 11. What you control (doses, carbs, movement) gets a plan. What you can't (sickness, heat, your period) gets a one-tap mode and reassurance, not an interrogation.</p>
+      <p class="sec-sub">The few moments in a day where a small action changes the outcome most, anchored to the routine rather than the clock. What mattered was pre-empting patterns rather than announcing when they'll happen, iterating on decisions until the right method sticks, celebrating improvement, and motivating through failure.</p>
       <figure class="chart">
         <svg viewBox="0 0 720 270" role="img" aria-labelledby="dz-t dz-d">
 <title id="dz-t">Decision zones on an illustrative day</title>
@@ -377,33 +377,38 @@
         <div class="hi"><b><i>4</i>Evening high</b>Stricter dosing practices at dinner.</div>
         <div class="lo"><b><i>5</i>Night low</b>Looser dosing before bed.</div>
       </div>
+      <div class="s321">
+        <div><div class="n">3</div><h4>States</h4><ul><li>Bad</li><li>Improving</li><li>Good</li></ul></div>
+        <div><div class="n">2</div><h4>Emotional supports</h4><ul><li>Motivate through failure</li><li>Celebrate improvement</li></ul></div>
+        <div><div class="n">1</div><h4>Value</h4><ul><li>A plan of action, for good days and bad</li></ul></div>
+      </div>
     </section>
 
     <section>
-      <span class="eyebrow">05 &middot; The question engine</span>
+      <span class="eyebrow">06 &middot; The question engine</span>
       <h3 class="sec">Ask only when the answer changes the advice.</h3>
-      <p class="sec-sub">Only 30% of users finished the daily reflection. I redesigned it as a one-tap flow built on a few rules, and completion went to 66%.</p>
-      <div class="grid-3" style="margin-top:1.6rem">
-        <div class="note"><span class="eyebrow">Rule 1</span><h4>Don't collect what you can infer.</h4><p>The CGM already says what happened and when. Questions only target the why, and only when it's still ambiguous. Most days, that's close to zero questions.</p></div>
+      <p class="sec-sub">Only 30% of users finished the daily reflection. I redesigned it as a one-tap flow built on three rules, and completion went to 66%.</p>
+      <div class="grid-3" style="margin-top:1.4rem">
+        <div class="note"><span class="eyebrow">Rule 1</span><h4>Don't collect what you can infer.</h4><p>The CGM already says what happened and when. Questions only target the why, and only when it's still ambiguous.</p></div>
         <div class="note"><span class="eyebrow">Rule 2</span><h4>Use the cheapest input that works.</h4><p>Passive data first, then a one-tap confirm, then check-all, then free entry. "Saw a 6pm workout, right?" beats a blank field.</p></div>
-        <div class="note"><span class="eyebrow">Rule 3</span><h4>Ask a delta, not a survey.</h4><p>One question: "was yesterday typical?" Yes ends it. No opens a short check-all tied to what changed. Friction scales with payoff.</p></div>
+        <div class="note"><span class="eyebrow">Rule 3</span><h4>Ask a delta, not a survey.</h4><p>"Was yesterday typical?" Yes ends it. No opens a short check-all tied to what changed.</p></div>
       </div>
     </section>
 
     <section>
-      <span class="eyebrow">06 &middot; Priorities under scarcity</span>
-      <h3 class="sec">Six people, one thesis, and a lot of no.</h3>
-      <div class="grid-3" style="margin-top:1.6rem">
-        <div class="note"><span class="eyebrow">Cut</span><h4>Forums and sponsored spotlights.</h4><p>Scored on impact against effort, both lost to the core loop. The roadmap was rebuilt around daily pull, retention and organic sharing.</p></div>
-        <div class="note"><span class="eyebrow">Killed</span><h4>The most-requested feature.</h4><p>A Google Calendar integration was the top request. Walkthroughs of real days showed behavior didn't back it up, so it didn't ship.</p></div>
-        <div class="note"><span class="eyebrow">Learned</span><h4>From a competitor teardown.</h4><p>Multi-user dependency is the biggest growth lever in this category, input friction is the real bottleneck, and the product should stay descriptive, never prescriptive.</p></div>
+      <span class="eyebrow">07 &middot; Execution</span>
+      <h3 class="sec">Three conflicts, three fixes.</h3>
+      <p class="sec-sub">Ideas were never the hard part. Getting six people with different jobs to build the same thing was.</p>
+      <div class="grid-3" style="margin-top:1.4rem">
+        <div class="note"><span class="eyebrow">Within a role</span><h4>Web app first, or straight to Swift?</h4><p>Our two developers disagreed on the stack. <strong>Fix: reasoning.</strong> We weighed the impact of each path against its effort, and the argument settled itself.</p></div>
+        <div class="note"><span class="eyebrow">Between roles</span><h4>More data, or less?</h4><p>Engineering wanted to capture as much as possible in the cycle; design wanted it dead simple. <strong>Fix: priorities and compromise,</strong> anchored to the core thesis.</p></div>
+        <div class="note"><span class="eyebrow">With my co-founder</span><h4>Habit app, or safety app?</h4><p>We argued about the logo, about adding developers, and about what Remira should be. <strong>Fix: shared vision, and ego out.</strong> Pros and cons, then back to impact over effort.</p></div>
       </div>
     </section>
 
     <section>
-      <span class="eyebrow">07 &middot; Voice as a product surface</span>
+      <span class="eyebrow">08 &middot; Voice as a product surface</span>
       <h3 class="sec">Notifications people don't mute.</h3>
-      <p class="sec-sub">We wrote the notification system by trigger: inactivity, time of day, streak and XP milestones, and a day-five reverse-psychology sequence. A health app can be warm and funny without being stressful.</p>
       <div class="notif">
         <div><small>Inactivity</small>Your CGM called. It has things to say &#128222;</div>
         <div><small>Night</small>We're not your endo, but we do stay up thinking about your patterns &#127769;</div>
@@ -413,7 +418,7 @@
     </section>
 
     <section>
-      <span class="eyebrow">08 &middot; Shipped</span>
+      <span class="eyebrow">09 &middot; Shipped</span>
       <h3 class="sec">The store listing, designed and written by me.</h3>
       <div class="shots">
         <figure class="shot shot--wide"><div class="frame"><img src="../assets/img/remira-app-store.jpg" width="1200" height="704" loading="lazy" decoding="async" alt="Remira T1D App Store listing: 5.0 stars from 26 ratings; screenshots reading T1D Made Easy, Reflect Predict Improve, and Pinpoint when, what and why"></div><figcaption>App Store listing &middot; 5.0&#9733; / 26 ratings &middot; Reflect, Predict, Improve</figcaption></figure>
@@ -439,11 +444,11 @@
   <div class="cs__scroll" tabindex="-1" autofocus><div class="cs__body">
     <p class="eyebrow">Prove Your Pick &middot; Founder &amp; sole product owner &middot; 2026 to now</p>
     <h2 class="cs-title" id="cs-pyp-t">A track record nobody can <span class="scr">fake</span>.</h2>
-    <p class="cs-intro">Prove Your Pick is a consumer-finance web platform where users lock stock predictions permanently and get judged against real market data. I wrote the PRD and built it end to end as a non-engineer with no development team, by directing AI coding agents.</p>
+    <p class="cs-intro">Prove Your Pick turns stock picking into a social game. Call any stock or ETF, lock it permanently, get judged by the real market, and build a public track record nobody can edit. I wrote the PRD, designed it, and built it end to end as a non-engineer by directing AI coding agents.</p>
 
     <div class="kpis">
       <div><div class="v">Solo</div><div class="k">PRD to production, no dev team</div></div>
-      <div><div class="v">503</div><div class="k">Large-cap tickers covered</div></div>
+      <div><div class="v">All</div><div class="k">Stocks and ETFs covered</div></div>
       <div><div class="v">4</div><div class="k">Record-gaming exploits closed pre-launch</div></div>
       <div><div class="v">5&times;</div><div class="k">Ways the judging logic was mutation-tested</div></div>
     </div>
@@ -452,7 +457,7 @@
       <span class="eyebrow">01 &middot; The product</span>
       <h3 class="sec">Pick, lock, judge, record, share.</h3>
       <div class="flow">
-        <div><span class="eyebrow">1</span><b>Pick</b><p>Make a call on a stock.</p></div>
+        <div><span class="eyebrow">1</span><b>Pick</b><p>Make a call on any stock or ETF.</p></div>
         <div><span class="eyebrow">2</span><b>Lock</b><p>Timestamped and permanent. No edits, no deletes.</p></div>
         <div><span class="eyebrow">3</span><b>Judge</b><p>Scored against real market data, not opinions.</p></div>
         <div><span class="eyebrow">4</span><b>Record</b><p>Every call adds to a public, verifiable track record.</p></div>
@@ -461,12 +466,18 @@
     </section>
 
     <section>
-      <span class="eyebrow">02 &middot; The hook</span>
-      <h3 class="sec">Three mechanics that compound.</h3>
-      <div class="grid-3" style="margin-top:1.6rem">
-        <div class="note"><span class="eyebrow">Tournament</span><h4>Opinions become a contest.</h4><p>Locking a pick turns a take into a position you're accountable for. The leaderboard is earned, not claimed, which is what makes winning worth something.</p></div>
-        <div class="note"><span class="eyebrow">Network effect</span><h4>The record is the moat.</h4><p>Every locked pick is a verified, timestamped data point. As players grow, the crowd signal sharpens, and the recommendations and analysis built on it get more accurate, which draws more players.</p></div>
-        <div class="note"><span class="eyebrow">Social &times; competition</span><h4>Sharing is the growth loop.</h4><p>A verified call is built to be posted, and challenging a friend to beat your record is the cheapest acquisition there is. Competition does the marketing.</p></div>
+      <span class="eyebrow">02 &middot; The business</span>
+      <h3 class="sec">Free to play. Pay to follow.</h3>
+      <p class="sec-sub">Stock picking has always been gated by credentials and follower counts. Prove Your Pick replaces both with a record anyone can build, and that record is what the business will sell.</p>
+      <div class="fly-wrap">
+        <svg class="fly" viewBox="0 0 440 300" role="img" aria-labelledby="fw2-t"><title id="fw2-t">The flywheel: more players lock more picks, locked picks prove the top pickers, people pay to follow them, and that draws more players.</title><defs><marker id="fw2-ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1L9 5L0 9z" fill="var(--accent)"/></marker></defs><circle cx="220" cy="150" r="80" fill="none" stroke="var(--hair)"/><g fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"><path d="M238.0 72.1A80 80 0 0 1 297.9 132.0" marker-end="url(#fw2-ah)"/><path d="M297.9 168.0A80 80 0 0 1 238.0 227.9" marker-end="url(#fw2-ah)"/><path d="M202.0 227.9A80 80 0 0 1 142.1 168.0" marker-end="url(#fw2-ah)"/><path d="M142.1 132.0A80 80 0 0 1 202.0 72.1" marker-end="url(#fw2-ah)"/></g><circle cx="220.0" cy="70.0" r="5.5" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="220.0" y="44.0" text-anchor="middle" class="fw-l" style="font-size:18px">More players</text><text x="220.0" y="59.0" text-anchor="middle" class="fw-s" style="font-size:11px">play free</text><circle cx="300.0" cy="150.0" r="5.5" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="312.0" y="156.0" text-anchor="start" class="fw-l" style="font-size:18px">Locked picks</text><text x="312.0" y="170.0" text-anchor="start" class="fw-s" style="font-size:11px">verified data</text><circle cx="220.0" cy="230.0" r="5.5" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="220.0" y="257.0" text-anchor="middle" class="fw-l" style="font-size:18px">Top pickers</text><text x="220.0" y="271.0" text-anchor="middle" class="fw-s" style="font-size:11px">proven in public</text><circle cx="140.0" cy="150.0" r="5.5" fill="var(--ink)" stroke="var(--paper)" stroke-width="2.5"/><text x="128.0" y="156.0" text-anchor="end" class="fw-l" style="font-size:18px">Paid follows</text><text x="128.0" y="170.0" text-anchor="end" class="fw-s" style="font-size:11px">the business</text><text x="221.8" y="162.9" text-anchor="middle" class="fw-c" style="font-size:38px" fill="var(--accent)">flywheel</text><text x="220" y="161.4" text-anchor="middle" class="fw-c" style="font-size:38px" fill="var(--ink)">flywheel</text></svg>
+        <ul class="fly-points">
+          <li><strong>The hook is a tournament.</strong> Locking a pick turns a hot take into a position you're accountable for, and climbing past your friends makes it a game.</li>
+          <li><strong>Every locked pick is verified data.</strong> More players means more picks, a sharper crowd signal, and rankings that mean more.</li>
+          <li><strong>At scale, the leaderboard is the product.</strong> We'll charge to see the top scorers and to follow the best individuals.</li>
+          <li><strong>It democratizes stock picking.</strong> Credibility comes from a public record, not a title, so anyone can earn a following.</li>
+          <li><strong>Sharing is the growth loop.</strong> A verified win gets posted; every challenge to a friend is a new player, and the wheel turns again.</li>
+        </ul>
       </div>
     </section>
 
@@ -474,20 +485,52 @@
       <span class="eyebrow">03 &middot; The call I'd defend</span>
       <div class="block block--ink">
         <h3 class="sec" style="color:var(--paper)">Integrity before engagement.</h3>
-        <p style="margin-top:0.8rem;max-width:66ch;color:rgba(244,240,232,.82)">I deferred leaderboards, profiles and scoring for the first month. Public rankings are worthless if the record beneath them can be quietly fudged or edited after the fact, so the record had to be trustworthy before anything was built on top of it.</p>
+        <p style="margin-top:0.8rem;max-width:66ch;color:rgba(244,240,232,.82)">I deferred leaderboards, profiles and scoring for the first month. The whole business sells trust in the record, so the record had to be impossible to fudge before anything was built on top of it.</p>
       </div>
     </section>
 
     <section>
-      <span class="eyebrow">04 &middot; How I built it</span>
-      <h3 class="sec">Acceptance criteria verified in production, not on my laptop.</h3>
-      <div class="grid-3" style="margin-top:1.6rem">
-        <div class="note"><span class="eyebrow">Threat model</span><h4>Attack my own product first.</h4><p>Adversarial threat modeling found four ways to game the record. All four were closed before launch.</p></div>
-        <div class="note"><span class="eyebrow">Testing</span><h4>Break the judge on purpose.</h4><p>The judging logic was mutation-tested five separate ways, so a subtle scoring bug can't hide behind passing tests.</p></div>
-        <div class="note"><span class="eyebrow">Data</span><h4>Check the pipeline in SQL.</h4><p>Validated the pipeline in SQL against production data, then defined "done" as verified in production.</p></div>
+      <span class="eyebrow">04 &middot; System design</span>
+      <h3 class="sec">I learned the architecture before I wrote a prompt.</h3>
+      <div class="hld" role="img" aria-label="Request path: browser, to DNS and HTTPS through Vercel's load balancer, to a stateless Next.js app on Vercel in Portland, to a Supabase Postgres database in Oregon.">
+        <div class="hld__n"><span class="k">Client</span><b>Browser</b><small>Any device</small></div>
+        <i aria-hidden="true">&rarr;</i>
+        <div class="hld__n"><span class="k">Edge</span><b>DNS + HTTPS</b><small>Vercel load balancer</small></div>
+        <i aria-hidden="true">&rarr;</i>
+        <div class="hld__n hld__n--me"><span class="k">App &middot; Portland</span><b>Next.js on Vercel</b><small>Serverless and stateless, one codebase</small></div>
+        <i aria-hidden="true">&rarr;</i>
+        <div class="hld__n"><span class="k">Data &middot; Oregon</span><b>Supabase Postgres</b><small>Shared storage, replicas, next door to the app</small></div>
       </div>
+      <p class="hld-side"><span><b>Market data:</b> Databento and SEC filings</span><span><b>Email:</b> Resend</span><span><b>Design:</b> an X-style system; the logo is mine, made without AI</span></p>
+      <table class="tbl" style="margin-top:1.6rem">
+        <thead><tr><th>Five questions before the first prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>How many users?</td><td>10K to start. Vercel's free tier covers a million function calls a month.</td></tr>
+          <tr><td>Read- or write-heavy?</td><td>Read-heavy.</td></tr>
+          <tr><td>What can we never lose?</td><td>A pick. A vote count can lag for a moment.</td></tr>
+          <tr><td>How much latency is OK?</td><td>Buttons must feel instant; uploads can take a beat.</td></tr>
+          <tr><td>Budget?</td><td>Close to zero.</td></tr>
+        </tbody>
+      </table>
+      <div class="grid-3" style="margin-top:1.6rem">
+        <div class="note"><span class="eyebrow">Shape</span><h4>One codebase, serverless.</h4><p>A monolith deployed serverless: simplest to build and debug alone, and it scales up before it ever needs to scale out.</p></div>
+        <div class="note"><span class="eyebrow">Data</span><h4>SQL, on purpose.</h4><p>Every pick carries the same fields, picks relate to people and votes, and one action can touch many rows. Structure, relationships, transactions: Postgres.</p></div>
+        <div class="note"><span class="eyebrow">The trade-off</span><h4>No cache, for privacy.</h4><p>Vote on a pick to unlock its discussion. A cached page is built for one person and handed to the next, which here would leak unlocked content. So the product pays in speed to guarantee correctness, knowingly.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">05 &middot; Building with AI</span>
+      <h3 class="sec">AI does what you can't, fast. It doesn't think for you.</h3>
+      <div class="grid-4" style="margin-top:1.4rem">
+        <div class="note"><span class="eyebrow">01</span><h4>Learn the system first.</h4><p>Hours of system design before any code: caching, read vs write load, monolith vs serverless, and how data structures drive cost.</p></div>
+        <div class="note"><span class="eyebrow">02</span><h4>Ask precise questions.</h4><p>Not "make it fast," but where each piece runs. That's how I found the server and database on opposite coasts, adding latency, and moved them together.</p></div>
+        <div class="note"><span class="eyebrow">03</span><h4>Never take the first draft.</h4><p>Double- and triple-check every change, and have a separate model review each file adversarially.</p></div>
+        <div class="note"><span class="eyebrow">04</span><h4>Test it like a user.</h4><p>Click through every feature to confirm the experience matches what the code claims. That catches the most bugs.</p></div>
+      </div>
+      <p class="sec-sub" style="margin-top:1.4rem">Before launch, adversarial threat modeling found four ways to game the record, and all four were closed. The judging logic was mutation-tested five ways, and the pipeline was validated in SQL against production data.</p>
       <div class="stack-chips" aria-label="Stack">
-        <span class="chip">PRD &amp; acceptance criteria</span><span class="chip">Claude Code agents</span><span class="chip">Supabase / Postgres</span><span class="chip">SQL</span><span class="chip">Vercel</span><span class="chip">Git / GitHub</span>
+        <span class="chip">PRD &amp; acceptance criteria</span><span class="chip">Claude Code agents</span><span class="chip">Next.js</span><span class="chip">Vercel</span><span class="chip">Supabase / Postgres</span><span class="chip">SQL</span><span class="chip">Databento</span><span class="chip">Resend</span><span class="chip">Git / GitHub</span>
       </div>
       <div class="cta-row">
         <a class="btn btn--ink" href="https://proveyourpick.com" target="_blank" rel="noopener">proveyourpick.com <span class="arr" aria-hidden="true">&#8599;</span></a>

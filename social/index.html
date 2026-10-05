@@ -17,57 +17,36 @@
 <link rel="preload" href="../assets/fonts/mr-dafoe-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <style>
-  .page { display: grid; grid-template-rows: auto auto 1fr; row-gap: 1.1rem; padding: 1.3rem 0 1.2rem; }
+  .ph .display { max-width: 21ch; }
 
-  .ph { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: 3rem; }
-  .ph .display { margin-top: 0.7rem; max-width: 21ch; }
-  .agg { display: grid; grid-template-columns: repeat(4, auto); column-gap: 2.3rem; padding-bottom: 0.3rem; }
-  .agg .v { font-size: 2.15rem; font-weight: 400; letter-spacing: -0.045em; }
-
-  .skills { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
-  .skill { padding: 0.7rem 1.1rem 0 0; }
-  .skill + .skill { padding-left: 1.1rem; border-left: 1px solid var(--hair); }
-  .skill h2 { display: flex; align-items: baseline; gap: 0.45rem; font-size: 0.98rem; font-weight: 560; letter-spacing: -0.02em; }
-  .skill h2 .n { font-family: var(--mono); font-size: 0.6rem; font-weight: 400; color: var(--muted); }
-  .skill p { margin-top: 0.22rem; font-size: 0.79rem; line-height: 1.38; color: var(--ink-2); }
-
-  .xps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
-  .xp { display: flex; flex-direction: column; min-width: 0; padding: 1.05rem 1.15rem 1.1rem; border: 1px solid var(--ink); border-radius: 1.1rem; }
-  .xp__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.8rem; }
-  .xp__name { font-size: 1.32rem; font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; }
-  .xp__meta { margin-top: 0.32rem; font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.03em; color: var(--muted); }
-  .xp__handle { font-family: var(--mono); font-size: 0.66rem; color: var(--ink-2); white-space: nowrap; padding-top: 0.2rem; }
-  .xp__handle:hover { color: var(--ink); }
-  .xp .stats { grid-template-columns: 1fr 1fr; margin-top: 0.85rem; padding: 0.8rem 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
-  .tldr { margin: 0.3rem 0 0.9rem; }
-  .tldr > div { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 0.7rem; padding: 0.46rem 0; }
-  .tldr > div + div { border-top: 1px solid var(--hair-2); }
-  .tldr dt { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); padding-top: 0.2rem; }
-  .tldr dd { font-size: 0.85rem; line-height: 1.42; color: var(--ink-2); }
+  /* card head: identity + stats on the left, the post on the right */
+  .xp__head { display: grid; grid-template-columns: minmax(0, 1fr) 9.8rem; grid-template-rows: auto 1fr; column-gap: 1rem; }
+  .xp__id { grid-column: 1; grid-row: 1; min-width: 0; }
+  .xp__id .xp__handle { display: inline-block; margin-top: 0.3rem; padding-top: 0; }
+  .xp__head .stats { grid-column: 1; grid-row: 2; align-self: end; grid-template-columns: 1fr 1fr; gap: 0.75rem 0.9rem; margin-top: 0.75rem; padding: 0.75rem 0 0; border-bottom: 0; }
+  .xp__head .reel { grid-column: 2; grid-row: 1 / span 2; align-self: start; }
+  .xp .tldr { margin-top: 0.75rem; border-top: 1px solid var(--hair); }
 
   /* case-study extras */
   .tam { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: start; }
   .ledger { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3rem; }
-  .led { display: flex; justify-content: space-between; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(244, 240, 232, 0.16); font-size: 0.95rem; }
+  .led { display: flex; justify-content: space-between; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(244, 240, 232, 0.16); font-size: 1rem; }
   .led b { font-weight: 560; flex: none; }
   .dm { display: grid; grid-template-columns: 15rem 1fr; gap: 2.4rem; align-items: center; margin-top: 1.6rem; padding: 1.6rem; border-radius: 1.25rem; background: var(--paper-2); }
   .dm img { border-radius: 0.6rem; border: 1px solid var(--hair); }
   .dm h4 { font-weight: 500; font-size: 1.3rem; letter-spacing: -0.025em; margin: 0.6rem 0 0.7rem; }
-  .dm p { font-size: 0.95rem; color: var(--ink-2); line-height: 1.5; }
+  .dm p { font-size: 1rem; color: var(--ink-2); line-height: 1.5; }
   .plan { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4rem; }
-  .plan h4 { font-family: var(--mono); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; padding-bottom: 0.6rem; border-bottom: 1px solid var(--ink); }
-  .plan li { list-style: none; padding: 0.6rem 0; border-bottom: 1px solid var(--hair); font-size: 0.95rem; }
+  .plan h4 { font-family: var(--mono); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; padding-bottom: 0.6rem; border-bottom: 1px solid var(--ink); }
+  .plan li { list-style: none; padding: 0.6rem 0; border-bottom: 1px solid var(--hair); font-size: 1rem; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
-  .franchise td:first-child { font-family: var(--mono); font-size: 0.78rem; white-space: nowrap; color: var(--muted); }
+  .franchise td:first-child { font-family: var(--mono); font-size: 0.8rem; white-space: nowrap; color: var(--muted); }
   .franchise td:nth-child(2) { font-weight: 520; white-space: nowrap; }
 
   @media (max-width: 900px) {
-    .page { padding-top: 1.2rem; row-gap: 1.6rem; }
-    .ph { grid-template-columns: 1fr; row-gap: 1.4rem; }
-    .agg { grid-template-columns: repeat(2, auto); justify-content: start; row-gap: 1rem; }
-    .skills { grid-template-columns: 1fr 1fr; }
-    .skill, .skill + .skill { padding: 0.7rem 0.8rem 0.6rem 0; border-left: 0; }
-    .xps { grid-template-columns: 1fr; }
+    .xp__head { grid-template-columns: minmax(0, 1fr) 9.5rem; grid-template-rows: auto auto; }
+    .xp__head .stats { grid-column: 1 / -1; grid-row: 2; }
+    .xp__head .reel { grid-row: 1; }
     .tam, .ledger, .dm, .plan { grid-template-columns: 1fr; }
     .dm img { max-width: 14rem; }
   }
@@ -83,16 +62,13 @@
       <a class="tab" href="../product/"><span class="n">02</span>Product Management and Design</a>
       <a class="tab" href="../social/" aria-current="page"><span class="n">03</span>Social Media Marketing</a>
     </nav>
-    <div class="topbar__end"><a class="btn btn--ink" href="mailto:xbartlet@umich.edu">xbartlet@umich.edu</a></div>
+    <div class="topbar__end"><a class="btn btn--ink" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=xbartlet@umich.edu" target="_blank" rel="noopener" data-mailto="xbartlet@umich.edu">xbartlet@umich.edu</a></div>
   </header>
 
   <main class="page">
     <header class="ph">
-      <div>
-        <p class="eyebrow rise"><span class="num">03</span><span class="dash"></span>Social Media Marketing</p>
-        <h1 class="display rise" style="--d:1">Paid clicks end when the invoice does. A <span class="scr">brand</span> doesn't.</h1>
-      </div>
-      <div class="agg stats rise" style="--d:2" aria-label="Lifetime totals across both content brands">
+      <h1 class="display rise">Paid clicks end when the invoice does. A <span class="scr">brand</span> doesn't.</h1>
+      <div class="agg stats rise" style="--d:1" aria-label="Lifetime totals across both content brands">
         <div class="stat"><div class="v">18.7M</div><div class="k">Organic views</div></div>
         <div class="stat"><div class="v">20K</div><div class="k">Followers built</div></div>
         <div class="stat"><div class="v">2.1M</div><div class="k">Likes</div></div>
@@ -100,68 +76,89 @@
       </div>
     </header>
 
-    <section class="skills rise" style="--d:3" aria-label="What I specialize in">
-      <div class="skill"><h2><span class="n">01</span>UGC</h2><p>Real patients and my own face on camera. It's where a viewer decides: person or billboard.</p></div>
-      <div class="skill"><h2><span class="n">02</span>Editing</h2><p>Six-second cuts that held 49% of viewers to the final frame.</p></div>
-      <div class="skill"><h2><span class="n">03</span>User empathy</h2><p>I train my feed until the algorithm serves me the customer.</p></div>
-      <div class="skill"><h2><span class="n">04</span>Marketing</h2><p>Ad creative, App Store listing and landing page, all written and designed myself.</p></div>
-      <div class="skill"><h2><span class="n">05</span>Virality</h2><p>Eight posts past 750K across two accounts. The best one hit 1.5M.</p></div>
+    <section class="skills rise" style="--d:2; --n:5" aria-label="What I specialize in">
+      <div class="skill"><h2><span class="n">01</span>UGC</h2><p>Real patients, and my own face.</p></div>
+      <div class="skill"><h2><span class="n">02</span>Editing</h2><p>6-second hooks, 49% full watches.</p></div>
+      <div class="skill"><h2><span class="n">03</span>User empathy</h2><p>I live in my customer's feed.</p></div>
+      <div class="skill"><h2><span class="n">04</span>Marketing</h2><p>Ads, store page, landing page.</p></div>
+      <div class="skill"><h2><span class="n">05</span>Virality</h2><p>Eight posts past 750K; best 1.5M.</p></div>
     </section>
 
     <section class="xps" aria-label="Experience">
-      <article class="xp rise" style="--d:4">
-        <div class="xp__top">
-          <div><h2 class="xp__name">Remira T1D</h2><p class="xp__meta">Co-founder &amp; CEO &middot; Apr 2026&ndash;now</p></div>
-          <a class="xp__handle ext" href="https://www.tiktok.com/@remira.t1d" target="_blank" rel="noopener">@remira.t1d</a>
-        </div>
-        <div class="stats">
-          <div class="stat"><div class="v">8.7M</div><div class="k">Views, solo, $0</div></div>
-          <div class="stat"><div class="v">6M</div><div class="k">In a single 60-day stretch</div></div>
-          <div class="stat"><div class="v">1,000</div><div class="k">App Store installs</div></div>
-          <div class="stat"><div class="v">5.0<small>&#9733;</small></div><div class="k">Rating, 26 reviews</div></div>
+      <article class="xp rise" style="--d:3">
+        <div class="xp__head">
+          <div class="xp__id">
+            <h2 class="xp__name">Remira T1D</h2>
+            <p class="xp__meta">Co-founder &amp; CEO &middot; Apr 2026&ndash;now</p>
+            <a class="xp__handle ext" href="https://www.tiktok.com/@remira.t1d" target="_blank" rel="noopener">@remira.t1d</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><div class="v">8.7M</div><div class="k">Views, solo, $0</div></div>
+            <div class="stat"><div class="v">6M</div><div class="k">In 60 days</div></div>
+            <div class="stat"><div class="v">1,000</div><div class="k">App installs</div></div>
+            <div class="stat"><div class="v">5.0<small>&#9733;</small></div><div class="k">26 reviews</div></div>
+          </div>
+          <a class="reel" href="https://www.tiktok.com/@remira.t1d/video/7663918412141317390" target="_blank" rel="noopener" aria-label="Watch on TikTok: a talk on solving night-time lows. 640 followers off 63K views.">
+            <img src="../assets/img/remira-night-lows.jpg" width="577" height="722" alt="">
+            <span class="reel__bar" aria-hidden="true"><span class="reel__play"></span>640 followers off 63K views</span>
+          </a>
         </div>
         <dl class="tldr">
-          <div><dt>The user</dt><dd>People living with Type 1 diabetes and their parents, skeptical of anything that smells like an ad.</dd></div>
-          <div><dt>Why it's hard</dt><dd>The whole category is about 10M people worldwide, so 8.7M views meant reaching nearly everyone it could, then turning that into 1,000 installs.</dd></div>
-          <div><dt>The strategy</dt><dd>Faceless hooks bought reach, on-camera talks bought followers, and 2,500 hand-written DMs turned recognition into installs at 15%.</dd></div>
+          <div><dt>The user</dt><dd>People with T1D and their parents, wary of anything that smells like an ad.</dd></div>
+          <div><dt>Why it's hard</dt><dd>A category of only ~10M people worldwide, <strong>and it still drew 8.7M views.</strong></dd></div>
+          <div><dt>The strategy</dt><dd>Hooks for reach, talks for followers, <strong>2,500 hand-sent DMs</strong> for installs.</dd></div>
         </dl>
         <button class="open-cs" type="button" data-open="remira" aria-haspopup="dialog">Receipts &amp; full case study <span class="plus" aria-hidden="true">+</span></button>
       </article>
 
-      <article class="xp rise" style="--d:5">
-        <div class="xp__top">
-          <div><h2 class="xp__name">The Finance Guide</h2><p class="xp__meta">Founder &middot; May&ndash;Aug 2025</p></div>
-          <a class="xp__handle ext" href="https://www.tiktok.com/@financeguide111" target="_blank" rel="noopener">@financeguide111</a>
-        </div>
-        <div class="stats">
-          <div class="stat"><div class="v">10M</div><div class="k">Views in one summer</div></div>
-          <div class="stat"><div class="v">15K</div><div class="k">Followers from zero</div></div>
-          <div class="stat"><div class="v">1M</div><div class="k">Likes</div></div>
-          <div class="stat"><div class="v">2</div><div class="k">Inbound paid brand deals</div></div>
+      <article class="xp rise" style="--d:4">
+        <div class="xp__head">
+          <div class="xp__id">
+            <h2 class="xp__name">The Finance Guide</h2>
+            <p class="xp__meta">Founder &middot; May&ndash;Aug 2025</p>
+            <a class="xp__handle ext" href="https://www.tiktok.com/@financeguide111" target="_blank" rel="noopener">@financeguide111</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><div class="v">10M</div><div class="k">In one summer</div></div>
+            <div class="stat"><div class="v">15K</div><div class="k">New followers</div></div>
+            <div class="stat"><div class="v">1M</div><div class="k">Likes</div></div>
+            <div class="stat"><div class="v">2</div><div class="k">Paid brand deals</div></div>
+          </div>
+          <a class="reel" href="https://www.tiktok.com/@financeguide111/video/7536065060007906574" target="_blank" rel="noopener" aria-label="Watch on TikTok: the JP Morgan edit. 891K views and 1.8K new followers.">
+            <img src="../assets/img/finance-jpm.jpg" width="520" height="650" alt="">
+            <span class="reel__bar" aria-hidden="true"><span class="reel__play"></span>891K views, 1.8K followers</span>
+          </a>
         </div>
         <dl class="tldr">
-          <div><dt>The user</dt><dd>Young, finance-curious scrollers who have learned to tune out finfluencers.</dd></div>
-          <div><dt>Why it's hard</dt><dd>No face, no name, nothing to sell, and still 10M views in one summer. Autopilot and Nummo AI paid for content off the audience alone.</dd></div>
-          <div><dt>The strategy</dt><dd>Reverse-engineered retention in a spreadsheet, locked one repeatable edit format, then scaled volume until six videos cleared 750K.</dd></div>
+          <div><dt>The user</dt><dd>Finance-curious scrollers who've learned to tune out finfluencers.</dd></div>
+          <div><dt>Why it's hard</dt><dd>No face, no name, nothing to sell. <strong>Still 10M views and two paid deals.</strong></dd></div>
+          <div><dt>The strategy</dt><dd>Read retention in a spreadsheet, <strong>locked one edit format,</strong> scaled volume.</dd></div>
         </dl>
         <button class="open-cs" type="button" data-open="finance" aria-haspopup="dialog">Receipts &amp; full case study <span class="plus" aria-hidden="true">+</span></button>
       </article>
 
-      <article class="xp rise" style="--d:6">
-        <div class="xp__top">
-          <div><h2 class="xp__name">Aether</h2><p class="xp__meta">GTM lead, contract &middot; Aug 2026&ndash;now</p></div>
-          <a class="xp__handle ext" href="https://www.runaether.dev" target="_blank" rel="noopener">runaether.dev</a>
-        </div>
-        <div class="stats">
-          <div class="stat"><div class="v">0&rarr;1.2K</div><div class="k">Instagram followers, 5 weeks</div></div>
-          <div class="stat"><div class="v">+81%</div><div class="k">Weekly signups vs prior 7 wks</div></div>
-          <div class="stat"><div class="v">421</div><div class="k">Visitors from IG + X in 30 days</div></div>
-          <div class="stat"><div class="v">$0</div><div class="k">Paid spend</div></div>
+      <article class="xp rise" style="--d:5">
+        <div class="xp__head">
+          <div class="xp__id">
+            <h2 class="xp__name">Aether</h2>
+            <p class="xp__meta">GTM lead, contract &middot; Aug 2026&ndash;now</p>
+            <a class="xp__handle ext" href="https://www.runaether.dev" target="_blank" rel="noopener">runaether.dev</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><div class="v">0&rarr;1.2K</div><div class="k">IG in 5 weeks</div></div>
+            <div class="stat"><div class="v">+81%</div><div class="k">Weekly signups</div></div>
+            <div class="stat"><div class="v">421</div><div class="k">Visitors, IG + X</div></div>
+            <div class="stat"><div class="v">$0</div><div class="k">Paid spend</div></div>
+          </div>
+          <a class="reel" href="https://www.instagram.com/reel/Dcgxejbxc_S/" target="_blank" rel="noopener" aria-label="Watch on Instagram: You're reviewing PRs wrong, an Aether reel.">
+            <img src="../assets/img/aether-reel.jpg" width="640" height="800" alt="">
+            <span class="reel__bar" aria-hidden="true"><span class="reel__play"></span>Watch on Instagram</span>
+          </a>
         </div>
         <dl class="tldr">
-          <div><dt>The user</dt><dd>Senior engineers running AI coding agents, the most ad-blind audience online.</dd></div>
-          <div><dt>Why it's hard</dt><dd>Developers ignore marketing, yet a five-week-old Instagram out-referred an X presence built over years, and signups rose 81% at $0.</dd></div>
-          <div><dt>The strategy</dt><dd>Fixed the message before the megaphone, then shipped demos, memes and release screenshots that show the work, never pitch it.</dd></div>
+          <div><dt>The user</dt><dd>Senior engineers running AI agents: the most ad-blind audience online.</dd></div>
+          <div><dt>Why it's hard</dt><dd>A five-week-old Instagram out-referred years of X. <strong>Signups rose 81% at $0.</strong></dd></div>
+          <div><dt>The strategy</dt><dd>Message before megaphone; then <strong>demos, memes and shots</strong> that show the work.</dd></div>
         </dl>
         <button class="open-cs" type="button" data-open="aether" aria-haspopup="dialog">Receipts &amp; full case study <span class="plus" aria-hidden="true">+</span></button>
       </article>
@@ -171,7 +168,7 @@
   <footer class="foot">
     <a class="foot__next" href="../gtm/">Next: GTM Strategy &amp; Engineering <span class="arr" aria-hidden="true">&rarr;</span></a>
     <div class="foot__links">
-      <a href="mailto:xbartlet@umich.edu">xbartlet@umich.edu</a>
+      <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=xbartlet@umich.edu" target="_blank" rel="noopener" data-mailto="xbartlet@umich.edu">xbartlet@umich.edu</a>
       <a class="ext" href="https://www.linkedin.com/in/xander-bartlett-557054325/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="tel:+19712190675">971-219-0675</a>
     </div>
@@ -455,6 +452,15 @@
       <div class="shots">
         <figure class="shot shot--wide"><div class="frame"><img src="../assets/img/finance-891k.png" width="1200" height="229" loading="lazy" decoding="async" alt="Post analytics from the Finance Guide account: 891K views, 4,148 hours total play time, 16.44s average watch time, 10.4% watched the full video, 1.8K new followers"></div><figcaption>@financeguide111 &middot; 891K views, 16.4s average watch, 1.8K followers from one post</figcaption></figure>
       </div>
+      <a class="vcard" href="https://www.tiktok.com/@financeguide111/video/7536065060007906574" target="_blank" rel="noopener">
+        <div class="vthumb"><img src="../assets/img/finance-jpm.jpg" width="520" height="650" loading="lazy" alt="Still from the JP Morgan edit, captioned: If you want to do what JP Morgan does..."><span class="vplay" aria-hidden="true"></span></div>
+        <div>
+          <span class="eyebrow">The post &middot; August 8, 2025</span>
+          <h4 class="h2" style="margin:0.6rem 0 0.5rem">&ldquo;We bank countries&hellip;&rdquo;</h4>
+          <p class="body-sm" style="max-width:56ch">An anonymous edit with one line of text on screen. 891K views, 16.4 seconds of average watch, and <strong>1.8K new followers</strong> from a single post.</p>
+          <span class="link-u" style="display:inline-block;margin-top:0.8rem;font-weight:500">Watch it on TikTok</span>
+        </div>
+      </a>
       <div class="cta-row">
         <a class="btn btn--ink" href="https://www.tiktok.com/@financeguide111/collection/%F0%9F%8F%86Best%20Edits-7520739197204941623" target="_blank" rel="noopener">Watch the best edits <span class="arr" aria-hidden="true">&#8599;</span></a>
         <a class="btn btn--ghost" href="https://www.tiktok.com/@financeguide111" target="_blank" rel="noopener">@financeguide111</a>
@@ -506,6 +512,15 @@
         <div class="note"><span class="eyebrow">X</span><h4>Memes, release screenshots, real replies.</h4><p>Join conversations that already matter, screenshot the releases worth noticing, and build a voice developers recognize. The company account was rebuilt and put on a cadence.</p></div>
         <div class="note"><span class="eyebrow">Brand</span><h4>A bible for how we sound.</h4><p>Mottos written to the actual fear: <strong>"You trust your agents, but do you really?"</strong> &middot; "Stop babysitting your agents." &middot; "It loops until it's green."</p></div>
       </div>
+      <a class="vcard" href="https://www.instagram.com/reel/Dcgxejbxc_S/" target="_blank" rel="noopener">
+        <div class="vthumb"><img src="../assets/img/aether-reel.jpg" width="640" height="800" loading="lazy" alt="Aether reel cover: the headline You're reviewing PRs wrong over a pull request that can't merge, above the Aether logo"><span class="vplay" aria-hidden="true"></span></div>
+        <div>
+          <span class="eyebrow">The format, in practice</span>
+          <h4 class="h2" style="margin:0.6rem 0 0.5rem">&ldquo;You're reviewing PRs wrong&hellip;&rdquo;</h4>
+          <p class="body-sm" style="max-width:56ch">Faceless, one-line hook, built on a screen every developer knows: a pull request that can't merge.</p>
+          <span class="link-u" style="display:inline-block;margin-top:0.8rem;font-weight:500">Watch it on Instagram</span>
+        </div>
+      </a>
     </section>
 
     <section>
