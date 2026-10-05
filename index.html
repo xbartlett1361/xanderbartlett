@@ -99,6 +99,7 @@
   /* ---- personal gallery, below the first screen ---- */
   .gallery { max-width: var(--max); margin: 0 auto; padding: 0.4rem var(--gutter) 2.6rem; }
   .gallery__row { display: flex; gap: 1rem; }
+  .gallery__row + .gallery__row { margin-top: 1rem; }
   .gallery figure { flex: var(--r) 1 0; min-width: 0; aspect-ratio: var(--r); border-radius: 1.1rem; overflow: hidden; background: var(--paper-2); }
   .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
   .gallery figure:hover img { transform: scale(1.03); }
@@ -116,6 +117,7 @@
     .door__t { font-size: 1.6rem; }
     .door__d { font-size: 1rem; }
     .gallery__row { flex-wrap: wrap; gap: 0.7rem; }
+    .gallery__row + .gallery__row { margin-top: 0.7rem; }
     .gallery figure { flex: 1 1 calc(50% - 0.35rem); aspect-ratio: 4 / 5; }
     .gallery figure.wide { flex-basis: 100%; aspect-ratio: var(--r); order: -1; }
   }
@@ -242,6 +244,12 @@
     <figure style="--r:0.6729"><img src="assets/img/me-filming.jpg" width="942" height="1400" loading="lazy" decoding="async" alt="Xander talking to camera with a clip-on microphone"></figure>
     <figure class="wide" style="--r:2.168"><img src="assets/img/me-podcast.jpg" width="1600" height="738" loading="lazy" decoding="async" alt="Xander laughing during a podcast interview"></figure>
     <figure style="--r:0.782"><img src="assets/img/me-puppy.jpg" width="782" height="1000" loading="lazy" decoding="async" alt="A red puppy leaping for a rope toy on a garden path"></figure>
+  </div>
+  <div class="gallery__row">
+    <figure style="--r:0.8805"><img src="assets/img/me-london.jpg" width="737" height="837" loading="lazy" decoding="async" alt="Looking across the Thames at Big Ben and Parliament at night"></figure>
+    <figure style="--r:1.0044"><img src="assets/img/me-big-house.jpg" width="917" height="913" loading="lazy" decoding="async" alt="Friends in Michigan gear in the stands of a packed Michigan Stadium"></figure>
+    <figure style="--r:0.9918"><img src="assets/img/me-hong-kong.jpg" width="848" height="855" loading="lazy" decoding="async" alt="Arms out in front of the Hong Kong skyline at night"></figure>
+    <figure style="--r:0.936"><img src="assets/img/me-brownies.jpg" width="877" height="937" loading="lazy" decoding="async" alt="Three friends showing off a pan of homemade brownies"></figure>
   </div>
 </section>
 <script src="assets/js/site.js" defer></script>
