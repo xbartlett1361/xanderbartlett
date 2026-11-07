@@ -19,14 +19,6 @@
 <style>
   .home .shell { grid-template-rows: auto 1fr; }
 
-  /* availability, in the header */
-  .avail { display: inline-flex; align-items: center; gap: 0.6rem; min-width: 0; font-size: 0.98rem; line-height: 1.3; color: var(--ink-2); letter-spacing: -0.01em; }
-  .avail::before {
-    content: ""; flex: none; width: 0.55rem; height: 0.55rem; border-radius: 50%;
-    background: var(--accent); animation: pulse 2.4s ease-out infinite;
-  }
-  .avail b { color: var(--ink); font-weight: 540; }
-  .avail i { font-style: normal; color: var(--muted); padding: 0 0.45rem; }
 
   .home-main {
     display: grid;
@@ -108,7 +100,6 @@
 
   @media (max-width: 900px) {
     .home .topbar { flex-wrap: wrap; }
-    .avail { order: 3; flex: 1 1 100%; font-size: 0.92rem; }
     .home-main { grid-template-columns: 1fr; row-gap: 2.2rem; padding-top: 1.2rem; }
     .hero-pre { font-size: 2.6rem; }
     .hero-art { margin: -0.2rem 0 0 -0.8rem; }
@@ -131,7 +122,6 @@
 
   <header class="topbar">
     <a class="brand" href="./" aria-label="Xander Bartlett, home">Xander Bartlett</a>
-    <p class="avail"><span><b>Currently open to remote roles</b><i>&middot;</i>Open to full-time, in-person roles starting January 2028<i>&middot;</i>Will relocate</span></p>
     <div class="topbar__end">
       <a class="btn btn--ghost" href="https://www.linkedin.com/in/xander-bartlett-557054325/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn btn--ink" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=xbartlet@umich.edu" target="_blank" rel="noopener" data-mailto="xbartlet@umich.edu">Get in touch <span class="arr" aria-hidden="true">&rarr;</span></a>
