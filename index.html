@@ -48,6 +48,8 @@
   .about__row { display: flex; align-items: baseline; gap: 1.1rem; flex-wrap: wrap; }
   .about__hi { font-weight: 400; font-size: 2.25rem; letter-spacing: -0.04em; line-height: 1.1; }
   .about__intro { margin-top: 0.45rem; font-size: 1.36rem; line-height: 1.42; color: var(--ink-2); letter-spacing: -0.012em; }
+  .about__current { margin-top: 0.6rem; font-size: 1.16rem; line-height: 1.4; color: var(--ink-2); letter-spacing: -0.012em; }
+  .about__current a { color: var(--ink); }
 
   .dir { display: grid; grid-template-columns: 1fr 1.2fr 1.15fr; column-gap: 2rem; margin-top: 1.15rem; }
   .dir dt { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-bottom: 0.45rem; border-bottom: 1px solid var(--ink); }
@@ -112,6 +114,7 @@
     .hero-art { margin: -0.2rem 0 0 -0.8rem; }
     .about { margin-top: 1.4rem; }
     .about__intro { font-size: 1.08rem; }
+    .about__current { font-size: 1rem; }
     .dir { grid-template-columns: 1fr; row-gap: 1.2rem; }
     .doors { grid-template-rows: none; }
     .door__t { font-size: 1.6rem; }
@@ -188,7 +191,8 @@
 
       <section class="about rise" style="--d:3" aria-label="About and links">
         <h2 class="about__hi">Hi, I'm Xander.</h2>
-        <p class="about__intro">I build products and take them to market.<br>Co-Founder and CMO at Remira, GTM lead at Aether, builder of Prove Your Pick, co-founder of New Wave Capital. Economics student at the University of Michigan.</p>
+        <p class="about__intro">I build products and take them to market.<br>Co-Founder and CMO at Remira, GTM lead at Aether, builder of Prove Your Pick. Economics student at the University of Michigan.</p>
+        <p class="about__current">Check out my current product: <a class="link-u ext" href="https://giftganache.com" target="_blank" rel="noopener">giftganache.com</a></p>
 
         <dl class="dir">
           <div class="dir__g">
@@ -202,7 +206,6 @@
             <dd><span class="k">Remira</span><span class="links"><a class="ext" href="https://remira-ai.com" target="_blank" rel="noopener">remira-ai.com</a><a class="ext" href="https://apps.apple.com/us/app/remira-t1d/id6759989867" target="_blank" rel="noopener">App Store</a></span></dd>
             <dd><span class="k">Aether</span><span class="links"><a class="ext" href="https://www.runaether.dev" target="_blank" rel="noopener">runaether.dev</a></span></dd>
             <dd><span class="k">Prove Your Pick</span><span class="links"><a class="ext" href="https://proveyourpick.com" target="_blank" rel="noopener">proveyourpick.com</a></span></dd>
-            <dd><span class="k">New Wave Capital</span><span class="links"><a class="ext" href="https://nwcumich.com" target="_blank" rel="noopener">nwcumich.com</a></span></dd>
           </div>
           <div class="dir__g">
             <dt>Content</dt>
