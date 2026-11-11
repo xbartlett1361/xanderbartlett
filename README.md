@@ -6,7 +6,7 @@ Personal site for Xander Bartlett: plain static HTML and CSS, no build step. Eve
 
 | Path | What it is |
 | --- | --- |
-| `/` | The growth landing page: one pitch ("I bring users in with content, and keep them with product"), four proof numbers and a photo. Roles and Accomplishments fold open underneath; the case-study pages, the taste lettering and the photo gallery sit below |
+| `/` | The main landing page: "I build and grow great products," the thesis ending in a highlighted "distribution is moat," a GTM-engineering proof line, four numbers and a photo. Roles and Accomplishments fold open underneath; the case-study pages, the taste lettering and the photo gallery sit below |
 | `/pm/` | The PM landing page, same layout: "I build for what users do, not what they say," with product roles, accomplishments and links into the product case studies |
 | `/gtm/` | GTM Strategy & Engineering: "Distribution is moat." Six key skills, then Aether (main) and Remira as cards |
 | `/product/` | Product Management and Design: "Ideas are nothing without team execution." Remira, Prove Your Pick, New Wave Capital |
