@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Xander Bartlett · The differentiator is taste</title>
-<meta name="description" content="Xander Bartlett builds products and takes them to market. GTM strategy and engineering, product management and design, social media marketing. 18.7M organic views, 1,000 app installs, $0 paid.">
+<title>Xander Bartlett · First 1,000 users, $0 in ads</title>
+<meta name="description" content="I get startups their first 1,000 users without spending on ads. 0 to 1,000 installs in four months for a Type 1 diabetes app, and +81% weekly signups in four weeks for a developer tool, both at $0 paid.">
 <meta name="theme-color" content="#f4f0e8">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Xander Bartlett · The differentiator is taste">
-<meta property="og:description" content="Building a product and showing it to the world are two sides of the same coin. GTM, product and social, with receipts.">
+<meta property="og:title" content="Xander Bartlett · I get startups their first 1,000 users without spending on ads">
+<meta property="og:description" content="0 to 1,000 installs in four months for a health app. +81% weekly signups in four weeks for a developer tool. Both at $0 in ads.">
 <meta property="og:image" content="https://xanderbartlett.com/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -19,78 +19,59 @@
 <style>
   .home .shell { grid-template-rows: auto 1fr; }
 
+  .home-main { display: grid; grid-template-rows: 1fr auto auto; row-gap: 1.25rem; padding: 1.5rem 0 1.25rem; }
 
-  .home-main {
-    display: grid;
-    grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr);
-    column-gap: 3rem;
-    padding: 1.25rem 0 1.25rem;
-  }
+  /* ---------- the pitch ---------- */
+  .pitch { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 3.5rem; align-items: center; }
+  .pitch__copy { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+  .kicker { font-size: 1.3rem; color: var(--ink-2); letter-spacing: -0.01em; }
+  .kicker b { color: var(--ink); font-weight: 560; }
+  .pitch h1 { margin-top: 0.8rem; font-weight: 300; font-size: 5.6rem; line-height: 1.02; letter-spacing: -0.048em; max-width: 14.5ch; }
+  .pitch .proof { margin-top: 1.2rem; max-width: 50rem; font-size: 1.5rem; line-height: 1.42; color: var(--ink-2); letter-spacing: -0.012em; }
+  .pitch .proof strong { color: var(--ink); font-weight: 540; }
+  .nums { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; column-gap: 3.2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1.5px solid var(--ink); }
+  .nums .v { font-size: 2.9rem; font-weight: 400; letter-spacing: -0.045em; line-height: 1; white-space: nowrap; }
+  .nums .k { margin-top: 0.35rem; font-size: 1rem; color: var(--muted); }
+  .portrait { width: 24rem; aspect-ratio: 590 / 738; border-radius: 1.3rem; overflow: hidden; background: var(--paper-2); }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
 
-  /* ---- left: belief, then who I am and every link ---- */
-  .left { display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }
-  .hero-h { font-weight: 300; }
-  .hero-pre { display: block; font-size: 5.1rem; line-height: 1; letter-spacing: -0.05em; }
-  .hero-art { display: block; margin: -0.5rem 0 0 -1.7rem; }
-  .taste-art { width: min(calc(100% + 1.7rem), 59rem); height: auto; overflow: visible; }
+  /* ---------- roles + accomplishments, folded ---------- */
+  .fold { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; align-items: start; }
+  .fold details { border: 1px solid var(--ink); border-radius: 1.15rem; background: var(--paper); transition: background 0.2s var(--ease); }
+  .fold details[open] { background: var(--paper-3); }
+  .fold summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 1rem; padding: 0.95rem 1rem 0.95rem 1.3rem; border-radius: 1.15rem; }
+  .fold summary::-webkit-details-marker { display: none; }
+  .fold summary:hover .plus { background: var(--accent); transform: rotate(90deg); }
+  .fold summary h2 { font-size: 1.75rem; font-weight: 450; letter-spacing: -0.035em; line-height: 1; }
+  .fold summary .peek { min-width: 0; font-size: 1rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .fold .plus { width: 2.4rem; height: 2.4rem; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--paper); font-size: 1.3rem; line-height: 1; transition: transform 0.3s var(--ease), background 0.2s; }
+  .fold details[open] .plus { transform: rotate(45deg); }
+  .fold details[open] summary:hover .plus { transform: rotate(135deg); }
+  .fold ol { list-style: none; padding: 0 1.3rem 1rem; }
+  .fold li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1rem; padding: 0.8rem 0; border-top: 1px solid var(--hair); }
+  .fold .who { font-size: 1.15rem; font-weight: 540; letter-spacing: -0.02em; }
+  .fold .who a { color: var(--ink); }
+  .fold .role { font-weight: 400; color: var(--ink-2); }
+  .fold .when { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); white-space: nowrap; padding-top: 0.25rem; }
+  .fold .what { grid-column: 1 / -1; margin-top: 0.25rem; font-size: 1.02rem; line-height: 1.42; color: var(--ink-2); }
+  .fold .stat { font-size: 1.15rem; line-height: 1.38; color: var(--ink-2); letter-spacing: -0.012em; }
+  .fold .stat b { color: var(--ink); font-weight: 600; }
+  .fold .rcpt { font-size: 0.86rem; font-weight: 500; color: var(--ink); white-space: nowrap; padding-top: 0.2rem; }
+  .fold .rcpt:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ---------- go deeper ---------- */
+  .deeper { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.6rem 2rem; font-size: 1.02rem; color: var(--muted); }
+  .deeper nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; align-items: baseline; }
+  .deeper a { color: var(--ink); font-weight: 500; }
+  .deeper a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ---------- below the fold: taste + gallery ---------- */
+  .signoff { max-width: var(--max); margin: 0 auto; padding: 2.4rem var(--gutter) 1.2rem; border-top: 0; }
+  .signoff p { font-weight: 300; font-size: 3rem; letter-spacing: -0.045em; line-height: 1; }
+  .signoff .taste-art { display: block; width: min(100%, 40rem); height: auto; margin: -0.2rem 0 0 -1rem; overflow: visible; }
   .t-offset { fill: var(--accent); }
   .t-ink { fill: var(--ink); }
 
-  .about { border-top: 1.5px solid var(--ink); padding-top: 1rem; }
-  .about__row { display: flex; align-items: baseline; gap: 1.1rem; flex-wrap: wrap; }
-  .about__hi { font-weight: 400; font-size: 2.25rem; letter-spacing: -0.04em; line-height: 1.1; }
-  .about__intro { margin-top: 0.45rem; font-size: 1.36rem; line-height: 1.42; color: var(--ink-2); letter-spacing: -0.012em; }
-  .about__current { margin-top: 0.6rem; font-size: 1.16rem; line-height: 1.4; color: var(--ink-2); letter-spacing: -0.012em; }
-  .about__current a { color: var(--ink); }
-
-  .dir { display: grid; grid-template-columns: 1fr 1.2fr 1.15fr; column-gap: 2rem; margin-top: 1.15rem; }
-  .dir dt { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-bottom: 0.45rem; border-bottom: 1px solid var(--ink); }
-  .dir dd { padding: 0.42rem 0; border-bottom: 1px solid var(--hair); }
-  .dir .k { display: block; font-size: 0.92rem; color: var(--muted); line-height: 1.25; }
-  .dir .links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem 0.9rem; font-size: 1.16rem; line-height: 1.35; letter-spacing: -0.012em; }
-  .dir a { color: var(--ink); }
-  .dir a:hover { color: #000; }
-  .copy {
-    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.05em; text-transform: uppercase;
-    padding: 0.16rem 0.55rem; border: 1px solid var(--hair); border-radius: var(--pill); color: var(--ink-2);
-    transition: border-color 0.2s, background 0.2s, color 0.2s;
-  }
-  .copy:hover { border-color: var(--ink); color: var(--ink); }
-  .copy.is-copied { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-
-  /* ---- right: the three doors, stacked ---- */
-  .doors { display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 1rem; min-width: 0; }
-  .door {
-    position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-rows: auto auto 1fr auto;
-    column-gap: 1rem;
-    padding: 1.1rem 1.35rem 1.1rem;
-    border: 1px solid var(--ink);
-    border-radius: 1.2rem;
-    transition: background 0.28s var(--ease), color 0.28s var(--ease);
-  }
-  .door__n { grid-column: 1; font-family: var(--mono); font-size: 0.86rem; letter-spacing: 0.06em; color: var(--muted); }
-  .door__t { grid-column: 1; margin-top: 0.35rem; font-size: 2.6rem; font-weight: 450; line-height: 1.04; letter-spacing: -0.04em; }
-  .door__d { grid-column: 1 / -1; margin-top: 0.55rem; font-size: 1.32rem; line-height: 1.38; color: var(--ink-2); }
-  .door__m { grid-column: 1 / -1; align-self: end; margin-top: 0.7rem; padding-top: 0.6rem; border-top: 1px solid var(--hair); font-family: var(--mono); font-size: 0.88rem; letter-spacing: 0.01em; color: var(--ink-2); }
-  .door__go {
-    grid-column: 2; grid-row: 1 / span 2; align-self: start;
-    width: 3.3rem; height: 3.3rem; border-radius: 50%;
-    display: grid; place-items: center;
-    background: var(--ink); color: var(--paper);
-    font-size: 1.25rem;
-    transition: background 0.28s var(--ease), color 0.28s var(--ease), transform 0.4s var(--ease);
-  }
-  .door:hover, .door:focus-visible { background: var(--ink); color: var(--paper); }
-  .door:hover .door__d, .door:focus-visible .door__d,
-  .door:hover .door__m, .door:focus-visible .door__m { color: rgba(244, 240, 232, 0.8); }
-  .door:hover .door__n, .door:focus-visible .door__n { color: rgba(244, 240, 232, 0.55); }
-  .door:hover .door__m, .door:focus-visible .door__m { border-top-color: rgba(244, 240, 232, 0.18); }
-  .door:hover .door__go, .door:focus-visible .door__go { background: var(--accent); color: var(--ink); transform: rotate(-45deg); }
-
-  /* ---- personal gallery, below the first screen ---- */
   .gallery { max-width: var(--max); margin: 0 auto; padding: 0.4rem var(--gutter) 2.6rem; }
   .gallery__row { display: flex; gap: 1rem; }
   .gallery__row + .gallery__row { margin-top: 1rem; }
@@ -100,16 +81,19 @@
 
   @media (max-width: 900px) {
     .home .topbar { flex-wrap: wrap; }
-    .home-main { grid-template-columns: 1fr; row-gap: 2.2rem; padding-top: 1.2rem; }
-    .hero-pre { font-size: 2.6rem; }
-    .hero-art { margin: -0.2rem 0 0 -0.8rem; }
-    .about { margin-top: 1.4rem; }
-    .about__intro { font-size: 1.08rem; }
-    .about__current { font-size: 1rem; }
-    .dir { grid-template-columns: 1fr; row-gap: 1.2rem; }
-    .doors { grid-template-rows: none; }
-    .door__t { font-size: 1.6rem; }
-    .door__d { font-size: 1rem; }
+    .home-main { padding-top: 1.3rem; row-gap: 1.6rem; }
+    .pitch { grid-template-columns: 1fr; row-gap: 1.4rem; }
+    .portrait { order: -1; width: 7.5rem; height: 7.5rem; aspect-ratio: 1; border-radius: 50%; }
+    .pitch h1 { font-size: 2.7rem; }
+    .pitch .proof { font-size: 1.08rem; }
+    .nums { grid-template-columns: repeat(2, auto); row-gap: 1.1rem; column-gap: 2rem; }
+    .nums .v { font-size: 2rem; }
+    .fold { grid-template-columns: 1fr; }
+    .fold summary .peek { display: none; }
+    .fold summary { grid-template-columns: minmax(0, 1fr) auto; }
+    .fold li { grid-template-columns: 1fr; }
+    .fold .when, .fold .rcpt { padding-top: 0.2rem; }
+    .signoff p { font-size: 2.1rem; }
     .gallery__row { flex-wrap: wrap; gap: 0.7rem; }
     .gallery__row + .gallery__row { margin-top: 0.7rem; }
     .gallery figure { flex: 1 1 calc(50% - 0.35rem); aspect-ratio: 4 / 5; }
@@ -130,107 +114,94 @@
 
   <main class="home-main">
 
-    <div class="left">
-      <section class="hero" aria-labelledby="hero-h">
-        <h1 id="hero-h" class="hero-h">
-          <span class="hero-pre rise">The differentiator is</span>
-          <span class="hero-art"><svg class="taste-art" viewBox="-420 -640 2840 900" role="img" aria-labelledby="taste-title" focusable="false"><title id="taste-title">taste</title><defs><path id="tw" d="M459 -462 510 -463Q609 -463 654 -435Q676 -428 676 -417Q676 -409 656.5 -406Q637 -403 521.5 -390.5Q406 -378 363 -376Q344 -375 275.5 -310Q207 -245 145 -167Q83 -89 83 -58Q83 -53 88 -49.5Q93 -46 100.5 -46Q108 -46 124 -52Q314 -164 493 -297Q502 -290 502 -280Q502 -270 492 -260.5Q482 -251 462.5 -233Q443 -215 390 -168Q337 -121 290 -84Q164 18 114 34Q96 39 71.5 39Q47 39 26.5 14Q6 -11 6 -54Q6 -97 61.5 -178Q117 -259 213 -344Q222 -351 222 -357Q222 -363 201 -363L138 -361Q5 -361 1 -391Q-30 -397 -30 -409Q-30 -413 -26 -413.5Q-22 -414 -19 -414.5Q-16 -415 -9 -416Q-2 -417 101.5 -432Q205 -447 337 -457L406 -549Q412 -561 448 -561Q484 -561 484 -546Q484 -541 476 -528L451 -493Q446 -477 445 -469Q445 -462 459 -462Z M491 -42 499 -106Q499 -109 497.5 -109Q496 -109 492 -105Q479 -91 459 -70.5Q439 -50 390.5 -15.5Q342 19 312 19Q307 18 299.5 15.5Q292 13 280 -1Q268 -15 268 -41Q268 -67 307.5 -120.5Q347 -174 402 -225.5Q457 -277 524.5 -315Q592 -353 642 -353Q661 -352 672 -326Q682 -336 690 -336Q698 -336 709 -324Q715 -323 721 -317.5Q727 -312 727 -302Q727 -292 713 -280Q692 -254 664 -221Q636 -188 624 -173.5Q612 -159 599 -141Q577 -110 575 -91Q677 -140 896 -302Q905 -295 905 -285Q905 -275 897 -268Q889 -261 877.5 -251Q866 -241 832 -212Q798 -183 766.5 -156.5Q735 -130 694.5 -97.5Q654 -65 622 -42Q545 13 526 13Q507 13 499 1Q491 -11 491 -42ZM389 -84Q401 -84 462.5 -133Q524 -182 579 -231L635 -280Q639 -284 639 -285.5Q639 -287 636 -287Q598 -287 537 -243.5Q476 -200 431.5 -151.5Q387 -103 387 -86Q387 -84 389 -84Z M944 -271Q944 -278 933.5 -278Q923 -278 909 -267L778 -166Q764 -158 746 -158Q728 -158 728 -171Q728 -180 730.5 -183Q733 -186 745 -193Q819 -244 947 -359Q962 -379 974 -379Q986 -379 1014 -371.5Q1042 -364 1042 -354Q1042 -294 1031 -245Q1020 -196 1008.5 -170.5Q997 -145 997 -143Q997 -141 999 -141Q1001 -141 1007 -144Q1082 -182 1198 -268L1222 -286Q1231 -279 1231 -269Q1231 -259 1222 -251Q1220 -251 1170.5 -209Q1121 -167 1060.5 -117.5Q1000 -68 931 -27Q862 14 824 14Q730 14 730 -99Q730 -108 737.5 -115.5Q745 -123 757 -123Q757 -118 762.5 -107.5Q768 -97 774 -90Q792 -73 826.5 -73Q861 -73 890.5 -115.5Q920 -158 932 -201.5Q944 -245 944 -271Z M1515 -462 1566 -463Q1665 -463 1710 -435Q1732 -428 1732 -417Q1732 -409 1712.5 -406Q1693 -403 1577.5 -390.5Q1462 -378 1419 -376Q1400 -375 1331.5 -310Q1263 -245 1201 -167Q1139 -89 1139 -58Q1139 -53 1144 -49.5Q1149 -46 1156.5 -46Q1164 -46 1180 -52Q1370 -164 1549 -297Q1558 -290 1558 -280Q1558 -270 1548 -260.5Q1538 -251 1518.5 -233Q1499 -215 1446 -168Q1393 -121 1346 -84Q1220 18 1170 34Q1152 39 1127.5 39Q1103 39 1082.5 14Q1062 -11 1062 -54Q1062 -97 1117.5 -178Q1173 -259 1269 -344Q1278 -351 1278 -357Q1278 -363 1257 -363L1194 -361Q1061 -361 1057 -391Q1026 -397 1026 -409Q1026 -413 1030 -413.5Q1034 -414 1037 -414.5Q1040 -415 1047 -416Q1054 -417 1157.5 -432Q1261 -447 1393 -457L1462 -549Q1468 -561 1504 -561Q1540 -561 1540 -546Q1540 -541 1532 -528L1507 -493Q1502 -477 1501 -469Q1501 -462 1515 -462Z M1679 -302Q1653 -302 1591 -248.5Q1529 -195 1529 -183Q1529 -181 1532 -181Q1554 -181 1619.5 -230Q1685 -279 1685 -297Q1685 -302 1679 -302ZM1466 18Q1389 18 1389 -76Q1389 -135 1440.5 -201.5Q1492 -268 1562 -310.5Q1632 -353 1686 -353Q1710 -353 1730.5 -334Q1751 -315 1751 -297Q1751 -264 1704 -222.5Q1657 -181 1605.5 -155.5Q1554 -130 1537.5 -130Q1521 -130 1513 -145Q1509 -148 1502 -148Q1495 -148 1479 -121.5Q1463 -95 1463 -78.5Q1463 -62 1475 -58Q1551 -58 1640 -102.5Q1729 -147 1886 -259Q1897 -267 1919.5 -283Q1942 -299 1946 -302Q1955 -295 1955 -285Q1955 -275 1946 -267Q1896 -217 1816.5 -155Q1737 -93 1634 -37.5Q1531 18 1466 18Z"/><path id="tf" d="M1930 -330 L1946 -326.8 L1958.2 -328.7 L1969.5 -331.1 L1980.4 -333.5 L1990.8 -335.9 L2000.2 -339.6 L2009.3 -343.4 L2018.3 -346.9 L2027.1 -349.9 L2035.8 -352.7 L2044.4 -355.1 L2052.8 -357.1 L2061.1 -358.8 L2069.2 -360.2 L2077.2 -361.3 L2085 -362.1 L2092.6 -362.5 L2100 -362.7 L2107.2 -362.6 L2114.3 -362.2 L2121.1 -361.5 L2127.8 -360.6 L2134.2 -359.4 L2140.4 -357.9 L2146.4 -356.3 L2152.2 -354.3 L2157.7 -352.2 L2163.1 -349.8 L2168.2 -347.2 L2173.1 -344.4 L2177.8 -341.4 L2182.2 -338.2 L2186.4 -334.8 L2190.4 -331.2 L2194.2 -327.4 L2197.7 -323.4 L2201.1 -319.2 L2204.2 -314.9 L2207 -310.3 L2209.6 -305.5 L2212 -300.6 L2214.2 -295.4 L2216.1 -290 L2217.7 -284.4 L2219.1 -278.6 L2220.2 -272.6 L2221.1 -266.4 L2221.6 -260 L2221.8 -253.4 L2221.7 -246.5 L2221.3 -239.5 L2220.6 -232.2 L2219.5 -224.8 L2218.1 -217.1 L2216.3 -209.3 L2214.1 -201.2 L2211.6 -193 L2208.6 -184.7 L2205.3 -176.1 L2201.5 -167.4 L2197.4 -158.5 L2192.8 -149.5 L2187.7 -140.3 L2182.5 -131.4 L2177.4 -124.2 L2171.6 -116.7 L2165.1 -109.3 L2157.9 -101.8 L2150 -94.4 L2141.4 -87 L2132.2 -79.7 L2122.3 -72.4 L2111.8 -65.1 L2100.6 -58 L2088.7 -50.8 L2076.2 -43.8 L2063.1 -36.8 L2049.3 -30 L2035 -23.2 L2020 -16.5 L2004.4 -9.9 L1988.2 -3.4 L1971.4 3 L1954 9.3 L1936 15.5 L1917.5 21.6 L1898.3 27.6 L1878.7 33.5 L1858.5 39.2 L1837.7 44.8 L1816.4 50.4 L1794.5 55.8 L1772.1 61 L1749.2 66.2 L1725.8 71.2 L1701.9 76.1 L1677.4 80.9 L1652.5 85.6 L1627 90.1 L1601.1 94.5 L1574.7 98.8 L1547.8 103 L1520.5 107 L1492.6 110.8 L1464.4 114.6 L1435.6 118.2 L1406.4 121.7 L1376.8 125 L1346.7 128.2 L1316.2 131.3 L1285.3 134.2 L1254 137 L1222.2 139.6 L1190.1 142.1 L1157.5 144.5 L1124.5 146.7 L1091.2 148.7 L1057.4 150.6 L1023.3 152.4 L988.8 154 L954 155.5 L918.7 156.8 L883.1 158 L847.2 159 L810.9 159.9 L774.3 160.6 L737.3 161.1 L700 161.5 L679 161.7 L658.2 161.8 L637.6 161.8 L617.1 161.9 L596.9 161.8 L576.8 161.8 L556.9 161.7 L537.2 161.5 L517.7 161.3 L498.3 161.1 L479.2 160.8 L460.3 160.5 L441.6 160.1 L423.1 159.7 L404.7 159.2 L386.6 158.7 L368.7 158.2 L351 157.6 L333.5 157 L316.3 156.3 L299.2 155.6 L282.4 154.9 L265.8 154.1 L249.4 153.3 L233.2 152.4 L217.3 151.5 L201.6 150.6 L186.1 149.6 L170.9 148.6 L155.9 147.6 L141.1 146.5 L126.6 145.3 L112.3 144.1 L98.2 142.9 L84.4 141.7 L70.9 140.4 L57.6 139.1 L44.5 137.7 L31.7 136.3 L19.2 134.9 L6.9 133.4 L-5.2 131.9 L-16.9 130.4 L-28.4 128.8 L-39.7 127.2 L-50.6 125.5 L-61.3 123.8 L-71.7 121.9 L-81.9 120.1 L-91.7 118.2 L-101.3 116.3 L-110.6 114.3 L-119.6 112.3 L-128.3 110.3 L-136.8 108.2 L-144.9 106.2 L-152.8 104 L-160.3 101.9 L-167.6 99.7 L-174.5 97.5 L-181.2 95.3 L-187.6 93 L-193.6 90.8 L-200 90 L-200 90 L-194.8 93.9 L-188.7 96.2 L-182.3 98.5 L-175.6 100.7 L-168.6 103 L-161.3 105.1 L-153.7 107.3 L-145.8 109.4 L-137.6 111.5 L-129.1 113.6 L-120.3 115.6 L-111.3 117.6 L-102 119.6 L-92.4 121.5 L-82.5 123.4 L-72.3 125.3 L-61.9 127.1 L-51.2 128.9 L-40.2 130.8 L-29 132.6 L-17.5 134.4 L-5.8 136.2 L6.3 138 L18.5 139.7 L31.1 141.4 L43.9 143 L56.9 144.6 L70.2 146.2 L83.8 147.7 L97.6 149.3 L111.6 150.7 L125.9 152.2 L140.5 153.6 L155.3 155 L170.3 156.3 L185.5 157.6 L201 158.9 L216.7 160.1 L232.7 161.3 L248.8 162.4 L265.2 163.6 L281.9 164.6 L298.7 165.7 L315.8 166.7 L333.1 167.7 L350.6 168.6 L368.3 169.5 L386.2 170.3 L404.3 171.1 L422.7 171.9 L441.2 172.6 L459.9 173.3 L478.9 174 L498 174.6 L517.4 175.2 L536.9 175.7 L556.7 176.2 L576.6 176.7 L596.7 177.1 L617 177.4 L637.5 177.8 L658.1 178.1 L679 178.3 L700 178.5 L737.4 178.7 L774.4 178.8 L811.1 178.7 L847.5 178.4 L883.6 178 L919.3 177.4 L954.6 176.7 L989.6 175.8 L1024.2 174.8 L1058.5 173.5 L1092.4 172.2 L1125.9 170.7 L1159 169 L1191.7 167.1 L1224.1 165.2 L1256 163 L1287.5 160.7 L1318.7 158.3 L1349.4 155.7 L1379.6 153 L1409.5 150.1 L1438.9 147.1 L1467.9 143.9 L1496.4 140.6 L1524.5 137.1 L1552.2 133.5 L1579.3 129.7 L1606 125.8 L1632.3 121.8 L1658.1 117.6 L1683.3 113.3 L1708.1 108.9 L1732.5 104.3 L1756.3 99.5 L1779.6 94.7 L1802.4 89.6 L1824.7 84.5 L1846.5 79.2 L1867.8 73.8 L1888.5 68.3 L1908.7 62.6 L1928.4 56.8 L1947.6 50.8 L1966.2 44.7 L1984.2 38.5 L2001.7 32.1 L2018.7 25.6 L2035 19 L2050.9 12.2 L2066.1 5.3 L2080.8 -1.8 L2094.9 -9 L2108.4 -16.3 L2121.4 -23.8 L2133.7 -31.5 L2145.5 -39.3 L2156.6 -47.3 L2167.2 -55.5 L2177.2 -63.8 L2186.5 -72.3 L2195.2 -81 L2203.2 -89.9 L2210.6 -99.1 L2217.5 -108.6 L2224 -119.3 L2229.8 -129.5 L2235.2 -139.6 L2240.1 -149.6 L2244.6 -159.6 L2248.6 -169.4 L2252.2 -179.2 L2255.4 -188.9 L2258.1 -198.4 L2260.4 -207.9 L2262.3 -217.3 L2263.8 -226.5 L2264.9 -235.6 L2265.5 -244.6 L2265.8 -253.5 L2265.6 -262.2 L2265 -270.8 L2264 -279.2 L2262.6 -287.4 L2260.9 -295.5 L2258.7 -303.4 L2256.1 -311 L2253.1 -318.5 L2249.8 -325.8 L2246 -332.8 L2242 -339.5 L2237.5 -346 L2232.7 -352.3 L2227.6 -358.2 L2222.1 -363.9 L2216.4 -369.2 L2210.3 -374.3 L2203.9 -379 L2197.3 -383.5 L2190.4 -387.5 L2183.3 -391.3 L2175.9 -394.7 L2168.3 -397.8 L2160.4 -400.6 L2152.4 -403 L2144.1 -405 L2135.7 -406.7 L2127.1 -408.1 L2118.3 -409.1 L2109.4 -409.7 L2100.2 -410 L2091 -409.9 L2081.6 -409.5 L2072 -408.7 L2062.4 -407.5 L2052.6 -406 L2042.7 -404.1 L2032.6 -401.8 L2022.5 -399.2 L2012.3 -396.1 L2001.9 -392.7 L1991.5 -388.9 L1981 -384.7 L1970.6 -379.7 L1961.1 -372.5 L1951.8 -364.6 L1942.8 -355.9 L1934.5 -345.9 L1930 -330 Z"/><mask id="m-word" maskUnits="userSpaceOnUse" x="-420" y="-640" width="2840" height="900"><rect class="t-wipe" x="-700" y="-700" width="2900" height="1000" transform="skewX(-18)" fill="#fff"/></mask><mask id="m-flo" maskUnits="userSpaceOnUse" x="-420" y="-640" width="2840" height="900"><path class="t-pen" d="M1930 -330C2150 -470 2330 -330 2200 -120C2080 60 1500 170 700 170C250 170 -80 140 -200 90" pathLength="1000" fill="none" stroke="#fff" stroke-width="74" stroke-linecap="round" stroke-linejoin="round"/></mask></defs><g class="t-offset" transform="translate(26 22)"><use href="#tw"/><use href="#tf"/></g><g class="t-ink"><use href="#tw" mask="url(#m-word)"/><use href="#tf" mask="url(#m-flo)"/><circle class="t-dot" cx="-252" cy="70" r="10"/><circle class="t-dot" cx="-304" cy="44" r="6"/><circle class="t-dot" cx="-340" cy="64" r="4"/></g></svg></span>
-        </h1>
-        <script>
-        /* Write-on animation for the lettering. Markup ships in its final state;
-           this sets the start state before first paint, then animates with rAF.
-           Any failure, or reduced motion, leaves the finished lettering. */
-        (function () {
-          var svg = document.querySelector(".taste-art");
-          if (!svg || !window.requestAnimationFrame) return;
-          if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-          var wipe = svg.querySelector(".t-wipe"), pen = svg.querySelector(".t-pen"), off = svg.querySelector(".t-offset");
-          var dots = svg.querySelectorAll(".t-dot"), radii = [];
-          for (var i = 0; i < dots.length; i++) radii.push(+dots[i].getAttribute("r"));
-          pen.setAttribute("stroke-dasharray", "1000 1000");
-          function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
-          function out(t) { return 1 - Math.pow(1 - t, 3); }
-          function inOut(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
-          function back(t) { var c = 1.9; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); }
-          function frame(t) {
-            var a = out(clamp((t - 120) / 900)), b = inOut(clamp((t - 860) / 1000)), c = out(clamp((t - 1700) / 560));
-            wipe.setAttribute("transform", "translate(" + (-2950 * (1 - a)).toFixed(1) + " 0) skewX(-18)");
-            pen.setAttribute("stroke-dashoffset", (1000 * (1 - b)).toFixed(1));
-            off.setAttribute("transform", "translate(" + (26 * c).toFixed(2) + " " + (22 * c).toFixed(2) + ")");
-            off.style.opacity = c;
-            for (var j = 0; j < dots.length; j++) dots[j].setAttribute("r", (radii[j] * Math.max(0, back(clamp((t - 1780 - j * 90) / 380)))).toFixed(2));
-          }
-          function finish() { frame(1e6); }
-          try { frame(0); } catch (e) { return; }
-          var start = null, done = false;
-          var guard = setTimeout(function () { done = true; finish(); }, 4200);
-          function tick(now) {
-            if (done) return;
-            if (start === null) start = now;
-            var t = now - start;
-            try { frame(t); } catch (e) { done = true; finish(); return; }
-            if (t < 2700) requestAnimationFrame(tick); else { done = true; clearTimeout(guard); finish(); }
-          }
-          var go = function () { requestAnimationFrame(tick); };
-          var ready = document.fonts && document.fonts.ready ? document.fonts.ready : null;
-          var kicked = false, kick = function () { if (!kicked) { kicked = true; go(); } };
-          if (ready) ready.then(kick); setTimeout(kick, 650);
-        })();
-      </script>
-      </section>
+    <section class="pitch" aria-labelledby="pitch-h">
+      <div class="pitch__copy">
+        <p class="kicker rise"><b>Xander Bartlett.</b> Growth for early-stage startups.</p>
+        <h1 id="pitch-h" class="rise" style="--d:1">I get startups their first 1,000 <span class="scr">users</span> without spending on ads.</h1>
+        <p class="proof rise" style="--d:2">I took a Type 1 diabetes app from <strong>zero to 1,000 installs in four months</strong>, and lifted a developer tool's <strong>weekly signups 81% in four weeks</strong>. Neither spent a dollar on ads.</p>
+        <div class="nums rise" style="--d:3" aria-label="Results">
+          <div><div class="v">18.7M</div><div class="k">Organic views</div></div>
+          <div><div class="v">1,000</div><div class="k">App installs</div></div>
+          <div><div class="v">+81%</div><div class="k">Weekly signups</div></div>
+          <div><div class="v">$0</div><div class="k">Ad spend</div></div>
+        </div>
+      </div>
+      <figure class="portrait rise" style="--d:2"><img src="assets/img/me-portrait.jpg" width="590" height="738" alt="Xander Bartlett, smiling, in a black t-shirt"></figure>
+    </section>
 
-      <section class="about rise" style="--d:3" aria-label="About and links">
-        <h2 class="about__hi">Hi, I'm Xander.</h2>
-        <p class="about__intro">I build products and take them to market.<br>Co-Founder and CMO at Remira, GTM lead at Aether, builder of Prove Your Pick. Economics student at the University of Michigan.</p>
-        <p class="about__current">Check out my current product: <a class="link-u ext" href="https://giftganache.com" target="_blank" rel="noopener">giftganache.com</a></p>
+    <section class="fold rise" style="--d:4" aria-label="Roles and accomplishments">
+      <details>
+        <summary>
+          <h2>Roles</h2>
+          <span class="peek">Aether &middot; Remira &middot; Hexaware &middot; Prove Your Pick &middot; The Finance Guide</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </summary>
+        <ol>
+          <li>
+            <span class="who"><a class="ext" href="https://www.runaether.dev" target="_blank" rel="noopener">Aether</a> <span class="role">&middot; Growth &amp; GTM lead, contract</span></span>
+            <span class="when">Aug 2026&ndash;now</span>
+            <span class="what">Rewrote the positioning and built Instagram from 0 to 1,200 followers. Weekly signups rose 81% in four weeks.</span>
+          </li>
+          <li>
+            <span class="who"><a class="ext" href="https://remira-ai.com" target="_blank" rel="noopener">Remira</a> <span class="role">&middot; Co-founder &amp; CMO</span></span>
+            <span class="when">2026&ndash;now</span>
+            <span class="what">Took a Type 1 diabetes app from zero to 1,000 installs with organic video and 2,500 hand-sent DMs, and led product with a team of six.</span>
+          </li>
+          <li>
+            <span class="who"><a class="ext" href="https://giftganache.com" target="_blank" rel="noopener">giftganache.com</a> <span class="role">&middot; My current product</span></span>
+            <span class="when">Now</span>
+          </li>
+          <li>
+            <span class="who">Hexaware Technologies <span class="role">&middot; Business analyst intern</span></span>
+            <span class="when">Jun&ndash;Aug 2026</span>
+            <span class="what">Rebuilt a client's unit economics and pricing, moving projected six-year net cash from &minus;$28M to +$11.5M.</span>
+          </li>
+          <li>
+            <span class="who"><a class="ext" href="https://proveyourpick.com" target="_blank" rel="noopener">Prove Your Pick</a> <span class="role">&middot; Founder</span></span>
+            <span class="when">2026&ndash;now</span>
+            <span class="what">Designed and shipped a stock-picking tournament on my own, by directing AI coding agents.</span>
+          </li>
+          <li>
+            <span class="who"><a class="ext" href="https://www.tiktok.com/@financeguide111" target="_blank" rel="noopener">The Finance Guide</a> <span class="role">&middot; Founder &amp; creator</span></span>
+            <span class="when">May&ndash;Aug 2025</span>
+            <span class="what">An anonymous finance TikTok: 10M views and 15K followers in one summer.</span>
+          </li>
+          <li>
+            <span class="who">University of Michigan <span class="role">&middot; B.S. Economics</span></span>
+            <span class="when">Class of 2028</span>
+          </li>
+        </ol>
+      </details>
 
-        <dl class="dir">
-          <div class="dir__g">
-            <dt>Contact</dt>
-            <dd><span class="k">Email</span><span class="links"><a class="link-u" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=xbartlet@umich.edu" target="_blank" rel="noopener" data-mailto="xbartlet@umich.edu">xbartlet@umich.edu</a><button class="copy" type="button" data-copy="xbartlet@umich.edu" aria-label="Copy email address"><span data-copy-label>Copy</span></button></span></dd>
-            <dd><span class="k">Phone</span><span class="links"><a href="tel:+19712190675">971-219-0675</a></span></dd>
-            <dd><span class="k">LinkedIn</span><span class="links"><a class="ext" href="https://www.linkedin.com/in/xander-bartlett-557054325/" target="_blank" rel="noopener">xander-bartlett</a></span></dd>
-          </div>
-          <div class="dir__g">
-            <dt>Experience</dt>
-            <dd><span class="k">Remira</span><span class="links"><a class="ext" href="https://remira-ai.com" target="_blank" rel="noopener">remira-ai.com</a><a class="ext" href="https://apps.apple.com/us/app/remira-t1d/id6759989867" target="_blank" rel="noopener">App Store</a></span></dd>
-            <dd><span class="k">Aether</span><span class="links"><a class="ext" href="https://www.runaether.dev" target="_blank" rel="noopener">runaether.dev</a></span></dd>
-            <dd><span class="k">Prove Your Pick</span><span class="links"><a class="ext" href="https://proveyourpick.com" target="_blank" rel="noopener">proveyourpick.com</a></span></dd>
-          </div>
-          <div class="dir__g">
-            <dt>Content</dt>
-            <dd><span class="k">Remira T1D</span><span class="links"><a class="ext" href="https://www.tiktok.com/@remira.t1d" target="_blank" rel="noopener">@remira.t1d</a><a class="ext" href="https://www.tiktok.com/@remira.t1d/collection/Best%20of%20T1D-7653365468719876878" target="_blank" rel="noopener">Best of T1D</a></span></dd>
-            <dd><span class="k">The Finance Guide</span><span class="links"><a class="ext" href="https://www.tiktok.com/@financeguide111" target="_blank" rel="noopener">@financeguide111</a><a class="ext" href="https://www.tiktok.com/@financeguide111/collection/%F0%9F%8F%86Best%20Edits-7520739197204941623" target="_blank" rel="noopener">Best edits</a></span></dd>
-          </div>
-        </dl>
-      </section>
+      <details>
+        <summary>
+          <h2>Accomplishments</h2>
+          <span class="peek">18.7M views &middot; 1,000 installs &middot; +81% signups</span>
+          <span class="plus" aria-hidden="true">+</span>
+        </summary>
+        <ol>
+          <li><span class="stat"><b>18.7M organic views</b> across two accounts I built from zero, with no ad spend.</span><a class="rcpt" href="social/">Receipts &rarr;</a></li>
+          <li><span class="stat"><b>1,000 App Store installs</b> for Remira in four months. 60% activated; 5.0&#9733; from 26 ratings.</span><a class="rcpt" href="gtm/#remira">Receipts &rarr;</a></li>
+          <li><span class="stat"><b>2,500 DMs, written by hand,</b> converted to installs at 15%: over a third of Remira's installs.</span><a class="rcpt" href="social/#remira">Receipts &rarr;</a></li>
+          <li><span class="stat"><b>+81% weekly signups</b> at Aether in four weeks, at $0 paid.</span><a class="rcpt" href="gtm/#aether">Receipts &rarr;</a></li>
+          <li><span class="stat"><b>30% &rarr; 66% daily check-ins</b> after I redesigned Remira's reflection flow.</span><a class="rcpt" href="product/#remira">Receipts &rarr;</a></li>
+          <li><span class="stat"><b>10M views and 2 paid brand deals</b> on an anonymous finance account, in one summer.</span><a class="rcpt" href="social/#finance">Receipts &rarr;</a></li>
+          <li><span class="stat"><b>A full web product, shipped solo</b>, with four record-gaming exploits closed before launch.</span><a class="rcpt" href="product/#pyp">Receipts &rarr;</a></li>
+        </ol>
+      </details>
+    </section>
+
+    <div class="deeper rise" style="--d:5">
+      <nav aria-label="Case studies"><span>Case studies:</span><a href="gtm/">GTM strategy</a><a href="product/">Product</a><a href="social/">Social media</a></nav>
+      <span><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=xbartlet@umich.edu" target="_blank" rel="noopener" data-mailto="xbartlet@umich.edu">xbartlet@umich.edu</a> &middot; <a href="tel:+19712190675">971-219-0675</a></span>
     </div>
-
-    <nav class="doors" aria-label="What I do">
-      <a class="door rise" style="--d:4" href="gtm/">
-        <span class="door__n">01</span>
-        <span class="door__t">GTM Strategy &amp; Engineering</span>
-        <span class="door__go" aria-hidden="true">&rarr;</span>
-        <span class="door__d">Finding where the buyer's trust already lives, then building the machine that measures it.</span>
-        <span class="door__m">Aether: +81% weekly signups at $0 paid</span>
-      </a>
-      <a class="door rise" style="--d:5" href="product/">
-        <span class="door__n">02</span>
-        <span class="door__t">Product Management and Design</span>
-        <span class="door__go" aria-hidden="true">&rarr;</span>
-        <span class="door__d">Designing, coding and shipping with cross-functional teams, not just ideating.</span>
-        <span class="door__m">Remira: 1,000 downloads, 60% activated</span>
-      </a>
-      <a class="door rise" style="--d:6" href="social/">
-        <span class="door__n">03</span>
-        <span class="door__t">Social Media Marketing</span>
-        <span class="door__go" aria-hidden="true">&rarr;</span>
-        <span class="door__d">UGC, editing and real empathy for the person on the other side of the feed.</span>
-        <span class="door__m">18.7M organic views, 20K followers, $0 paid</span>
-      </a>
-    </nav>
   </main>
 </div>
+
+<section class="signoff" aria-label="What I believe">
+  <p>The differentiator is</p>
+  <svg class="taste-art" viewBox="-420 -640 2840 900" role="img" aria-labelledby="taste-title" focusable="false"><title id="taste-title">taste</title><defs><path id="tw" d="M459 -462 510 -463Q609 -463 654 -435Q676 -428 676 -417Q676 -409 656.5 -406Q637 -403 521.5 -390.5Q406 -378 363 -376Q344 -375 275.5 -310Q207 -245 145 -167Q83 -89 83 -58Q83 -53 88 -49.5Q93 -46 100.5 -46Q108 -46 124 -52Q314 -164 493 -297Q502 -290 502 -280Q502 -270 492 -260.5Q482 -251 462.5 -233Q443 -215 390 -168Q337 -121 290 -84Q164 18 114 34Q96 39 71.5 39Q47 39 26.5 14Q6 -11 6 -54Q6 -97 61.5 -178Q117 -259 213 -344Q222 -351 222 -357Q222 -363 201 -363L138 -361Q5 -361 1 -391Q-30 -397 -30 -409Q-30 -413 -26 -413.5Q-22 -414 -19 -414.5Q-16 -415 -9 -416Q-2 -417 101.5 -432Q205 -447 337 -457L406 -549Q412 -561 448 -561Q484 -561 484 -546Q484 -541 476 -528L451 -493Q446 -477 445 -469Q445 -462 459 -462Z M491 -42 499 -106Q499 -109 497.5 -109Q496 -109 492 -105Q479 -91 459 -70.5Q439 -50 390.5 -15.5Q342 19 312 19Q307 18 299.5 15.5Q292 13 280 -1Q268 -15 268 -41Q268 -67 307.5 -120.5Q347 -174 402 -225.5Q457 -277 524.5 -315Q592 -353 642 -353Q661 -352 672 -326Q682 -336 690 -336Q698 -336 709 -324Q715 -323 721 -317.5Q727 -312 727 -302Q727 -292 713 -280Q692 -254 664 -221Q636 -188 624 -173.5Q612 -159 599 -141Q577 -110 575 -91Q677 -140 896 -302Q905 -295 905 -285Q905 -275 897 -268Q889 -261 877.5 -251Q866 -241 832 -212Q798 -183 766.5 -156.5Q735 -130 694.5 -97.5Q654 -65 622 -42Q545 13 526 13Q507 13 499 1Q491 -11 491 -42ZM389 -84Q401 -84 462.5 -133Q524 -182 579 -231L635 -280Q639 -284 639 -285.5Q639 -287 636 -287Q598 -287 537 -243.5Q476 -200 431.5 -151.5Q387 -103 387 -86Q387 -84 389 -84Z M944 -271Q944 -278 933.5 -278Q923 -278 909 -267L778 -166Q764 -158 746 -158Q728 -158 728 -171Q728 -180 730.5 -183Q733 -186 745 -193Q819 -244 947 -359Q962 -379 974 -379Q986 -379 1014 -371.5Q1042 -364 1042 -354Q1042 -294 1031 -245Q1020 -196 1008.5 -170.5Q997 -145 997 -143Q997 -141 999 -141Q1001 -141 1007 -144Q1082 -182 1198 -268L1222 -286Q1231 -279 1231 -269Q1231 -259 1222 -251Q1220 -251 1170.5 -209Q1121 -167 1060.5 -117.5Q1000 -68 931 -27Q862 14 824 14Q730 14 730 -99Q730 -108 737.5 -115.5Q745 -123 757 -123Q757 -118 762.5 -107.5Q768 -97 774 -90Q792 -73 826.5 -73Q861 -73 890.5 -115.5Q920 -158 932 -201.5Q944 -245 944 -271Z M1515 -462 1566 -463Q1665 -463 1710 -435Q1732 -428 1732 -417Q1732 -409 1712.5 -406Q1693 -403 1577.5 -390.5Q1462 -378 1419 -376Q1400 -375 1331.5 -310Q1263 -245 1201 -167Q1139 -89 1139 -58Q1139 -53 1144 -49.5Q1149 -46 1156.5 -46Q1164 -46 1180 -52Q1370 -164 1549 -297Q1558 -290 1558 -280Q1558 -270 1548 -260.5Q1538 -251 1518.5 -233Q1499 -215 1446 -168Q1393 -121 1346 -84Q1220 18 1170 34Q1152 39 1127.5 39Q1103 39 1082.5 14Q1062 -11 1062 -54Q1062 -97 1117.5 -178Q1173 -259 1269 -344Q1278 -351 1278 -357Q1278 -363 1257 -363L1194 -361Q1061 -361 1057 -391Q1026 -397 1026 -409Q1026 -413 1030 -413.5Q1034 -414 1037 -414.5Q1040 -415 1047 -416Q1054 -417 1157.5 -432Q1261 -447 1393 -457L1462 -549Q1468 -561 1504 -561Q1540 -561 1540 -546Q1540 -541 1532 -528L1507 -493Q1502 -477 1501 -469Q1501 -462 1515 -462Z M1679 -302Q1653 -302 1591 -248.5Q1529 -195 1529 -183Q1529 -181 1532 -181Q1554 -181 1619.5 -230Q1685 -279 1685 -297Q1685 -302 1679 -302ZM1466 18Q1389 18 1389 -76Q1389 -135 1440.5 -201.5Q1492 -268 1562 -310.5Q1632 -353 1686 -353Q1710 -353 1730.5 -334Q1751 -315 1751 -297Q1751 -264 1704 -222.5Q1657 -181 1605.5 -155.5Q1554 -130 1537.5 -130Q1521 -130 1513 -145Q1509 -148 1502 -148Q1495 -148 1479 -121.5Q1463 -95 1463 -78.5Q1463 -62 1475 -58Q1551 -58 1640 -102.5Q1729 -147 1886 -259Q1897 -267 1919.5 -283Q1942 -299 1946 -302Q1955 -295 1955 -285Q1955 -275 1946 -267Q1896 -217 1816.5 -155Q1737 -93 1634 -37.5Q1531 18 1466 18Z"/><path id="tf" d="M1930 -330 L1946 -326.8 L1958.2 -328.7 L1969.5 -331.1 L1980.4 -333.5 L1990.8 -335.9 L2000.2 -339.6 L2009.3 -343.4 L2018.3 -346.9 L2027.1 -349.9 L2035.8 -352.7 L2044.4 -355.1 L2052.8 -357.1 L2061.1 -358.8 L2069.2 -360.2 L2077.2 -361.3 L2085 -362.1 L2092.6 -362.5 L2100 -362.7 L2107.2 -362.6 L2114.3 -362.2 L2121.1 -361.5 L2127.8 -360.6 L2134.2 -359.4 L2140.4 -357.9 L2146.4 -356.3 L2152.2 -354.3 L2157.7 -352.2 L2163.1 -349.8 L2168.2 -347.2 L2173.1 -344.4 L2177.8 -341.4 L2182.2 -338.2 L2186.4 -334.8 L2190.4 -331.2 L2194.2 -327.4 L2197.7 -323.4 L2201.1 -319.2 L2204.2 -314.9 L2207 -310.3 L2209.6 -305.5 L2212 -300.6 L2214.2 -295.4 L2216.1 -290 L2217.7 -284.4 L2219.1 -278.6 L2220.2 -272.6 L2221.1 -266.4 L2221.6 -260 L2221.8 -253.4 L2221.7 -246.5 L2221.3 -239.5 L2220.6 -232.2 L2219.5 -224.8 L2218.1 -217.1 L2216.3 -209.3 L2214.1 -201.2 L2211.6 -193 L2208.6 -184.7 L2205.3 -176.1 L2201.5 -167.4 L2197.4 -158.5 L2192.8 -149.5 L2187.7 -140.3 L2182.5 -131.4 L2177.4 -124.2 L2171.6 -116.7 L2165.1 -109.3 L2157.9 -101.8 L2150 -94.4 L2141.4 -87 L2132.2 -79.7 L2122.3 -72.4 L2111.8 -65.1 L2100.6 -58 L2088.7 -50.8 L2076.2 -43.8 L2063.1 -36.8 L2049.3 -30 L2035 -23.2 L2020 -16.5 L2004.4 -9.9 L1988.2 -3.4 L1971.4 3 L1954 9.3 L1936 15.5 L1917.5 21.6 L1898.3 27.6 L1878.7 33.5 L1858.5 39.2 L1837.7 44.8 L1816.4 50.4 L1794.5 55.8 L1772.1 61 L1749.2 66.2 L1725.8 71.2 L1701.9 76.1 L1677.4 80.9 L1652.5 85.6 L1627 90.1 L1601.1 94.5 L1574.7 98.8 L1547.8 103 L1520.5 107 L1492.6 110.8 L1464.4 114.6 L1435.6 118.2 L1406.4 121.7 L1376.8 125 L1346.7 128.2 L1316.2 131.3 L1285.3 134.2 L1254 137 L1222.2 139.6 L1190.1 142.1 L1157.5 144.5 L1124.5 146.7 L1091.2 148.7 L1057.4 150.6 L1023.3 152.4 L988.8 154 L954 155.5 L918.7 156.8 L883.1 158 L847.2 159 L810.9 159.9 L774.3 160.6 L737.3 161.1 L700 161.5 L679 161.7 L658.2 161.8 L637.6 161.8 L617.1 161.9 L596.9 161.8 L576.8 161.8 L556.9 161.7 L537.2 161.5 L517.7 161.3 L498.3 161.1 L479.2 160.8 L460.3 160.5 L441.6 160.1 L423.1 159.7 L404.7 159.2 L386.6 158.7 L368.7 158.2 L351 157.6 L333.5 157 L316.3 156.3 L299.2 155.6 L282.4 154.9 L265.8 154.1 L249.4 153.3 L233.2 152.4 L217.3 151.5 L201.6 150.6 L186.1 149.6 L170.9 148.6 L155.9 147.6 L141.1 146.5 L126.6 145.3 L112.3 144.1 L98.2 142.9 L84.4 141.7 L70.9 140.4 L57.6 139.1 L44.5 137.7 L31.7 136.3 L19.2 134.9 L6.9 133.4 L-5.2 131.9 L-16.9 130.4 L-28.4 128.8 L-39.7 127.2 L-50.6 125.5 L-61.3 123.8 L-71.7 121.9 L-81.9 120.1 L-91.7 118.2 L-101.3 116.3 L-110.6 114.3 L-119.6 112.3 L-128.3 110.3 L-136.8 108.2 L-144.9 106.2 L-152.8 104 L-160.3 101.9 L-167.6 99.7 L-174.5 97.5 L-181.2 95.3 L-187.6 93 L-193.6 90.8 L-200 90 L-200 90 L-194.8 93.9 L-188.7 96.2 L-182.3 98.5 L-175.6 100.7 L-168.6 103 L-161.3 105.1 L-153.7 107.3 L-145.8 109.4 L-137.6 111.5 L-129.1 113.6 L-120.3 115.6 L-111.3 117.6 L-102 119.6 L-92.4 121.5 L-82.5 123.4 L-72.3 125.3 L-61.9 127.1 L-51.2 128.9 L-40.2 130.8 L-29 132.6 L-17.5 134.4 L-5.8 136.2 L6.3 138 L18.5 139.7 L31.1 141.4 L43.9 143 L56.9 144.6 L70.2 146.2 L83.8 147.7 L97.6 149.3 L111.6 150.7 L125.9 152.2 L140.5 153.6 L155.3 155 L170.3 156.3 L185.5 157.6 L201 158.9 L216.7 160.1 L232.7 161.3 L248.8 162.4 L265.2 163.6 L281.9 164.6 L298.7 165.7 L315.8 166.7 L333.1 167.7 L350.6 168.6 L368.3 169.5 L386.2 170.3 L404.3 171.1 L422.7 171.9 L441.2 172.6 L459.9 173.3 L478.9 174 L498 174.6 L517.4 175.2 L536.9 175.7 L556.7 176.2 L576.6 176.7 L596.7 177.1 L617 177.4 L637.5 177.8 L658.1 178.1 L679 178.3 L700 178.5 L737.4 178.7 L774.4 178.8 L811.1 178.7 L847.5 178.4 L883.6 178 L919.3 177.4 L954.6 176.7 L989.6 175.8 L1024.2 174.8 L1058.5 173.5 L1092.4 172.2 L1125.9 170.7 L1159 169 L1191.7 167.1 L1224.1 165.2 L1256 163 L1287.5 160.7 L1318.7 158.3 L1349.4 155.7 L1379.6 153 L1409.5 150.1 L1438.9 147.1 L1467.9 143.9 L1496.4 140.6 L1524.5 137.1 L1552.2 133.5 L1579.3 129.7 L1606 125.8 L1632.3 121.8 L1658.1 117.6 L1683.3 113.3 L1708.1 108.9 L1732.5 104.3 L1756.3 99.5 L1779.6 94.7 L1802.4 89.6 L1824.7 84.5 L1846.5 79.2 L1867.8 73.8 L1888.5 68.3 L1908.7 62.6 L1928.4 56.8 L1947.6 50.8 L1966.2 44.7 L1984.2 38.5 L2001.7 32.1 L2018.7 25.6 L2035 19 L2050.9 12.2 L2066.1 5.3 L2080.8 -1.8 L2094.9 -9 L2108.4 -16.3 L2121.4 -23.8 L2133.7 -31.5 L2145.5 -39.3 L2156.6 -47.3 L2167.2 -55.5 L2177.2 -63.8 L2186.5 -72.3 L2195.2 -81 L2203.2 -89.9 L2210.6 -99.1 L2217.5 -108.6 L2224 -119.3 L2229.8 -129.5 L2235.2 -139.6 L2240.1 -149.6 L2244.6 -159.6 L2248.6 -169.4 L2252.2 -179.2 L2255.4 -188.9 L2258.1 -198.4 L2260.4 -207.9 L2262.3 -217.3 L2263.8 -226.5 L2264.9 -235.6 L2265.5 -244.6 L2265.8 -253.5 L2265.6 -262.2 L2265 -270.8 L2264 -279.2 L2262.6 -287.4 L2260.9 -295.5 L2258.7 -303.4 L2256.1 -311 L2253.1 -318.5 L2249.8 -325.8 L2246 -332.8 L2242 -339.5 L2237.5 -346 L2232.7 -352.3 L2227.6 -358.2 L2222.1 -363.9 L2216.4 -369.2 L2210.3 -374.3 L2203.9 -379 L2197.3 -383.5 L2190.4 -387.5 L2183.3 -391.3 L2175.9 -394.7 L2168.3 -397.8 L2160.4 -400.6 L2152.4 -403 L2144.1 -405 L2135.7 -406.7 L2127.1 -408.1 L2118.3 -409.1 L2109.4 -409.7 L2100.2 -410 L2091 -409.9 L2081.6 -409.5 L2072 -408.7 L2062.4 -407.5 L2052.6 -406 L2042.7 -404.1 L2032.6 -401.8 L2022.5 -399.2 L2012.3 -396.1 L2001.9 -392.7 L1991.5 -388.9 L1981 -384.7 L1970.6 -379.7 L1961.1 -372.5 L1951.8 -364.6 L1942.8 -355.9 L1934.5 -345.9 L1930 -330 Z"/><mask id="m-word" maskUnits="userSpaceOnUse" x="-420" y="-640" width="2840" height="900"><rect class="t-wipe" x="-700" y="-700" width="2900" height="1000" transform="skewX(-18)" fill="#fff"/></mask><mask id="m-flo" maskUnits="userSpaceOnUse" x="-420" y="-640" width="2840" height="900"><path class="t-pen" d="M1930 -330C2150 -470 2330 -330 2200 -120C2080 60 1500 170 700 170C250 170 -80 140 -200 90" pathLength="1000" fill="none" stroke="#fff" stroke-width="74" stroke-linecap="round" stroke-linejoin="round"/></mask></defs><g class="t-offset" transform="translate(26 22)"><use href="#tw"/><use href="#tf"/></g><g class="t-ink"><use href="#tw" mask="url(#m-word)"/><use href="#tf" mask="url(#m-flo)"/><circle class="t-dot" cx="-252" cy="70" r="10"/><circle class="t-dot" cx="-304" cy="44" r="6"/><circle class="t-dot" cx="-340" cy="64" r="4"/></g></svg>
+</section>
 
 <section class="gallery" aria-label="Personal photos">
   <div class="gallery__row">

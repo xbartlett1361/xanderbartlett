@@ -6,7 +6,7 @@ Personal site for Xander Bartlett: plain static HTML and CSS, no build step. Eve
 
 | Path | What it is |
 | --- | --- |
-| `/` | The landing page: the belief ("the differentiator is taste"), who I am with every link, and three doors stacked on the right. Availability sits in the header |
+| `/` | The landing page: one pitch ("I get startups their first 1,000 users without spending on ads"), the proof in four numbers, and a photo. Roles and Accomplishments fold open underneath; the case-study pages, the taste lettering and the photo gallery sit below |
 | `/gtm/` | GTM Strategy & Engineering: "Distribution is moat." Six key skills, then Aether (main) and Remira as cards |
 | `/product/` | Product Management and Design: "Ideas are nothing without team execution." Remira, Prove Your Pick, New Wave Capital |
 | `/social/` | Social Media Marketing: Remira, The Finance Guide and Aether, each with its best post linked as a thumbnail, plus receipts |
