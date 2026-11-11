@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Xander Bartlett · First 1,000 users, $0 in ads</title>
-<meta name="description" content="I get startups their first 1,000 users without spending on ads. 0 to 1,000 installs in four months for a Type 1 diabetes app, and +81% weekly signups in four weeks for a developer tool, both at $0 paid.">
+<title>Xander Bartlett · Growth across product and marketing</title>
+<meta name="description" content="I bring users in with content and keep them with product. 18.7M organic views and +81% weekly signups at $0 in ads; 60% activation and daily check-ins up from 30% to 66%.">
 <meta name="theme-color" content="#f4f0e8">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Xander Bartlett · I get startups their first 1,000 users without spending on ads">
-<meta property="og:description" content="0 to 1,000 installs in four months for a health app. +81% weekly signups in four weeks for a developer tool. Both at $0 in ads.">
+<meta property="og:title" content="Xander Bartlett · I bring users in with content, and keep them with product">
+<meta property="og:description" content="Marketing: 18.7M organic views and +81% weekly signups at $0 in ads. Product: 60% activation and daily check-ins up from 30% to 66%.">
 <meta property="og:image" content="https://xanderbartlett.com/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -17,54 +17,6 @@
 <link rel="preload" href="assets/fonts/mr-dafoe-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
-  .home .shell { grid-template-rows: auto 1fr; }
-
-  .home-main { display: grid; grid-template-rows: 1fr auto auto; row-gap: 1.25rem; padding: 1.5rem 0 1.25rem; }
-
-  /* ---------- the pitch ---------- */
-  .pitch { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 3.5rem; align-items: center; }
-  .pitch__copy { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
-  .kicker { font-size: 1.3rem; color: var(--ink-2); letter-spacing: -0.01em; }
-  .kicker b { color: var(--ink); font-weight: 560; }
-  .pitch h1 { margin-top: 0.8rem; font-weight: 300; font-size: 5.6rem; line-height: 1.02; letter-spacing: -0.048em; max-width: 14.5ch; }
-  .pitch .proof { margin-top: 1.2rem; max-width: 50rem; font-size: 1.5rem; line-height: 1.42; color: var(--ink-2); letter-spacing: -0.012em; }
-  .pitch .proof strong { color: var(--ink); font-weight: 540; }
-  .nums { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; column-gap: 3.2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1.5px solid var(--ink); }
-  .nums .v { font-size: 2.9rem; font-weight: 400; letter-spacing: -0.045em; line-height: 1; white-space: nowrap; }
-  .nums .k { margin-top: 0.35rem; font-size: 1rem; color: var(--muted); }
-  .portrait { width: 24rem; aspect-ratio: 590 / 738; border-radius: 1.3rem; overflow: hidden; background: var(--paper-2); }
-  .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
-
-  /* ---------- roles + accomplishments, folded ---------- */
-  .fold { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; align-items: start; }
-  .fold details { border: 1px solid var(--ink); border-radius: 1.15rem; background: var(--paper); transition: background 0.2s var(--ease); }
-  .fold details[open] { background: var(--paper-3); }
-  .fold summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 1rem; padding: 0.95rem 1rem 0.95rem 1.3rem; border-radius: 1.15rem; }
-  .fold summary::-webkit-details-marker { display: none; }
-  .fold summary:hover .plus { background: var(--accent); transform: rotate(90deg); }
-  .fold summary h2 { font-size: 1.75rem; font-weight: 450; letter-spacing: -0.035em; line-height: 1; }
-  .fold summary .peek { min-width: 0; font-size: 1rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .fold .plus { width: 2.4rem; height: 2.4rem; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--paper); font-size: 1.3rem; line-height: 1; transition: transform 0.3s var(--ease), background 0.2s; }
-  .fold details[open] .plus { transform: rotate(45deg); }
-  .fold details[open] summary:hover .plus { transform: rotate(135deg); }
-  .fold ol { list-style: none; padding: 0 1.3rem 1rem; }
-  .fold li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1rem; padding: 0.8rem 0; border-top: 1px solid var(--hair); }
-  .fold .who { font-size: 1.15rem; font-weight: 540; letter-spacing: -0.02em; }
-  .fold .who a { color: var(--ink); }
-  .fold .role { font-weight: 400; color: var(--ink-2); }
-  .fold .when { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); white-space: nowrap; padding-top: 0.25rem; }
-  .fold .what { grid-column: 1 / -1; margin-top: 0.25rem; font-size: 1.02rem; line-height: 1.42; color: var(--ink-2); }
-  .fold .stat { font-size: 1.15rem; line-height: 1.38; color: var(--ink-2); letter-spacing: -0.012em; }
-  .fold .stat b { color: var(--ink); font-weight: 600; }
-  .fold .rcpt { font-size: 0.86rem; font-weight: 500; color: var(--ink); white-space: nowrap; padding-top: 0.2rem; }
-  .fold .rcpt:hover { text-decoration: underline; text-underline-offset: 3px; }
-
-  /* ---------- go deeper ---------- */
-  .deeper { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.6rem 2rem; font-size: 1.02rem; color: var(--muted); }
-  .deeper nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; align-items: baseline; }
-  .deeper a { color: var(--ink); font-weight: 500; }
-  .deeper a:hover { text-decoration: underline; text-underline-offset: 3px; }
-
   /* ---------- below the fold: taste + gallery ---------- */
   .signoff { max-width: var(--max); margin: 0 auto; padding: 2.4rem var(--gutter) 1.2rem; border-top: 0; }
   .signoff p { font-weight: 300; font-size: 3rem; letter-spacing: -0.045em; line-height: 1; }
@@ -79,20 +31,8 @@
   .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
   .gallery figure:hover img { transform: scale(1.03); }
 
+
   @media (max-width: 900px) {
-    .home .topbar { flex-wrap: wrap; }
-    .home-main { padding-top: 1.3rem; row-gap: 1.6rem; }
-    .pitch { grid-template-columns: 1fr; row-gap: 1.4rem; }
-    .portrait { order: -1; width: 7.5rem; height: 7.5rem; aspect-ratio: 1; border-radius: 50%; }
-    .pitch h1 { font-size: 2.7rem; }
-    .pitch .proof { font-size: 1.08rem; }
-    .nums { grid-template-columns: repeat(2, auto); row-gap: 1.1rem; column-gap: 2rem; }
-    .nums .v { font-size: 2rem; }
-    .fold { grid-template-columns: 1fr; }
-    .fold summary .peek { display: none; }
-    .fold summary { grid-template-columns: minmax(0, 1fr) auto; }
-    .fold li { grid-template-columns: 1fr; }
-    .fold .when, .fold .rcpt { padding-top: 0.2rem; }
     .signoff p { font-size: 2.1rem; }
     .gallery__row { flex-wrap: wrap; gap: 0.7rem; }
     .gallery__row + .gallery__row { margin-top: 0.7rem; }
@@ -116,14 +56,14 @@
 
     <section class="pitch" aria-labelledby="pitch-h">
       <div class="pitch__copy">
-        <p class="kicker rise"><b>Xander Bartlett.</b> Growth for early-stage startups.</p>
-        <h1 id="pitch-h" class="rise" style="--d:1">I get startups their first 1,000 <span class="scr">users</span> without spending on ads.</h1>
-        <p class="proof rise" style="--d:2">I took a Type 1 diabetes app from <strong>zero to 1,000 installs in four months</strong>, and lifted a developer tool's <strong>weekly signups 81% in four weeks</strong>. Neither spent a dollar on ads.</p>
+        <p class="kicker rise"><b>Xander Bartlett.</b> Growth, across product and marketing.</p>
+        <h1 id="pitch-h" class="rise" style="--d:1">I bring users in with content, and <span class="scr">keep</span> them with product.</h1>
+        <p class="proof rise" style="--d:2"><strong>Marketing:</strong> 18.7M organic views and +81% weekly signups, with $0 in ads. <strong>Product:</strong> 60% of installs activated, and daily check-ins rose from 30% to 66% after I redesigned the flow.</p>
         <div class="nums rise" style="--d:3" aria-label="Results">
           <div><div class="v">18.7M</div><div class="k">Organic views</div></div>
-          <div><div class="v">1,000</div><div class="k">App installs</div></div>
           <div><div class="v">+81%</div><div class="k">Weekly signups</div></div>
-          <div><div class="v">$0</div><div class="k">Ad spend</div></div>
+          <div><div class="v">60%</div><div class="k">Activation</div></div>
+          <div><div class="v">30&rarr;66%</div><div class="k">Daily check-ins</div></div>
         </div>
       </div>
       <figure class="portrait rise" style="--d:2"><img src="assets/img/me-portrait.jpg" width="590" height="738" alt="Xander Bartlett, smiling, in a black t-shirt"></figure>
@@ -176,7 +116,7 @@
       <details>
         <summary>
           <h2>Accomplishments</h2>
-          <span class="peek">18.7M views &middot; 1,000 installs &middot; +81% signups</span>
+          <span class="peek">18.7M views &middot; +81% signups &middot; 60% activated</span>
           <span class="plus" aria-hidden="true">+</span>
         </summary>
         <ol>
