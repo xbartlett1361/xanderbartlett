@@ -236,6 +236,8 @@ strong, b { font-weight: 560; }
 .btn--ink:hover { background: #000; }
 .btn--ghost { background: transparent; color: var(--ink); border-color: var(--hair); }
 .btn--ghost:hover { border-color: var(--ink); }
+.btn--cal { background: var(--accent); color: var(--ink); border-color: var(--accent); font-weight: 560; }
+.btn--cal:hover { background: #d93f1e; border-color: #d93f1e; }
 .btn .arr { display: inline-block; transition: transform 0.25s var(--ease); }
 .btn:hover .arr { transform: translateX(0.18rem); }
 
