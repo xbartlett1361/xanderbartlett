@@ -17,8 +17,22 @@
 <link rel="preload" href="../assets/fonts/mr-dafoe-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <style>
-  .pitch h1.pm-h { max-width: 12.5ch; }
-  @media (max-width: 900px) { .pitch h1.pm-h { max-width: none; } }
+  /* Quote + headline set as one block: every line is sized to fill the same
+     width exactly (--w is the line's measured width at 100px), so the lines
+     stay equal at any screen size. */
+  .pm-stack { width: min(100%, 30rem); container-type: inline-size; }
+  .pm-stack .ln { display: block; white-space: nowrap; font-size: 2rem; font-size: calc(100cqi * 100 / var(--w)); }
+  .pm-quote { margin: 0; }
+  .pm-quote blockquote { font-weight: 300; line-height: 1.16; color: var(--ink-2); }
+  .pm-quote .ln { letter-spacing: -0.03em; }
+  .pm-h .ln { letter-spacing: -0.048em; }
+  .pm-quote figcaption { margin-top: 0.55rem; text-align: right; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .pitch h1.pm-h { margin-top: 1.1rem; max-width: none; font-size: 2rem; line-height: 1.02; }
+  @media (max-width: 900px) {
+    .pm-stack { width: 100%; }
+    .pm-quote figcaption { font-size: 0.72rem; }
+    .pitch h1.pm-h { font-size: 2rem; margin-top: 0.9rem; }
+  }
 </style>
 </head>
 <body class="home">
@@ -36,8 +50,13 @@
 
     <section class="pitch" aria-labelledby="pitch-h">
       <div class="pitch__copy">
-        <p class="kicker rise"><b>Xander Bartlett.</b> Product manager.</p>
-        <h1 id="pitch-h" class="rise pm-h" style="--d:1">I build for what users <span class="scr">do</span>, not&nbsp;what they say.</h1>
+        <div class="pm-stack">
+          <figure class="pm-quote rise">
+            <blockquote><p><span class="ln" style="--w:1253">&ldquo;People don&rsquo;t know what they</span><span class="ln" style="--w:1311">want until you show it to them.&rdquo;</span></p></blockquote>
+            <figcaption>Steve Jobs</figcaption>
+          </figure>
+          <h1 id="pitch-h" class="pm-h rise" style="--d:1"><span class="ln" style="--w:592">I build for what</span><span class="ln" style="--w:532">users <span class="scr">do</span>, not</span><span class="ln" style="--w:573">what they say.</span></h1>
+        </div>
         <p class="proof rise" style="--d:2">At Remira I ran product for a <strong>team of six</strong>: 24 user interviews, a top feature request killed on evidence, and <strong>daily check-ins up from 30% to 66%</strong>. Then I <strong>shipped Prove Your Pick on my own</strong>, by directing AI coding agents.</p>
         <div class="nums rise" style="--d:3" aria-label="Results">
           <div><div class="v">1,000</div><div class="k">Downloads</div></div>
