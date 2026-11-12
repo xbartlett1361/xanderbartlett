@@ -378,6 +378,76 @@ strong, b { font-weight: 560; }
 .reel:hover .reel__play { transform: scale(1.1); background: var(--accent); }
 .reel:hover .reel__play::after { border-left-color: #fff; }
 
+
+/* ==========================================================================
+   Pitch landing pages (/ and /pm/): one pitch, proof, folded roles and
+   accomplishments. Used with <body class="home">.
+   ========================================================================== */
+.home .shell { grid-template-rows: auto 1fr; }
+
+.home-main { display: grid; grid-template-rows: 1fr auto auto; row-gap: 1.25rem; padding: 1.5rem 0 1.25rem; }
+
+/* ---------- the pitch ---------- */
+.pitch { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 3.5rem; align-items: center; }
+.pitch__copy { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.kicker { font-size: 1.3rem; color: var(--ink-2); letter-spacing: -0.01em; }
+.kicker b { color: var(--ink); font-weight: 560; }
+.pitch h1 { margin-top: 0.8rem; font-weight: 300; font-size: 5.6rem; line-height: 1.02; letter-spacing: -0.048em; max-width: 14.5ch; }
+.pitch .proof { margin-top: 1.2rem; max-width: 50rem; font-size: 1.5rem; line-height: 1.42; color: var(--ink-2); letter-spacing: -0.012em; }
+.pitch .proof strong { color: var(--ink); font-weight: 540; }
+.nums { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; column-gap: 3.2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1.5px solid var(--ink); }
+.nums .v { font-size: 2.9rem; font-weight: 400; letter-spacing: -0.045em; line-height: 1; white-space: nowrap; }
+.nums .k { margin-top: 0.35rem; font-size: 1rem; color: var(--muted); }
+.portrait { width: 24rem; aspect-ratio: 590 / 738; border-radius: 1.3rem; overflow: hidden; background: var(--paper-2); }
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+
+/* ---------- roles + accomplishments, folded ---------- */
+.fold { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; align-items: start; }
+.fold details { border: 1px solid var(--ink); border-radius: 1.15rem; background: var(--paper); transition: background 0.2s var(--ease); }
+.fold details[open] { background: var(--paper-3); }
+.fold summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 1rem; padding: 0.95rem 1rem 0.95rem 1.3rem; border-radius: 1.15rem; }
+.fold summary::-webkit-details-marker { display: none; }
+.fold summary:hover .plus { background: var(--accent); transform: rotate(90deg); }
+.fold summary h2 { font-size: 1.75rem; font-weight: 450; letter-spacing: -0.035em; line-height: 1; }
+.fold summary .peek { min-width: 0; font-size: 1rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fold .plus { width: 2.4rem; height: 2.4rem; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--paper); font-size: 1.3rem; line-height: 1; transition: transform 0.3s var(--ease), background 0.2s; }
+.fold details[open] .plus { transform: rotate(45deg); }
+.fold details[open] summary:hover .plus { transform: rotate(135deg); }
+.fold ol { list-style: none; padding: 0 1.3rem 1rem; }
+.fold li { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1rem; padding: 0.8rem 0; border-top: 1px solid var(--hair); }
+.fold .who { font-size: 1.15rem; font-weight: 540; letter-spacing: -0.02em; }
+.fold .who a { color: var(--ink); }
+.fold .role { font-weight: 400; color: var(--ink-2); }
+.fold .when { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); white-space: nowrap; padding-top: 0.25rem; }
+.fold .what { grid-column: 1 / -1; margin-top: 0.25rem; font-size: 1.02rem; line-height: 1.42; color: var(--ink-2); }
+.fold .stat { font-size: 1.15rem; line-height: 1.38; color: var(--ink-2); letter-spacing: -0.012em; }
+.fold .stat b { color: var(--ink); font-weight: 600; }
+.fold .rcpt { font-size: 0.86rem; font-weight: 500; color: var(--ink); white-space: nowrap; padding-top: 0.2rem; }
+.fold .rcpt:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- go deeper ---------- */
+.deeper { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.6rem 2rem; font-size: 1.02rem; color: var(--muted); }
+.deeper nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; align-items: baseline; }
+.deeper a { color: var(--ink); font-weight: 500; }
+.deeper a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+
+@media (max-width: 900px) {
+  .home .topbar { flex-wrap: wrap; }
+  .home-main { padding-top: 1.3rem; row-gap: 1.6rem; }
+  .pitch { grid-template-columns: 1fr; row-gap: 1.4rem; }
+  .portrait { order: -1; width: 7.5rem; height: 7.5rem; aspect-ratio: 1; border-radius: 50%; }
+  .pitch h1 { font-size: 2.7rem; }
+  .pitch .proof { font-size: 1.08rem; }
+  .nums { grid-template-columns: repeat(2, auto); row-gap: 1.1rem; column-gap: 2rem; }
+  .nums .v { font-size: 2rem; }
+  .fold { grid-template-columns: 1fr; }
+  .fold summary .peek { display: none; }
+  .fold summary { grid-template-columns: minmax(0, 1fr) auto; }
+  .fold li { grid-template-columns: 1fr; }
+  .fold .when, .fold .rcpt { padding-top: 0.2rem; }
+}
+
 /* ==========================================================================
    Case-study drawer (native <dialog>)
    ========================================================================== */

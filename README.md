@@ -6,7 +6,8 @@ Personal site for Xander Bartlett: plain static HTML and CSS, no build step. Eve
 
 | Path | What it is |
 | --- | --- |
-| `/` | The landing page: the belief ("the differentiator is taste"), who I am with every link, and three doors stacked on the right. Availability sits in the header |
+| `/` | The main landing page: "I build and grow great products," the thesis ending in a highlighted "distribution is moat," a GTM-engineering proof line, four numbers and a photo. Roles and Accomplishments fold open underneath; the case-study pages, the taste lettering and the photo gallery sit below |
+| `/pm/` | The PM landing page, same layout: "I build for what users do, not what they say," with product roles, accomplishments and links into the product case studies |
 | `/gtm/` | GTM Strategy & Engineering: "Distribution is moat." Six key skills, then Aether (main) and Remira as cards |
 | `/product/` | Product Management and Design: "Ideas are nothing without team execution." Remira, Prove Your Pick, New Wave Capital |
 | `/social/` | Social Media Marketing: Remira, The Finance Guide and Aether, each with its best post linked as a thumbnail, plus receipts |
@@ -20,6 +21,7 @@ Each "case study" button opens a `<dialog class="cs" id="cs-KEY">` in the same f
 - **Shared behaviour** (drawers, deep links, copy-email, chart tooltips) lives in `assets/js/site.js`.
 - **Email links** point at Gmail's compose window (`https://mail.google.com/mail/?view=cm&fs=1&to=…`) with `target="_blank"` and a `data-mailto` attribute. On touch devices `site.js` swaps them to `mailto:` so phones open the mail app. Use the same pattern for any new email link.
 - **Page anatomy** (`.page`, `.ph`, `.skills`, `.xps`/`.xp` cards, `.tldr` rows, `.reel` post thumbnails) is shared in `site.css`, so every page reads the same way.
+- **Pitch pages** (`/` and `/pm/`) share the `.pitch`, `.nums`, `.portrait`, `.fold` and `.deeper` styles in `site.css` (with `<body class="home">`), so a new audience-specific landing page is one HTML file.
 - **Receipts** (dashboard screenshots) live in `assets/img/`.
 - **Fit-to-screen.** The root font size scales with the viewport (`clamp(10px, min(1.04vw, 1.74vh), 22px)`), and every size is in `rem`. If you add copy and a page starts to scroll on a laptop, trim words before you shrink type.
 - **Script words.** Wrap a word in `<span class="scr">word</span>` to set it in Mr Dafoe with the vermilion print offset. Use one per headline.
